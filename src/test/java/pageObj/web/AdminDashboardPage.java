@@ -29,6 +29,15 @@ public class AdminDashboardPage {
     @FindBy(xpath = "//span[contains(text(),'User Management')]")
     private WebElement linkUserManagement;
 
+    @FindBy(xpath = "//a[@href=\"#/mobifin/usermanagement/resetpassword\"]")
+    private WebElement linkResetPassword;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/usermanagement/searchbytemplate\"]")
+    private WebElement linkSearchUserByTemplate;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/usermanagement/changestatus\"]")
+    private WebElement linkChangeStatus;
+
 //    menu items under the main menu User Management
     @FindBy(linkText = "View User")
     private WebElement linkViewUser;
@@ -53,6 +62,20 @@ public class AdminDashboardPage {
 //    Events for web elements under User Configuration main menu
     public void hoverLinkUserManagement(){
         action.moveToElement(linkUserManagement).build().perform();
+    }
+    public ResetPasswordPage clickLinkResetPassword(){
+        wait.until(ExpectedConditions.visibilityOf(linkResetPassword)).click();
+        return new ResetPasswordPage(driver);
+    }
+
+    public SearchUserByTemplatePage clickLinkSearchUserByTemplate(){
+        wait.until(ExpectedConditions.visibilityOf(linkSearchUserByTemplate)).click();
+        return new SearchUserByTemplatePage(driver);
+    }
+
+    public ChangeUserStatusPage clickLinkChangeStatus(){
+        wait.until(ExpectedConditions.visibilityOf(linkChangeStatus)).click();
+        return new ChangeUserStatusPage(driver);
     }
 
     public ViewUserPage clickSubmenuViewUser(){

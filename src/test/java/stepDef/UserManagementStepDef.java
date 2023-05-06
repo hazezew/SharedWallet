@@ -4,13 +4,14 @@ import config.Config;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.testng.Assert;
-import pageObj.web.AbstractPage;
-import pageObj.web.UpdateUserProfilePage;
-import pageObj.web.ViewUserPage;
+import pageObj.web.*;
 
 public class UserManagementStepDef extends AbstractPage {
     private ViewUserPage viewUserPage;
     private UpdateUserProfilePage updateUserProfilePage;
+    private ResetPasswordPage resetPasswordPage;
+    private SearchUserByTemplatePage searchUserByTemplatePage;
+    private ChangeUserStatusPage changeUserStatusPage;
 
     @Then("web user moves mouse over User Management main menu")
     public void web_user_moves_mouse_over_User_Management_main_menu() {
@@ -131,5 +132,105 @@ public class UserManagementStepDef extends AbstractPage {
     @And("User Profile update user clicks on Ok popup alert button for confirmation")
     public void userProfileUpdateUserClicksOnOkPopupAlertForConfirmation() {
         updateUserProfilePage.clickBtnOkConfirm();
+    }
+
+    @And("web user clicks on Reset Password sub menu")
+    public void webUserClicksOnResetPasswordSubMenu() {
+        resetPasswordPage=adminDashboardPage.clickLinkResetPassword();
+    }
+
+    @Then("web system displays Reset Password page")
+    public void webSystemDisplaysResetPasswordPage() {
+        Assert.assertEquals(resetPasswordPage.getURL(),Config.resetPasswordPageURL);
+    }
+
+    @And("web user clicks on search user button for password reset")
+    public void webUserClicksOnSearchUserButtonForPasswordReset() {
+        resetPasswordPage.clickBtnSearch();
+    }
+
+    @Then("Reset Password page displays validation message {string}")
+    public void resetPasswordPageDisplaysValidationMessage(String usernameValidationMsg) {
+        Assert.assertEquals(usernameValidationMsg,resetPasswordPage.getUsernameValidationMessage());
+    }
+
+    @And("reset password user enters {string} into username search textfield")
+    public void resetPasswordUserEntersIntoUsernameSearchTextfield(String username) {
+        resetPasswordPage.setTxtUsername(username);
+    }
+
+    @Then("Reset Password page displays User details for password reset")
+    public void resetPasswordPageDisplaysUserDetailsForPasswordReset() {
+        Assert.fail("Searching an existing system user is not possible.");
+    }
+
+    @Then("Reset Password page displays message {string}")
+    public void resetPasswordPageDisplaysMessage(String userValidationMsg) {
+        Assert.assertEquals(resetPasswordPage.getValidationMessage(),userValidationMsg);
+    }
+
+    @And("web user clicks on Search User By Template sub menu")
+    public void webUserClicksOnSearchUserByTemplateSubMenu() {
+        searchUserByTemplatePage=adminDashboardPage.clickLinkSearchUserByTemplate();
+    }
+
+    @Then("web system displays Search User By Template page")
+    public void webSystemDisplaysSearchUserByTemplatePage() {
+        Assert.assertEquals(Config.SearchUserByTemplatePageURL,searchUserByTemplatePage.getURL());
+    }
+
+    @And("web user clicks on search button for Search User By Template")
+    public void webUserClicksOnSearchButtonForSearchUserByTemplate() {
+        searchUserByTemplatePage.clickBtnSearch();
+    }
+
+    @Then("Search User By Template page displays validation message {string}")
+    public void searchUserByTemplatePageDisplaysValidationMessage(String validationMessage) {
+        Assert.assertEquals(searchUserByTemplatePage.getSystemOperatorEntityValidation(),validationMessage);
+    }
+
+    @And("web user selects {string} from System Operator Entity dropdown")
+    public void webUserSelectsFromSystemOperatorEntityDropdown(String systemOperatorEntity) {
+        searchUserByTemplatePage.selectDDSystemOperatorEntity(systemOperatorEntity);
+    }
+
+    @Then("Search User By Template displays all users of selected template")
+    public void searchUserByTemplateDisplaysAllUsersOfSelectedTemplate() {
+        Assert.fail("Search User By Template with valid System Operator Entity implementation is not completed with error message: "+searchUserByTemplatePage.getErrorSuccessMessage());
+    }
+
+    @And("web user clicks on Change Status sub menu")
+    public void webUserClicksOnChangeStatusSubMenu() {
+        changeUserStatusPage=adminDashboardPage.clickLinkChangeStatus();
+    }
+
+    @Then("web system displays Change Status page")
+    public void webSystemDisplaysChangeStatusPage() {
+        Assert.assertEquals(changeUserStatusPage.getURL(),Config.changeUserStatusPageURL);
+    }
+
+    @And("web user clicks on search button for Change Status")
+    public void webUserClicksOnSearchButtonForChangeStatus() {
+        changeUserStatusPage.clickBtnSearch();
+    }
+
+    @Then("Change Status page displays validation message {string}")
+    public void changeStatusPageDisplaysValidationMessage(String validationMessage) {
+        Assert.assertEquals(changeUserStatusPage.getUsernameValidation(),validationMessage);
+    }
+
+    @And("change Status user enters {string} into username search textfield")
+    public void changeStatusUserEntersIntoUsernameSearchTextfield(String username) {
+        changeUserStatusPage.setTxtUsername(username);
+    }
+
+    @Then("Change Status page displays user details")
+    public void changeStatusPageDisplaysUserDetails() {
+        Assert.fail("Implementation not properly done. With internal error message: "+changeUserStatusPage.getErrorSuccessMessage());
+    }
+
+    @Then("Change Status page displays an error message {string}")
+    public void changeStatusPageDisplaysAnErrorMessage(String errorMessage) {
+        Assert.assertEquals(changeUserStatusPage.getErrorSuccessMessage(),errorMessage);
     }
 }

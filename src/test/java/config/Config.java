@@ -11,4 +11,8 @@ public class Config {
     public static String viewUserPageURL="http://192.168.20.33:8001/#/mobifin/usermanagement/viewuser";
     public static String updateUserProfilePageURL="http://192.168.20.33:8001/#/mobifin/usermanagement/updateuserprofile";
 
+    public static String resetPasswordPageURL="http://192.168.20.33:8001/#/mobifin/usermanagement/resetpassword";
+    public static String SearchUserByTemplatePageURL="http://192.168.20.33:8001/#/mobifin/usermanagement/searchbytemplate";
+    public static String changeUserStatusPageURL="http://192.168.20.33:8001/#/mobifin/usermanagement/changestatus";
+
 }
