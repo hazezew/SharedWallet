@@ -1,5 +1,6 @@
 package pageObj.web;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -29,6 +30,14 @@ public class AdminDashboardPage {
     @FindBy(xpath = "//span[contains(text(),'User Management')]")
     private WebElement linkUserManagement;
 
+
+//    Sub menu items under the main menu User Management
+    @FindBy(linkText = "View User")
+    private WebElement linkViewUser;
+
+    @FindBy(partialLinkText = "Update User Profile")
+    private WebElement linkUpdateUserProfile;
+
     @FindBy(xpath = "//a[@href=\"#/mobifin/usermanagement/resetpassword\"]")
     private WebElement linkResetPassword;
 
@@ -38,12 +47,17 @@ public class AdminDashboardPage {
     @FindBy(xpath = "//a[@href=\"#/mobifin/usermanagement/changestatus\"]")
     private WebElement linkChangeStatus;
 
-//    menu items under the main menu User Management
-    @FindBy(linkText = "View User")
-    private WebElement linkViewUser;
+    @FindBy(xpath = "//a[@href=\"#/mobifin/usermanagement/kyclevelupgrade\"]")
+    private WebElement linkUpgradeUserKYC;
 
-    @FindBy(partialLinkText = "Update User Profile")
-    private WebElement linkUpdateUserProfile;
+    @FindBy(xpath = "//a[@href=\"#/mobifin/usermanagement/systemusermanagement\"]")
+    private WebElement linkSystemUserManagement;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/usermanagement/userwalletmanagement\"]")
+    private WebElement linkWalletManagement;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/usermanagement/viewuserhierarchy\"]")
+    private WebElement linkManageUserHierarchy;
 
     public AdminDashboardPage(WebDriver driver){
         this.driver=driver;
@@ -76,6 +90,30 @@ public class AdminDashboardPage {
     public ChangeUserStatusPage clickLinkChangeStatus(){
         wait.until(ExpectedConditions.visibilityOf(linkChangeStatus)).click();
         return new ChangeUserStatusPage(driver);
+    }
+
+    public UpgradeUserKYCPage clickLinkUpgradeUserKYC(){
+        action.moveToElement(linkUpgradeUserKYC).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(linkUpgradeUserKYC)).click();
+        return new UpgradeUserKYCPage(driver);
+    }
+
+    public SystemUserManagementPage clickLinkSystemUserManagement(){
+        action.moveToElement(linkSystemUserManagement).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(linkSystemUserManagement)).click();
+        return new SystemUserManagementPage(driver);
+    }
+
+    public WalletManagementPage clickLinkWalletManagement(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", linkWalletManagement);
+        wait.until(ExpectedConditions.visibilityOf(linkWalletManagement)).click();
+        return new WalletManagementPage(driver);
+    }
+
+    public ManageUserHierarchyPage clickLinkManageUserHierarchy(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", linkManageUserHierarchy);
+        wait.until(ExpectedConditions.visibilityOf(linkManageUserHierarchy)).click();
+        return new ManageUserHierarchyPage(driver);
     }
 
     public ViewUserPage clickSubmenuViewUser(){

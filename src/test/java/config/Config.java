@@ -14,5 +14,8 @@ public class Config {
     public static String resetPasswordPageURL="http://192.168.20.33:8001/#/mobifin/usermanagement/resetpassword";
     public static String SearchUserByTemplatePageURL="http://192.168.20.33:8001/#/mobifin/usermanagement/searchbytemplate";
     public static String changeUserStatusPageURL="http://192.168.20.33:8001/#/mobifin/usermanagement/changestatus";
-
+    public static String upgradeUserKYCPageURL="http://192.168.20.33:8001/#/mobifin/usermanagement/kyclevelupgrade";
+    public static String systemUserManagementPageURL="http://192.168.20.33:8001/#/mobifin/usermanagement/systemusermanagement";
+    public static String walletManagementPageURL="http://192.168.20.33:8001/#/mobifin/usermanagement/userwalletmanagement";
+    public static String manageUserHierarchyPageURL="http://192.168.20.33:8001/#/mobifin/usermanagement/viewuserhierarchy";
 }
