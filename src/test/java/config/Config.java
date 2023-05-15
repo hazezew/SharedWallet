@@ -18,4 +18,5 @@ public class Config {
     public static String systemUserManagementPageURL="http://192.168.20.33:8001/#/mobifin/usermanagement/systemusermanagement";
     public static String walletManagementPageURL="http://192.168.20.33:8001/#/mobifin/usermanagement/userwalletmanagement";
     public static String manageUserHierarchyPageURL="http://192.168.20.33:8001/#/mobifin/usermanagement/viewuserhierarchy";
+    public static String searchBusinessUserByTemplatePageURL="http://192.168.20.33:8001/#/mobifin/usermanagement/searchbybusinesstemplate";
 }

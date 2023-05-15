@@ -17,6 +17,7 @@ public class UserManagementStepDef extends AbstractPage {
     private SystemUserManagementPage systemUserManagementPage;
     private WalletManagementPage walletManagementPage;
     private ManageUserHierarchyPage manageUserHierarchyPage;
+    private SearchBusinessUserByTemplatePage searchBusinessUserByTemplatePage;
 
     @Then("web user moves mouse over User Management main menu")
     public void web_user_moves_mouse_over_User_Management_main_menu() {
@@ -457,5 +458,74 @@ public class UserManagementStepDef extends AbstractPage {
     @And("Manage User Hierarchy page user clicks on Confirm button")
     public void manageUserHierarchyPageUserClicksOnConfirmButton() {
         manageUserHierarchyPage.clickPopupConfirmation();
+    }
+
+    @And("web user clicks on Search Business User By Template sub menu")
+    public void webUserClicksOnSearchBusinessUserByTemplateSubMenu() {
+        searchBusinessUserByTemplatePage=adminDashboardPage.clickLinkSearchBusinessUserByTemplate();
+    }
+
+    @Then("web system displays Search Business User By Template page")
+    public void webSystemDisplaysSearchBusinessUserByTemplatePage() {
+        Assert.assertEquals(searchBusinessUserByTemplatePage.getURL(),Config.searchBusinessUserByTemplatePageURL);
+    }
+
+    @And("on Search Business User By Template page user clicks on search button")
+    public void onSearchBusinessUserByTemplatePageUserClicksOnSearchButton() {
+        searchBusinessUserByTemplatePage.clickBtnSearch();
+    }
+
+    @Then("Search Business User By Template page displays {string} message")
+    public void searchBusinessUserByTemplatePageDisplaysMessage(String message) {
+        Assert.assertEquals(searchBusinessUserByTemplatePage.getSuccessErrorMessage(),message);
+    }
+
+    @Then("Search Business User By Template page displays a mandatory validation message {string}")
+    public void searchBusinessUserByTemplatePageDisplaysAMandatoryValidationMessage(String mandatoryValidationMessage) {
+        Assert.assertEquals(searchBusinessUserByTemplatePage.getDdOperatingEntityTemplateMandatoryMessage(),mandatoryValidationMessage);
+    }
+
+    @And("on Search Business User By Template page user selects {string} from Operating Entity Template dropdown")
+    public void onSearchBusinessUserByTemplatePageUserSelectsFromOperatingEntityTemplateDropdown(String template) {
+        searchBusinessUserByTemplatePage.setDdOperatingEntityTemplate(template);
+    }
+    @And("on Search Business User By Template page user enters {string} into Tree Identifier textfield")
+    public void onSearchBusinessUserByTemplatePageUserEntersIntoTreeIdentifierTextfield(String identifier) {
+        searchBusinessUserByTemplatePage.setTxtInputTreeIdentifier(identifier);
+    }
+
+    @Then("on Search Business User By Template page user clicks on show user info icon")
+    public void onSearchBusinessUserByTemplatePageUserClicksOnShowUserInfoIcon() {
+        searchBusinessUserByTemplatePage.clickIconShowUserInfo();
+    }
+
+    @And("on Search Business User By Template page user clicks on user info tab")
+    public void onSearchBusinessUserByTemplatePageUserClicksOnUserInfoTab() {
+        searchBusinessUserByTemplatePage.clickTabUserInfo();
+    }
+
+    @And("on Search Business User By Template page user clicks on agent info tab")
+    public void onSearchBusinessUserByTemplatePageUserClicksOnAgentInfoTab() {
+        searchBusinessUserByTemplatePage.clickTabPersonalInformation();
+    }
+
+    @And("on Search Business User By Template page user clicks on login info tab")
+    public void onSearchBusinessUserByTemplatePageUserClicksOnLoginInfoTab() {
+        searchBusinessUserByTemplatePage.clickTabLoginInfo();
+    }
+
+    @And("on Search Business User By Template page user clicks on user info ok button")
+    public void onSearchBusinessUserByTemplatePageUserClicksOnUserInfoOkButton() {
+        searchBusinessUserByTemplatePage.clickBtnPopupUserInfoOk();
+    }
+
+    @Then("on Search Business User By Template page user clicks on view user hierarchy icon")
+    public void onSearchBusinessUserByTemplatePageUserClicksOnViewUserHierarchyIcon() {
+        searchBusinessUserByTemplatePage.clickIconViewUserHierarchy();
+    }
+
+    @And("on Search Business User By Template page user clicks on user hierarchy ok button")
+    public void onSearchBusinessUserByTemplatePageUserClicksOnUserHierarchyOkButton() {
+        searchBusinessUserByTemplatePage.clickBtnPopupUserHierarchyOk();
     }
 }

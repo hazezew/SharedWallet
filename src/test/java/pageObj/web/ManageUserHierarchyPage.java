@@ -106,7 +106,7 @@ public class ManageUserHierarchyPage {
     }
 
     public String getURL(){
-        driver.navigate().refresh();
+//        driver.navigate().refresh();
         return driver.getCurrentUrl();
     }
 }

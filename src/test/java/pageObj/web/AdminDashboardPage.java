@@ -59,6 +59,9 @@ public class AdminDashboardPage {
     @FindBy(xpath = "//a[@href=\"#/mobifin/usermanagement/viewuserhierarchy\"]")
     private WebElement linkManageUserHierarchy;
 
+    @FindBy(xpath = "//a[@href=\"#/mobifin/usermanagement/searchbybusinesstemplate\"]")
+    private WebElement linkSearchBusinessUserByTemplate;
+
     public AdminDashboardPage(WebDriver driver){
         this.driver=driver;
         wait=new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -114,6 +117,12 @@ public class AdminDashboardPage {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", linkManageUserHierarchy);
         wait.until(ExpectedConditions.visibilityOf(linkManageUserHierarchy)).click();
         return new ManageUserHierarchyPage(driver);
+    }
+
+    public SearchBusinessUserByTemplatePage clickLinkSearchBusinessUserByTemplate(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", linkSearchBusinessUserByTemplate);
+        wait.until(ExpectedConditions.visibilityOf(linkSearchBusinessUserByTemplate)).click();
+        return new SearchBusinessUserByTemplatePage(driver);
     }
 
     public ViewUserPage clickSubmenuViewUser(){
