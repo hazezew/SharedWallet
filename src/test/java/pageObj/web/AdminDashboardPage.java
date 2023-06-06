@@ -25,18 +25,47 @@ public class AdminDashboardPage {
     @FindBy(xpath = "//span[contains(text(),\"Logout\")]")
     private WebElement linkLogout;
 
+//    Main menu Technical Config and its submenu items
+    @FindBy(xpath = "//span[contains(text(),'Technical Config')]")
+    private WebElement linkTechnicalConfig;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/technicalconfiguration/fieldmapping\"]")
+    private WebElement linkFieldMapping;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/technicalconfiguration/processes\"]")
+    private WebElement linkProcess;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/technicalconfiguration/scheduler\"]")
+    private WebElement linkScheduler;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/technicalconfiguration/processscheduler\"]")
+    private WebElement linkProcessScheduler;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/technicalconfiguration/processrundetails\"]")
+    private WebElement linkProcessRunDetails;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/operation/reporttool\"]")
+    private WebElement linkReportTool;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/technicalconfiguration/menuconfiguration\"]")
+    private WebElement linkMenuConfig;
+
+    @FindBy(xpath = "//span[contains(text(),'Black List Management')]")
+    private WebElement linkBlackListManagement;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/technicalconfiguration/systemparameter\"]")
+    private WebElement linkSystemParameter;
+
+    @FindBy(xpath = "//span[contains(text(),'KeyGroup Management')]")
+    private WebElement linkKeyGroupManagement;
+
+    @FindBy(xpath = "//span[contains(text(),'Workflow Management')]")
+    private WebElement linkWorkflowManagement;
+
 //    main menu items
 
     @FindBy(xpath = "//span[contains(text(),'User Management')]")
     private WebElement linkUserManagement;
-
-
-//    Sub menu items under the main menu User Management
-    @FindBy(linkText = "View User")
-    private WebElement linkViewUser;
-
-    @FindBy(partialLinkText = "Update User Profile")
-    private WebElement linkUpdateUserProfile;
 
     @FindBy(xpath = "//a[@href=\"#/mobifin/usermanagement/resetpassword\"]")
     private WebElement linkResetPassword;
@@ -53,6 +82,11 @@ public class AdminDashboardPage {
     @FindBy(xpath = "//a[@href=\"#/mobifin/usermanagement/systemusermanagement\"]")
     private WebElement linkSystemUserManagement;
 
+    //    menu items under the main menu User Management
+    @FindBy(linkText = "View User")
+    private WebElement linkViewUser;
+    @FindBy(partialLinkText = "Update User Profile")
+    private WebElement linkUpdateUserProfile;
     @FindBy(xpath = "//a[@href=\"#/mobifin/usermanagement/userwalletmanagement\"]")
     private WebElement linkWalletManagement;
 
@@ -62,35 +96,76 @@ public class AdminDashboardPage {
     @FindBy(xpath = "//a[@href=\"#/mobifin/usermanagement/searchbybusinesstemplate\"]")
     private WebElement linkSearchBusinessUserByTemplate;
 
-    public AdminDashboardPage(WebDriver driver){
-        this.driver=driver;
-        wait=new WebDriverWait(driver, Duration.ofSeconds(15));
-        PageFactory.initElements(driver,this);
+    @FindBy(xpath = "//span[text()='Platform Config']")
+    private WebElement platformConfigLink;
+    @FindBy(xpath = "//li[@id='Parameter']")
+    private WebElement parameterLink;
+    @FindBy(xpath = "//li[@id='User Category']")
+    private WebElement userCategoryLink;
+    @FindBy(xpath = "//li[@id='Unit']")
+    private WebElement unitSubLink;
+    @FindBy(xpath = "//li[@id='Pouch']")
+    private WebElement pouchSubLink;
+    @FindBy(xpath = "//li[@id='Wallet']")
+    private WebElement walletSubLink;
+    @FindBy(xpath = "//span[text()='Kyc Management']")
+    private WebElement kycManagementLink;
+    @FindBy(xpath = "//li[@id='KYC Profile']")
+    private WebElement kycProfileLink;
+    @FindBy(xpath = "//li[@id='Service']")
+    private WebElement serviceSubLink;
+    @FindBy(xpath = "//span[text()='Business Config']")
+    private WebElement businessConfigLink;
+    @FindBy(xpath = "//li[@id='Service Vendor']")
+    private WebElement serviceVendorSubLink;
+    @FindBy(xpath = "//span[text()='Vendor Management']")
+    private WebElement vendorManagementSubLink;
+    @FindBy(xpath = "//li[@id='Access Channel']")
+    private WebElement accessChannelSubLink;
+
+    public AdminDashboardPage(WebDriver driver) {
+        this.driver = driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        PageFactory.initElements(driver, this);
         action = new Actions(driver);
     }
-    public void clickLinkSettings(){
+
+    public void clickLinkSettings() {
         driver.navigate().refresh();
         wait.until(ExpectedConditions.visibilityOf(linkSettings)).click();
     }
-    public LoginPage clickLinkLogout(){
+
+    public LoginPage clickLinkLogout() {
         wait.until(ExpectedConditions.visibilityOf(linkLogout)).click();
         return new LoginPage(driver);
     }
-//    Events for web elements under User Configuration main menu
-    public void hoverLinkUserManagement(){
+    //    Events for web elements under Technical Config main menu
+    public void hoverLinkTechnicalConfig(){
+        action.moveToElement(linkTechnicalConfig).build().perform();
+    }
+
+    public FieldMappingPage clickLinkFieldMapping(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", linkFieldMapping);
+        wait.until(ExpectedConditions.visibilityOf(linkFieldMapping)).click();
+        return new FieldMappingPage(driver);
+    }
+
+    //    Events for web elements under User Configuration main menu
+    public void hoverLinkUserManagement() {
         action.moveToElement(linkUserManagement).build().perform();
     }
-    public ResetPasswordPage clickLinkResetPassword(){
+
+    public ResetPasswordPage clickLinkResetPassword() {
         wait.until(ExpectedConditions.visibilityOf(linkResetPassword)).click();
         return new ResetPasswordPage(driver);
     }
 
-    public SearchUserByTemplatePage clickLinkSearchUserByTemplate(){
+    public SearchUserByTemplatePage clickLinkSearchUserByTemplate() {
         wait.until(ExpectedConditions.visibilityOf(linkSearchUserByTemplate)).click();
         return new SearchUserByTemplatePage(driver);
     }
 
-    public ChangeUserStatusPage clickLinkChangeStatus(){
+    public ChangeUserStatusPage clickLinkChangeStatus() {
         wait.until(ExpectedConditions.visibilityOf(linkChangeStatus)).click();
         return new ChangeUserStatusPage(driver);
     }
@@ -126,19 +201,75 @@ public class AdminDashboardPage {
     }
 
     public ViewUserPage clickSubmenuViewUser(){
+//    public ViewUserPage clickSubmenuViewUser() {
         action.moveToElement(linkViewUser).build().perform();
         wait.until(ExpectedConditions.visibilityOf(linkViewUser)).click();
         return new ViewUserPage(driver);
     }
 
-    public UpdateUserProfilePage clickSubmenuLinkUpdateUserProfile(){
+    public UpdateUserProfilePage clickSubmenuLinkUpdateUserProfile() {
         action.moveToElement(linkUpdateUserProfile).build().perform();
         wait.until(ExpectedConditions.visibilityOf(linkUpdateUserProfile)).click();
         return new UpdateUserProfilePage(driver);
     }
 
-    public String getURL(){
+    public void hoverOnPlatformConfigMenu() {
+        action.moveToElement(platformConfigLink).build().perform();
+    }
+
+    public String getURL() {
         driver.navigate().refresh();
         return driver.getCurrentUrl();
+    }
+
+    public ParameterPage clickOnParameterSubMenu() {
+        action.moveToElement(parameterLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(parameterLink)).click();
+        return new ParameterPage(driver);
+    }
+    public UserCategoryPage clickOnUserCategorySubMenu() {
+        action.moveToElement(userCategoryLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(userCategoryLink)).click();
+        return new UserCategoryPage(driver);
+    }
+    public UnitPage clickOnUnitSubMenu(){
+        action.moveToElement(unitSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(unitSubLink)).click();
+        return new UnitPage(driver);
+    }
+    public PouchPage clickOnPouchSubMenu(){
+        action.moveToElement(pouchSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(pouchSubLink)).click();
+        return new PouchPage(driver);
+    }
+    public WalletPage clickOnWalletSubMenu(){
+        action.moveToElement(walletSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(walletSubLink)).click();
+        return new WalletPage(driver);
+    }
+    public KycManagementPage clickOnKycSubMenu(){
+        action.moveToElement(kycManagementLink).build().perform();
+        action.moveToElement(kycProfileLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(kycProfileLink)).click();
+        return new KycManagementPage(driver);
+    }
+    public ServicePage clickOnServiceSubMenu(){
+        action.moveToElement(serviceSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(serviceSubLink)).click();
+        return new ServicePage(driver);
+    }
+    public void hoverOnBusinessConfigMenu() {
+        action.moveToElement(businessConfigLink).build().perform();
+    }
+    public ServiceVendorPage clickOnServiceVendorSubMenu(){
+        action.moveToElement(vendorManagementSubLink).build().perform();
+        action.moveToElement(serviceVendorSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(serviceVendorSubLink)).click();
+        return new ServiceVendorPage(driver);
+    }
+    public AccessChannelPage clickOnAccessChannelSubMenu(){
+        action.moveToElement(accessChannelSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(accessChannelSubLink)).click();
+        return new AccessChannelPage(driver);
     }
 }
