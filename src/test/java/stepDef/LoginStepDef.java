@@ -76,4 +76,5 @@ public class LoginStepDef extends AbstractPage {
     public void webSystemDisplaysAsMandatoryPasswordValidationMessage(String passwordValidationMsg) {
         Assert.assertEquals(loginPage.getEmptyPasswordMsg(),passwordValidationMsg);
     }
+
 }
