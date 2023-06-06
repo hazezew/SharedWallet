@@ -38,7 +38,7 @@ Feature: Upgrade User KYC
     And web user clicks on settings link
     And web user clicks on Logout link
 
-  Scenario: Upgrade User KYC with valid username
+  Scenario: Upgrade User KYC with invalid username
     And Upgrade User KYC user enters "Habtamu@eth12345" into username search textfield
     And web user clicks on search button for Upgrade User KYC
     Then Upgrade User KYC page displays an error message "Sorry! Username does not exist"
