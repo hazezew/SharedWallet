@@ -69,7 +69,6 @@ Feature: ServiceVendor Configuration
     And web user clicks on view icon for "Auto_Duplicate_Check" service vendor
     And web user delete the created service vendor
 
-
   Scenario: Edit service vendor configuration
     When web user clicks on service vendor sub menu
     Then web system displays service vendor configuration page

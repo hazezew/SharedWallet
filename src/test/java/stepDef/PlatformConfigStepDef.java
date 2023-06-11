@@ -43,16 +43,10 @@ public class PlatformConfigStepDef extends AbstractPage {
         Assert.assertEquals(Config.parameterConfigurationPageURL, parameterConfigPage.getParameterConfigPageURL());
     }
 
-
     @When("web user click on Add button")
     public void webUserClickOnAddButton() {
         parameterConfigPage.clickAddButton();
     }
-
-//    @When("web user fills all parameter details(.+)(.+)(.+)$")
-//    public void webUserEntersIntoTheNameTextField(String parameterName, String displayName, String description) {
-//        parameterConfigPage.fillParameterDetails(parameterName,displayName,description);
-//    }
 
     @And("web user fills in the parameter details for {string}, {string}, {string}, {string}, {string},{string}, and {string}")
     public void theUserFillsInTheParameterDetailsForAnd(String parameterName, String displayName, String description, String usedBy, String fieldType, String componentType, String dataType) {
@@ -103,10 +97,12 @@ public class PlatformConfigStepDef extends AbstractPage {
     public void addChildFields() {
         parameterConfigPage.addChildField();
     }
+
     @Then("verify system displays {string} error message for parameter")
     public void verifySystemDisplaysErrorMessageForParameter(String errorMessage) {
         parameterConfigPage.verifyDuplicatedValidationMessage(errorMessage);
     }
+
     @Then("web system displays validation message")
     public void verifyValidationMessage() {
         Assert.assertEquals("Error Message", parameterConfigPage.getParameterConfigPageURL());
@@ -234,6 +230,7 @@ public class PlatformConfigStepDef extends AbstractPage {
     public void entersIntoSearchNameField(String userCategoryName) {
         userCategoryPage.searchUserCategory(userCategoryName);
     }
+
     @Then("verify system displays {string} error message for user category")
     public void verifySystemDisplaysErrorMessageForUserCategory(String errorMessage) {
         userCategoryPage.verifyErrorMessage(errorMessage);
@@ -318,10 +315,12 @@ public class PlatformConfigStepDef extends AbstractPage {
     public void verifyTheUnitIsCreated(String unitName) {
         unitPage.verifyUnitCreated(unitName);
     }
+
     @Then("verify system displays {string} error message for unit")
     public void verifySystemDisplaysErrorMessageForUnit(String validationMessage) {
         unitPage.verifyValidationMessageForDuplicateName(validationMessage);
     }
+
     @And("web user delete the created unit")
     public void deleteTheCreatedUnit() {
         unitPage.clickDeleteButton();
@@ -437,6 +436,7 @@ public class PlatformConfigStepDef extends AbstractPage {
     public void verifySystemDisplaysErrorMessageForPouch(String errorMessage) {
         pouchPage.verifyErrorMessageForDuplicatedName(errorMessage);
     }
+
     @And("web user allows transaction for pouch")
     public void aAllowsTransactionForPouch() {
         pouchPage.clickAllowTransaction();
@@ -599,7 +599,7 @@ public class PlatformConfigStepDef extends AbstractPage {
 
     @And("web user fills kyc details name as {string} description as {string} and status {string}")
     public void fillsKycNameAndDescription(String name, String description, String status) {
-        kycManagementPage.fillKycNameAndDescription(name,description,status);
+        kycManagementPage.fillKycNameAndDescription(name, description, status);
     }
 
     @And("web user select kyc level as {string}")
@@ -616,6 +616,7 @@ public class PlatformConfigStepDef extends AbstractPage {
     public void webUserEntersInToKycStepNameField(String kycStepName) {
         kycManagementPage.enterKycStepName(kycStepName);
     }
+
     @And("web user add field group with name as {string} description as {string} and display name as {string}")
     public void webUserAddFieldGroupWithNameAsDescriptionAsAndDisplayNameAs(String name, String description, String displayName) {
         kycManagementPage.addFieldGroup(name, description, displayName);
@@ -685,6 +686,7 @@ public class PlatformConfigStepDef extends AbstractPage {
     public void webSystemDisplaysValidationMessageForServiceConfig() {
         servicePage.verifyValidationMessage();
     }
+
     @And("web user update service display name {string} service type {string} and service behavior {string}")
     public void webUserUpdateServiceDisplayNameServiceTypeAndServiceBehavior(String displayName, String serviceType, String serviceBehavior) {
         servicePage.updateService(displayName, serviceType, serviceBehavior);
@@ -757,6 +759,89 @@ public class PlatformConfigStepDef extends AbstractPage {
     }
 
     @And("web user fills access channel config detail {string} {string} {string} and {string}")
-    public void webUserFillsAccessChannelConfigDetailAnd(String name, String description, String secrete, String token) {
+    public void webUserFillsAccessChannelConfigDetail(String name, String description, String secrete, String confirm) {
+        accessChannelPage.fillAccessChannelDetail(name, description, secrete, confirm);
     }
+
+    @Then("web system displays {string} validation message")
+    public void verifyConfirmationValidationMessage(String validationMessage) {
+        accessChannelPage.verifyConfirmationValidation(validationMessage);
+    }
+
+    @And("web user set Expiry enable with {string} access token validity and {string} as access token Idle expiry")
+    public void webUserSetExpiryEnable(String tokenValidity, String tokenExpiry) {
+        accessChannelPage.setExpiryAndAccessToken(tokenValidity, tokenExpiry);
+    }
+
+    @And("web user select the {string} of a access token")
+    public void webUserSelectTheOfAAccessToken(String status) {
+        driver.findElement(By.xpath("//span[text()='" + status + "']")).click();
+    }
+
+    @And("web user clicks save button for access channel")
+    public void clicksSaveButtonForAccessChannel() {
+        accessChannelPage.clickSaveButton();
+    }
+
+    @Then("web user should see the {string} access channel is created")
+    public void verifyTheAccessChannelIsCreated(String accessChannelName) {
+        accessChannelPage.verifyAccessChannelCreated(accessChannelName);
+    }
+
+    @And("web user clicks on view icon for {string} service channel")
+    public void webUserClicksOnViewIconForServiceChannel(String accessChannelName) {
+        accessChannelPage.clickOnViewIcon(accessChannelName);
+    }
+
+    @And("web user delete the created service channel")
+    public void deleteTheCreatedServiceChannel() {
+        accessChannelPage.deleteAccessChannel();
+    }
+
+    @And("web user clicks on Edit button")
+    public void clicksOnEditButton() {
+        accessChannelPage.clickEditButton();
+    }
+
+    @And("web user update access channel description as {string} token validity as {string} and token expiry as {string}")
+    public void updateAccessChannel(String description, String tokenValidity, String tokenExpiry) {
+        accessChannelPage.updateAccessChannel(description, tokenValidity, tokenExpiry);
+    }
+
+    @Then("web system displays validation message for access channel config")
+    public void verifyValidationMessageForAccessChannelConfig() {
+        accessChannelPage.verifyValidationMessage();
+    }
+
+    @Then("verify system displays {string} error message for access channel")
+    public void verifySystemDisplaysErrorMessageForAccessChannel(String errorMessage) {
+        accessChannelPage.verifyErrorMessage(errorMessage);
+    }
+
+
+    @When("web user click on filter icon for access channel")
+    public void clickOnFilterIconForAccessChannel() {
+        accessChannelPage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into access channel search name field")
+    public void enterSearchedKeywordForAccessChannel(String accessChannelName) {
+        accessChannelPage.enterNameInToSearchField(accessChannelName);
+    }
+
+    @And("web user select {string} for the search access channel filter criteria")
+    public void selectSearchAccessChannelFilterCriteria(String criteria) {
+        accessChannelPage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search for access channel button")
+    public void clicksSearchAccessChannelButton() {
+        accessChannelPage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of access channel with {string} on the name")
+    public void verifySearchResultsForAccessChannel(String accessChannel) {
+        accessChannelPage.verifyAccessChannelSearchResults(accessChannel);
+    }
+
 }
