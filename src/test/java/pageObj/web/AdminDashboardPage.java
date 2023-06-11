@@ -25,6 +25,43 @@ public class AdminDashboardPage {
     @FindBy(xpath = "//span[contains(text(),\"Logout\")]")
     private WebElement linkLogout;
 
+//    Main menu Technical Config and its submenu items
+    @FindBy(xpath = "//span[contains(text(),'Technical Config')]")
+    private WebElement linkTechnicalConfig;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/technicalconfiguration/fieldmapping\"]")
+    private WebElement linkFieldMapping;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/technicalconfiguration/processes\"]")
+    private WebElement linkProcess;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/technicalconfiguration/scheduler\"]")
+    private WebElement linkScheduler;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/technicalconfiguration/processscheduler\"]")
+    private WebElement linkProcessScheduler;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/technicalconfiguration/processrundetails\"]")
+    private WebElement linkProcessRunDetails;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/operation/reporttool\"]")
+    private WebElement linkReportTool;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/technicalconfiguration/menuconfiguration\"]")
+    private WebElement linkMenuConfig;
+
+    @FindBy(xpath = "//span[contains(text(),'Black List Management')]")
+    private WebElement linkBlackListManagement;
+
+    @FindBy(xpath = "//a[@href=\"#/mobifin/technicalconfiguration/systemparameter\"]")
+    private WebElement linkSystemParameter;
+
+    @FindBy(xpath = "//span[contains(text(),'KeyGroup Management')]")
+    private WebElement linkKeyGroupManagement;
+
+    @FindBy(xpath = "//span[contains(text(),'Workflow Management')]")
+    private WebElement linkWorkflowManagement;
+
 //    main menu items
 
     @FindBy(xpath = "//span[contains(text(),'User Management')]")
@@ -44,6 +81,7 @@ public class AdminDashboardPage {
 
     @FindBy(xpath = "//a[@href=\"#/mobifin/usermanagement/systemusermanagement\"]")
     private WebElement linkSystemUserManagement;
+
     //    menu items under the main menu User Management
     @FindBy(linkText = "View User")
     private WebElement linkViewUser;
@@ -100,6 +138,16 @@ public class AdminDashboardPage {
     public LoginPage clickLinkLogout() {
         wait.until(ExpectedConditions.visibilityOf(linkLogout)).click();
         return new LoginPage(driver);
+    }
+    //    Events for web elements under Technical Config main menu
+    public void hoverLinkTechnicalConfig(){
+        action.moveToElement(linkTechnicalConfig).build().perform();
+    }
+
+    public FieldMappingPage clickLinkFieldMapping(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", linkFieldMapping);
+        wait.until(ExpectedConditions.visibilityOf(linkFieldMapping)).click();
+        return new FieldMappingPage(driver);
     }
 
     //    Events for web elements under User Configuration main menu

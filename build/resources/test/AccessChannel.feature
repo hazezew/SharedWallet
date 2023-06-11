@@ -27,6 +27,9 @@ Feature: Access Channel Configuration
     And web user clicks on access channel sub menu
     Then web system displays access channel configuration page
     When web user clicks on Add button for access channel
+    And web user fills access channel config detail "Auto_MobileApp" "Auto_AccessChannel" "Password" and "Password12"
+
+
 #    And web user fills access channel config detail "Auto_MobileApp" "Auto_MobileApp" "Password" and "Password12"
 #    Then web system displays "Confirm Sercet not match with secret field" validation message
     And web user fills access channel config detail "Auto_MobileApp" "Auto_AccessChannel" "Password" and "Password"

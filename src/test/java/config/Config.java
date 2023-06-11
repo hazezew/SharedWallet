@@ -34,4 +34,5 @@ public class Config {
     public static String serviceVendorConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/vendormanagement/servicevendor";
     public static String accessChannelConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/accesschannel";
 
+    public static String fieldMappingPageURL="http://192.168.20.33:8001/#/mobifin/technicalconfiguration/fieldmapping";
 }

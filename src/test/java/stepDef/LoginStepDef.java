@@ -20,7 +20,6 @@ public class LoginStepDef extends AbstractPage {
     public void user_has_entered_Shared_Wallet_system_URL() {
         driver.navigate().to(Config.webURL);
         loginPage=new LoginPage(driver);
-//        super.loginPage=loginPage;
     }
 
     @When("web user enters {string} into Username text field")
