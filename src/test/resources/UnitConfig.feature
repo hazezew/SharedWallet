@@ -1,8 +1,8 @@
 #  Author: Walelign A.
 #  Date: May 23, 2023
 #  Project name: Shared Wallet
-#  Module: User Management
-#  Activity: View User
+#  Module: Platform Configuration
+#  Activity: Unit Configuration
 #  Project owner: EthSwitch
 #  Vendor: Panamax
 #  language: en

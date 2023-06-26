@@ -122,7 +122,20 @@ public class AdminDashboardPage {
     private WebElement vendorManagementSubLink;
     @FindBy(xpath = "//li[@id='Access Channel']")
     private WebElement accessChannelSubLink;
-
+    @FindBy(xpath = "//li[@id='Counter']")
+    private WebElement counterSubLink;
+    @FindBy(xpath = "//li[@id='Rule']")
+    private WebElement ruleSubLink;
+    @FindBy(xpath = "//li[@id='Ucp Group']")
+    private WebElement ucpGroupSubLink;
+    @FindBy(xpath = "//li[@id='Product']")
+    private WebElement productSubLink;
+    @FindBy(xpath = "//li[@id='Product Group']")
+    private WebElement productGroupSubLink;
+    @FindBy(xpath = "//li[@id='Ucp']")
+    private WebElement ucpSubLink;
+    @FindBy(xpath = "//li[@id='Notification Template']")
+    private WebElement notificationTemplateSubLink;
     public AdminDashboardPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -271,5 +284,40 @@ public class AdminDashboardPage {
         action.moveToElement(accessChannelSubLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(accessChannelSubLink)).click();
         return new AccessChannelPage(driver);
+    }
+    public UnitCreditPolicyPage clickOnUcpSubMenu(){
+        action.moveToElement(ucpSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(ucpSubLink)).click();
+        return new UnitCreditPolicyPage(driver);
+    }
+    public UcpGroupPage clickOnUcpGroupSubMenu(){
+        action.moveToElement(ucpGroupSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(ucpGroupSubLink)).click();
+        return new UcpGroupPage(driver);
+    }
+    public RulePage clickRuleSubMenu(){
+        action.moveToElement(ruleSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(ruleSubLink)).click();
+        return new RulePage(driver);
+    }
+    public CounterPage clickCounterSubMenu(){
+        action.moveToElement(counterSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(counterSubLink)).click();
+        return new CounterPage(driver);
+    }
+    public ProductPage clickProductSubMenu(){
+        action.moveToElement(productSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(productSubLink)).click();
+        return new ProductPage(driver);
+    }
+    public ProductGroupPage clickProductGroupSubMenu(){
+        action.moveToElement(productGroupSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(productGroupSubLink)).click();
+        return new ProductGroupPage(driver);
+    }
+    public NotificationTemplatePage clickNotificationTemplateSubMenu(){
+        action.moveToElement(notificationTemplateSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(notificationTemplateSubLink)).click();
+        return new NotificationTemplatePage(driver);
     }
 }

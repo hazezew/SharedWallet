@@ -1,15 +1,15 @@
 #  Author: Walelign A.
 #  Date: April 22, 2023
 #  Project name: Shared Wallet
-#  Module: User Management
-#  Activity: View User
+#  Module: Platform Configuration
+#  Activity: Parameter Configuration
 #  Project owner: EthSwitch
 #  Vendor: Panamax
 #  language: en
 #  Test Environment: EthSwitch Test
 
 @Regression
-@PlatformConfiguration
+@ParameterConfiguration
 
 Feature: Parameter Configuration
 

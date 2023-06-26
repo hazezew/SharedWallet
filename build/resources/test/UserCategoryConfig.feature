@@ -1,17 +1,17 @@
 #  Author: Walelign A.
 #  Date: May 16, 2023
 #  Project name: Shared Wallet
-#  Module: User Management
-#  Activity: View User
+#  Module: Platform Configuration
+#  Activity: User Category Config
 #  Project owner: EthSwitch
 #  Vendor: Panamax
 #  language: en
 #  Test Environment: EthSwitch Test
 
 @Regression
-@PlatformConfiguration
+@UserCategoryConfiguration
 
-Feature: Platform Configuration
+Feature: User Category Configuration
 
   Background: user opened web browser and maximizes it
     When user has entered Shared Wallet system URL

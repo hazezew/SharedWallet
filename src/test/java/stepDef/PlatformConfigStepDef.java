@@ -1,15 +1,14 @@
 package stepDef;
 
 import config.Config;
-import io.cucumber.datatable.dependency.com.fasterxml.jackson.annotation.JsonProperty;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import pageObj.web.*;
-import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +26,13 @@ public class PlatformConfigStepDef extends AbstractPage {
     private KycManagementPage kycManagementPage;
     private ServicePage servicePage;
     private AccessChannelPage accessChannelPage;
+    private UnitCreditPolicyPage ucpPage;
+    private UcpGroupPage ucpGroupPage;
+    private CounterPage counterPage;
+    private RulePage rulePage;
+    private ProductPage productPage;
+    private ProductGroupPage productGroupPage;
+    private NotificationTemplatePage notificationTemplatePage;
 
     @And("web user moves mouse over Platform Config main menu")
     public void webUserMovesMouseOverPlatformConfigMainMenu() {
@@ -844,4 +850,120 @@ public class PlatformConfigStepDef extends AbstractPage {
         accessChannelPage.verifyAccessChannelSearchResults(accessChannel);
     }
 
+    @And("web user clicks on ucp sub menu")
+    public void clicksOnUcpSubMenu() {
+        ucpPage = adminDashboardPage.clickOnUcpSubMenu();
+    }
+
+    @Then("web system displays ucp configuration page")
+    public void webSystemDisplaysUcpConfigurationPage() {
+        Assert.assertEquals(Config.ucpConfigurationPageURL, ucpPage.getUnitCreditPolicyPageURL());
+    }
+
+    @When("web user clicks on add button for ucp config")
+    public void webUserClicksOnAddButtonForUcpConfig() {
+        ucpPage.clickAddButton();
+    }
+
+
+    @And("web user clicks on ucp group sub menu")
+    public void clicksOnUcpGroupSubMenu() {
+        ucpGroupPage = adminDashboardPage.clickOnUcpGroupSubMenu();
+    }
+
+    @Then("web system displays ucp group configuration page")
+    public void webSystemDisplaysUcpGroupConfigurationPage() {
+        Assert.assertEquals(Config.ucpGroupConfigurationPageURL, ucpGroupPage.getUcpGroupPageURL());
+    }
+
+    @When("web user clicks on add button for ucp group config")
+    public void webUserClicksOnAddButtonForUcpGroupConfig() {
+        ucpGroupPage.clickAddButton();
+    }
+
+
+    @And("web user clicks on counter sub menu")
+    public void clicksOnCounterSubMenu() {
+        counterPage = adminDashboardPage.clickCounterSubMenu();
+    }
+
+    @Then("web system displays counter configuration page")
+    public void webSystemDisplaysCounterConfigurationPage() {
+        Assert.assertEquals(Config.counterConfigurationPageURL, counterPage.getCounterPageURL());
+    }
+
+    @When("web user clicks on add button for counter config")
+    public void webUserClicksOnAddButtonForCounterConfig() {
+        counterPage.clickAddButton();
+    }
+
+
+    @And("web user clicks on rule sub menu")
+    public void clicksOnRuleSubMenu() {
+        rulePage = adminDashboardPage.clickRuleSubMenu();
+    }
+
+    @Then("web system displays rule configuration page")
+    public void webSystemDisplaysRuleConfigurationPage() {
+        Assert.assertEquals(Config.ruleConfigurationPageURL, rulePage.getRulePageURL());
+    }
+
+    @When("web user clicks on add button for rule config")
+    public void webUserClicksOnAddButtonForRuleConfig() {
+        rulePage.clickAddButton();
+    }
+
+
+    @And("web user clicks on product sub menu")
+    public void clicksOnProductSubMenu() {
+        productPage = adminDashboardPage.clickProductSubMenu();
+    }
+
+    @Then("web system displays product configuration page")
+    public void webSystemDisplaysProductConfigurationPage() {
+        Assert.assertEquals(Config.productConfigurationPageURL, productPage.getProductPageURL());
+    }
+
+    @When("web user clicks on add button for product config")
+    public void webUserClicksOnAddButtonForProductConfig() {
+        productPage.clickAddButton();
+    }
+
+
+    @And("web user clicks on product group sub menu")
+    public void clicksOnProductGroupSubMenu() {
+        productGroupPage = adminDashboardPage.clickProductGroupSubMenu();
+    }
+
+    @Then("web system displays product group configuration page")
+    public void webSystemDisplaysProductGroupConfigurationPage() {
+        Assert.assertEquals(Config.productGroupConfigurationPageURL, productGroupPage.getProductGroupPageURL());
+    }
+
+    @When("web user clicks on add button for product group config")
+    public void webUserClicksOnAddButtonForProductGroupConfig() {
+        productGroupPage.clickAddButton();
+    }
+
+
+    @And("web user clicks on notification template sub menu")
+    public void clicksOnNotificationTemplateSubMenu() {
+        notificationTemplatePage = adminDashboardPage.clickNotificationTemplateSubMenu();
+    }
+
+    @Then("web system displays notification template configuration page")
+    public void webSystemDisplaysNotificationTemplateConfigurationPage() {
+        Assert.assertEquals(Config.notificationTemplateConfigurationPageURL, notificationTemplatePage.getNotificationTemplatePageURL());
+    }
+
+    @When("web user clicks on add button for notification template config")
+    public void webUserClicksOnAddButtonForNotificationTemplateConfig() {
+        notificationTemplatePage.clickAddButton();
+    }
+
+
+    @And("web user fills UCP config detail {string} {string} {string} {string} {string} {string} {string} {string} and {string}")
+    public void webUserFillsUCPConfigDetailAnd(String name, String description, String unit, String ucpType, String slabType, String creditType, String calculationType, String creditOn, String valueType) {
+        ucpPage.addUcpDetail(name, description, unit, ucpType, slabType, creditType, calculationType, creditOn, valueType);
+    }
 }

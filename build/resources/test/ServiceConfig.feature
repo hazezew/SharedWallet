@@ -1,15 +1,15 @@
 #  Author: Walelign A.
 #  Date: May 29, 2023
 #  Project name: Shared Wallet
-#  Module: User Management
-#  Activity: View User
+#  Module: Business Configuration
+#  Activity: Service Configuraiton
 #  Project owner: EthSwitch
 #  Vendor: Panamax
 #  language: en
 #  Test Environment: EthSwitch Test
 
 @Regression
-@UnitConfiguration
+@ServiceConfiguration
 
 Feature: Service Configuration
 
