@@ -25,7 +25,7 @@ public class AdminDashboardPage {
     @FindBy(xpath = "//span[contains(text(),\"Logout\")]")
     private WebElement linkLogout;
 
-//    Main menu Technical Config and its submenu items
+    //    Main menu Technical Config and its submenu items
     @FindBy(xpath = "//span[contains(text(),'Technical Config')]")
     private WebElement linkTechnicalConfig;
 
@@ -136,6 +136,7 @@ public class AdminDashboardPage {
     private WebElement ucpSubLink;
     @FindBy(xpath = "//li[@id='Notification Template']")
     private WebElement notificationTemplateSubLink;
+
     public AdminDashboardPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -152,12 +153,13 @@ public class AdminDashboardPage {
         wait.until(ExpectedConditions.visibilityOf(linkLogout)).click();
         return new LoginPage(driver);
     }
+
     //    Events for web elements under Technical Config main menu
-    public void hoverLinkTechnicalConfig(){
+    public void hoverLinkTechnicalConfig() {
         action.moveToElement(linkTechnicalConfig).build().perform();
     }
 
-    public FieldMappingPage clickLinkFieldMapping(){
+    public FieldMappingPage clickLinkFieldMapping() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", linkFieldMapping);
         wait.until(ExpectedConditions.visibilityOf(linkFieldMapping)).click();
         return new FieldMappingPage(driver);
@@ -183,37 +185,37 @@ public class AdminDashboardPage {
         return new ChangeUserStatusPage(driver);
     }
 
-    public UpgradeUserKYCPage clickLinkUpgradeUserKYC(){
+    public UpgradeUserKYCPage clickLinkUpgradeUserKYC() {
         action.moveToElement(linkUpgradeUserKYC).build().perform();
         wait.until(ExpectedConditions.visibilityOf(linkUpgradeUserKYC)).click();
         return new UpgradeUserKYCPage(driver);
     }
 
-    public SystemUserManagementPage clickLinkSystemUserManagement(){
+    public SystemUserManagementPage clickLinkSystemUserManagement() {
         action.moveToElement(linkSystemUserManagement).build().perform();
         wait.until(ExpectedConditions.visibilityOf(linkSystemUserManagement)).click();
         return new SystemUserManagementPage(driver);
     }
 
-    public WalletManagementPage clickLinkWalletManagement(){
+    public WalletManagementPage clickLinkWalletManagement() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", linkWalletManagement);
         wait.until(ExpectedConditions.visibilityOf(linkWalletManagement)).click();
         return new WalletManagementPage(driver);
     }
 
-    public ManageUserHierarchyPage clickLinkManageUserHierarchy(){
+    public ManageUserHierarchyPage clickLinkManageUserHierarchy() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", linkManageUserHierarchy);
         wait.until(ExpectedConditions.visibilityOf(linkManageUserHierarchy)).click();
         return new ManageUserHierarchyPage(driver);
     }
 
-    public SearchBusinessUserByTemplatePage clickLinkSearchBusinessUserByTemplate(){
+    public SearchBusinessUserByTemplatePage clickLinkSearchBusinessUserByTemplate() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", linkSearchBusinessUserByTemplate);
         wait.until(ExpectedConditions.visibilityOf(linkSearchBusinessUserByTemplate)).click();
         return new SearchBusinessUserByTemplatePage(driver);
     }
 
-    public ViewUserPage clickSubmenuViewUser(){
+    public ViewUserPage clickSubmenuViewUser() {
 //    public ViewUserPage clickSubmenuViewUser() {
         action.moveToElement(linkViewUser).build().perform();
         wait.until(ExpectedConditions.visibilityOf(linkViewUser)).click();
@@ -240,82 +242,98 @@ public class AdminDashboardPage {
         wait.until(ExpectedConditions.visibilityOf(parameterLink)).click();
         return new ParameterPage(driver);
     }
+
     public UserCategoryPage clickOnUserCategorySubMenu() {
         action.moveToElement(userCategoryLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(userCategoryLink)).click();
         return new UserCategoryPage(driver);
     }
-    public UnitPage clickOnUnitSubMenu(){
+
+    public UnitPage clickOnUnitSubMenu() {
         action.moveToElement(unitSubLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(unitSubLink)).click();
         return new UnitPage(driver);
     }
-    public PouchPage clickOnPouchSubMenu(){
+
+    public PouchPage clickOnPouchSubMenu() {
         action.moveToElement(pouchSubLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(pouchSubLink)).click();
         return new PouchPage(driver);
     }
-    public WalletPage clickOnWalletSubMenu(){
+
+    public WalletPage clickOnWalletSubMenu() {
         action.moveToElement(walletSubLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(walletSubLink)).click();
         return new WalletPage(driver);
     }
-    public KycManagementPage clickOnKycSubMenu(){
+
+    public KycManagementPage clickOnKycSubMenu() {
         action.moveToElement(kycManagementLink).build().perform();
         action.moveToElement(kycProfileLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(kycProfileLink)).click();
         return new KycManagementPage(driver);
     }
-    public ServicePage clickOnServiceSubMenu(){
+
+    public ServicePage clickOnServiceSubMenu() {
         action.moveToElement(serviceSubLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(serviceSubLink)).click();
         return new ServicePage(driver);
     }
+
     public void hoverOnBusinessConfigMenu() {
         action.moveToElement(businessConfigLink).build().perform();
     }
-    public ServiceVendorPage clickOnServiceVendorSubMenu(){
+
+    public ServiceVendorPage clickOnServiceVendorSubMenu() {
         action.moveToElement(vendorManagementSubLink).build().perform();
         action.moveToElement(serviceVendorSubLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(serviceVendorSubLink)).click();
         return new ServiceVendorPage(driver);
     }
-    public AccessChannelPage clickOnAccessChannelSubMenu(){
+
+    public AccessChannelPage clickOnAccessChannelSubMenu() {
         action.moveToElement(accessChannelSubLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(accessChannelSubLink)).click();
         return new AccessChannelPage(driver);
     }
-    public UnitCreditPolicyPage clickOnUcpSubMenu(){
+
+    public UnitCreditPolicyPage clickOnUcpSubMenu() {
         action.moveToElement(ucpSubLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(ucpSubLink)).click();
         return new UnitCreditPolicyPage(driver);
     }
-    public UcpGroupPage clickOnUcpGroupSubMenu(){
+
+    public UcpGroupPage clickOnUcpGroupSubMenu() {
         action.moveToElement(ucpGroupSubLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(ucpGroupSubLink)).click();
         return new UcpGroupPage(driver);
     }
-    public RulePage clickRuleSubMenu(){
+
+    public RulePage clickRuleSubMenu() {
         action.moveToElement(ruleSubLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(ruleSubLink)).click();
         return new RulePage(driver);
     }
-    public CounterPage clickCounterSubMenu(){
+
+    public CounterPage clickCounterSubMenu() {
         action.moveToElement(counterSubLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(counterSubLink)).click();
         return new CounterPage(driver);
     }
-    public ProductPage clickProductSubMenu(){
+
+    public ProductPage clickProductSubMenu() {
         action.moveToElement(productSubLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(productSubLink)).click();
         return new ProductPage(driver);
     }
-    public ProductGroupPage clickProductGroupSubMenu(){
+
+    public ProductGroupPage clickProductGroupSubMenu() {
         action.moveToElement(productGroupSubLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(productGroupSubLink)).click();
         return new ProductGroupPage(driver);
     }
-    public NotificationTemplatePage clickNotificationTemplateSubMenu(){
+
+    public NotificationTemplatePage clickNotificationTemplateSubMenu() {
         action.moveToElement(notificationTemplateSubLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(notificationTemplateSubLink)).click();
         return new NotificationTemplatePage(driver);

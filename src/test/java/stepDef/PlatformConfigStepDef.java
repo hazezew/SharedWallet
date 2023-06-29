@@ -26,7 +26,7 @@ public class PlatformConfigStepDef extends AbstractPage {
     private KycManagementPage kycManagementPage;
     private ServicePage servicePage;
     private AccessChannelPage accessChannelPage;
-    private UnitCreditPolicyPage ucpPage;
+    private UnitCreditPolicyPage unitCreditPolicyPage;
     private UcpGroupPage ucpGroupPage;
     private CounterPage counterPage;
     private RulePage rulePage;
@@ -852,17 +852,17 @@ public class PlatformConfigStepDef extends AbstractPage {
 
     @And("web user clicks on ucp sub menu")
     public void clicksOnUcpSubMenu() {
-        ucpPage = adminDashboardPage.clickOnUcpSubMenu();
+        unitCreditPolicyPage = adminDashboardPage.clickOnUcpSubMenu();
     }
 
     @Then("web system displays ucp configuration page")
     public void webSystemDisplaysUcpConfigurationPage() {
-        Assert.assertEquals(Config.ucpConfigurationPageURL, ucpPage.getUnitCreditPolicyPageURL());
+        Assert.assertEquals(Config.ucpConfigurationPageURL, unitCreditPolicyPage.getUnitCreditPolicyPageURL());
     }
 
     @When("web user clicks on add button for ucp config")
     public void webUserClicksOnAddButtonForUcpConfig() {
-        ucpPage.clickAddButton();
+        unitCreditPolicyPage.clickAddButton();
     }
 
 
@@ -964,6 +964,116 @@ public class PlatformConfigStepDef extends AbstractPage {
 
     @And("web user fills UCP config detail {string} {string} {string} {string} {string} {string} {string} {string} and {string}")
     public void webUserFillsUCPConfigDetailAnd(String name, String description, String unit, String ucpType, String slabType, String creditType, String calculationType, String creditOn, String valueType) {
-        ucpPage.addUcpDetail(name, description, unit, ucpType, slabType, creditType, calculationType, creditOn, valueType);
+        unitCreditPolicyPage.addUcpDetail(name, description, unit, ucpType, slabType, creditType, calculationType, creditOn, valueType);
+    }
+
+    @And("web user clicks on save button for ucp")
+    public void clicksOnSaveButtonForUcp() {
+        unitCreditPolicyPage.clickSaveButton();
+    }
+
+    @And("web user enters {int} for ucp value")
+    public void webUserEntersForUcpValue(int value) {
+        unitCreditPolicyPage.addValue(value);
+    }
+
+    @Then("web user should see the {string} ucp is created")
+    public void verifyTheUcpIsCreated(String ucpName) {
+        unitCreditPolicyPage.verifyUcpCreated(ucpName);
+    }
+
+    @And("web user clicks on view icon for {string} ucp")
+    public void clicksOnEditIconForUcp(String ucpName) {
+        unitCreditPolicyPage.clickOnViewIcon(ucpName);
+    }
+
+    @And("web user delete the created ucp")
+    public void deleteTheCreatedUcp() {
+        unitCreditPolicyPage.clickDeleteButton();
+    }
+
+    @Then("web system displays validation message for ucp config")
+    public void verifyValidationMessageForUcpConfig() {
+        unitCreditPolicyPage.verifyValidationMessage();
+    }
+
+    @And("web user clicks edit button for ucp")
+    public void clicksEditButtonForUcp() {
+        unitCreditPolicyPage.clickEditButton();
+    }
+
+    @And("web user update ucp config Unit as {string} Unit Type as {string} Slab Type as {string} and Value Type as {string}")
+    public void updateUcp(String unit, String unitType, String slabType, String valueType) {
+        unitCreditPolicyPage.updateUcpConfig(unit, unitType, slabType, valueType);
+    }
+
+    @Then("web user verify {string} ucp is updated with {string} {string} {string} and {string}")
+    public void verifyUcpIsUpdated(String ucpName, String unit, String unitType, String slabType, String valueType) {
+        unitCreditPolicyPage.verifyUpdatedUcp(ucpName, unit, unitType, slabType, valueType);
+    }
+
+    @And("web user add slab detail min as {int} maximum as {int} and value as {int}")
+    public void addSlabDetailMinAsMaximumAsAndValueAs(int minimum, int maximum, int value) {
+        unitCreditPolicyPage.addSlabDetail(minimum,maximum, value);
+    }
+    @When("web user click on filter icon for ucp")
+    public void clickOnFilterIconForUcp() {
+        unitCreditPolicyPage.clickFilterIcon();
+    }
+    @And("web user select {string} for the search ucp filter criteria")
+    public void selectSearchUcpFilterCriteria(String criteria) {
+        unitCreditPolicyPage.selectSearchCriteria(criteria);
+    }
+    @And("web user enters {string} into ucp search name field")
+    public void enterSearchedKeywordforucp(String ucpName) {
+        unitCreditPolicyPage.enterNameInToSearchField(ucpName);
+    }
+    @And("web user clicks search ucp button")
+    public void clicksSearchUcpButton() {
+        unitCreditPolicyPage.clickSearchButton();
+    }
+    @Then("web system displays a list of ucps with {string} on the name")
+    public void verifyUcpSearchResults(String ucpName) {
+        unitCreditPolicyPage.verifyUcpSearchResults(ucpName);
+    }
+    @Then("verify system displays {string} error message for ucp")
+    public void verifySystemDisplaysErrorMessageForUcp(String validationMessage) {
+        unitCreditPolicyPage.verifyValidationMessageForDuplicateName(validationMessage);
+    }
+
+    @And("web user adds product config detail {string} {string} {string} {string} {string} {string} {string} {string} {string} and {string}")
+    public void webUserAddsProductConfigDetailAnd(String name, String displayName, String description, String usedBy, String service, String productType, String productSubType, String denomination, String productValue, String displayOrder) {
+        productPage.addProductDetail(name, displayName,description,usedBy, service, productType, productSubType, denomination, productValue, displayOrder);
+    }
+
+    @And("web user clicks on save button for product")
+    public void clicksOnSaveButtonForProduct() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0, 0)");
+        productPage.clickSaveButton();
+    }
+    @Then("web user should see the {string} product is created")
+    public void verifyTheProductIsCreated(String productName) {
+        productPage.verifyProductCreated(productName);
+    }
+    @And("web user clicks on view icon for {string} product")
+    public void clicksOnEditIconForProduct(String productName) {
+        productPage.clickOnViewIcon(productName);
+    }
+    @And("web user delete the created product")
+    public void deleteTheCreatedProduct() {
+        productPage.clickDeleteButton();
+    }
+    @Then("verify system displays {string} error message for product")
+    public void verifySystemDisplaysErrorMessageForProduct(String validationMessage) {
+        productPage.verifyValidationMessageForDuplicateName(validationMessage);
+    }
+    @Then("web system displays validation message for product config")
+    public void verifyValidationMessageForProductConfig() {
+        productPage.verifyValidationMessage();
+    }
+    @And("web user clicks edit button for product")
+    public void licksEditButtonForProduct() {
+        productPage.clickEditButton();
     }
 }
