@@ -410,7 +410,6 @@ public class PlatformConfigStepDef extends AbstractPage {
     @And("web user clicks save button")
     public void clicksSaveButton() {
         pouchPage.clickSaveButton();
-
     }
 
     @When("web user clicks view icon for {string} pouch")
@@ -1076,4 +1075,127 @@ public class PlatformConfigStepDef extends AbstractPage {
     public void licksEditButtonForProduct() {
         productPage.clickEditButton();
     }
+
+    @And("web user fills rule config detail {string} {string} {string} {string} and {string}")
+    public void webUserFillsRuleConfigDetailAnd(String name, String description, String expression, String usedBy, String status) {
+        rulePage.addRuleDetail(name, description, expression, usedBy, status);
+    }
+    @And("web user clicks save button for rule with {string}")
+    public void clicksSaveButtonForRule(String status) {
+        rulePage.clickSaveButton(status);
+    }
+    @Then("web user should see the {string} rule is created")
+    public void verifyRuleIsCreated(String ruleName) {
+        rulePage.verifyRuleCreated(ruleName);
+    }
+    @And("web user clicks on view icon for {string} rule")
+    public void clicksOnEditIconForRule(String ruleName) {
+        rulePage.clickOnViewIcon(ruleName);
+    }
+    @And("web user delete the created rule")
+    public void deleteTheCreatedRule() {
+        rulePage.clickDeleteButton();
+    }
+    @And("web user clicks edit button for rule")
+    public void clicksEditButton() {
+        rulePage.clickEditButton();
+    }
+
+    @And("web user update rule description as {string} and expression as {string}")
+    public void updateRuleConfiguration(String description, String expression) {
+        rulePage.updateRuleConfig(description, expression);
+    }
+    @Then("web system displays validation message for rule config")
+    public void verifyValidationMessageForRuleConfig() {
+        rulePage.verifyValidationMessage();
+    }
+    @When("web user click on filter icon for rule")
+    public void clickOnFilterIconForRule() {
+        rulePage.clickFilterIcon();
+    }
+    @And("web user select {string} for the search rule filter criteria")
+    public void selectSearchRuleFilterCriteria(String criteria) {
+        rulePage.selectSearchCriteria(criteria);
+    }
+    @And("web user enters {string} into rule search name field")
+    public void enterSearchedKeywordForRule(String ruleName) {
+        rulePage.enterNameInToSearchField(ruleName);
+    }
+    @And("web user clicks search rule button")
+    public void clicksSearchRuleButton() {
+        rulePage.clickSearchButton();
+    }
+    @Then("web system displays a list of rules with {string} on the name")
+    public void verifySearchResultsForRule(String ruleName) {
+        rulePage.verifyRuleSearchResults(ruleName);
+    }
+
+    @Then("verify system displays {string} error message for rule")
+    public void verifySystemDisplaysErrorMessageForRule(String validationMessage) {
+        rulePage.verifyValidationMessageForDuplicateName(validationMessage);
+    }
+
+    @And("web user add product group details {string} {string} {string} and {string}")
+    public void webUserAddProductGroupDetailsAnd(String name, String description, String product, String status) {
+        productGroupPage.addProductGroupDetail(name, description, product, status);
+    }
+
+    @And("web user add settlement detail {string} and {string}")
+    public void webUserAddSettlementDetailAnd(String rule, String settlementGroup) {
+        productGroupPage.addSettlementGroup(rule, settlementGroup);
+    }
+    @And("web user clicks on save button for product group")
+    public void clicksSaveButtonForProductGroup() {
+        productGroupPage.clickSaveButton();
+    }
+    @Then("web user should see the {string} product group is created")
+    public void webUserShouldSeeTheProductGroupIsCreated(String productGroupName) {
+        productGroupPage.verifyProductGroupIsCreated(productGroupName);
+    }
+    @When("web user clicks view icon for {string} product group")
+    public void webUserClicksViewIconForProductGroup(String productGroupName) {
+        productGroupPage.clickViewIcon(productGroupName);
+    }
+    @Then("web user delete the created product group")
+    public void deleteTheCreatedProductGroup() {
+        productGroupPage.deleteProductGroup();
+    }
+    @And("web user clicks edit button for product group")
+    public void clicksEditIconForProductGroup() {
+        productGroupPage.clickEditButton();
+    }
+
+    @And("web user update product group details {string} {string} and {string}")
+    public void updateProductGroupDetails(String description, String product, String status) {
+        productGroupPage.updateProductGroup(description, product, status);
+    }
+    @Then("web system displays validation message for product group config")
+    public void verifyProductGroupValidationMessage() {
+        productGroupPage.verifyValidationMessage();
+    }
+    @When("web user click on filter icon for product group")
+    public void clickOnFilterIconForProductGroup() {
+        productGroupPage.clickFilterButton();
+    }
+    @And("web user select {string} for the search product group filter criteria")
+    public void SelectForTheProductGroupSearchUnitFilterCriteria(String criteria) {
+        productGroupPage.selectFilterCriteria(criteria);
+    }
+    @And("web user enters {string} into product group search name field")
+    public void entersIntoProductGroupSearchNameField(String productGroup) {
+        productGroupPage.fillSearchInput(productGroup);
+    }
+    @And("web user clicks search product group button")
+    public void clicksSearchProductGroupButton() {
+        productGroupPage.clickSearchButton();
+    }
+    @Then("web system displays a list of product groups with {string} on the name")
+    public void verifySearchResultForProductGroup(String productGroupName) {
+        productGroupPage.verifySearchResult(productGroupName);
+    }
+    @Then("verify system displays {string} error message for product group")
+    public void verifySystemDisplaysErrorMessageForProductGroup(String errorMessage) {
+        productGroupPage.verifyErrorMessageForDuplicatedName(errorMessage);
+    }
+
 }

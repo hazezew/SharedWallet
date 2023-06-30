@@ -39,6 +39,6 @@ public class Config {
     public static String counterConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/counter";
     public static String ruleConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/rule";
     public static String productConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/product";
-    public static String productGroupConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/productGroup";
+    public static String productGroupConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/productgroup";
     public static String notificationTemplateConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/notificationtemplate";
 }
