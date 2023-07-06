@@ -8,6 +8,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageObj.web.pages.businessconfig.*;
+import pageObj.web.pages.platformconfig.NotificationTemplatePage;
+import pageObj.web.pages.platformconfig.*;
+import pageObj.web.pages.technicalconfig.FieldMappingPage;
+import pageObj.web.pages.usermgt.*;
 
 import java.time.Duration;
 
@@ -136,7 +141,42 @@ public class AdminDashboardPage {
     private WebElement ucpSubLink;
     @FindBy(xpath = "//li[@id='Notification Template']")
     private WebElement notificationTemplateSubLink;
-
+    @FindBy(xpath = "//li[@id='Wallet Template']")
+    private WebElement walletTemplateSubLink;
+    @FindBy(xpath = "//span[text()='Service Profile Management']")
+    private WebElement serviceProfileManagementSubLink;
+    @FindBy(xpath = "//span[text()='PAP Management']")
+    private WebElement papManagementSubLink;
+    @FindBy(xpath = "//span[text()='Business Hierarchy Management']")
+    private WebElement businessHierarchyManagementSubLink;
+    @FindBy(xpath = "//li[@id='Service Provider']")
+    private WebElement serviceProviderSubLink;
+    @FindBy(xpath = "//li[@id='Assign Provider']")
+    private WebElement assignProviderSubLink;
+    @FindBy(xpath = "//li[@id='Notification']")
+    private WebElement notificationSubLink;
+    @FindBy(xpath = "//li[@id='Product Management']")
+    private WebElement productManagementSubLink;
+    @FindBy(xpath = "//li[@id='Response Node']")
+    private WebElement responseNodeSubLink;
+    @FindBy(xpath = "//li[@id='Service Profile']")
+    private WebElement serviceProfileSubLink;
+    @FindBy(xpath = "//li[@id='Authentication']")
+    private WebElement authenticationSubLink;
+    @FindBy(xpath = "//li[@id='Device Authentication']")
+    private WebElement deviceAuthenticationSubLink;
+    @FindBy(xpath = "//li[@id='Api Group']")
+    private WebElement apiGroupSubLink;
+    @FindBy(xpath = "//li[@id='Access Node']")
+    private WebElement accessNodeSubLink;
+    @FindBy(xpath = "//li[@id='Platform Access Profile']")
+    private WebElement platformAccessProfileSubLink;
+    @FindBy(xpath = "//li[@id='Settlement Group']")
+    private WebElement settlementGroupSubLink;
+    @FindBy(xpath = "//li[@id='Platform Access Role']")
+    private WebElement platformAccessRoleSubLink;
+    @FindBy(xpath = "//li[@id='Business Hierarchy']")
+    private WebElement businessHierarchySubLink;
     public AdminDashboardPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -337,5 +377,102 @@ public class AdminDashboardPage {
         action.moveToElement(notificationTemplateSubLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(notificationTemplateSubLink)).click();
         return new NotificationTemplatePage(driver);
+    }
+    public WalletTemplatePage clickOnWalletTemplateSubMenu() {
+        action.moveToElement(walletTemplateSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(walletTemplateSubLink)).click();
+        return new WalletTemplatePage(driver);
+    }
+    public ServiceProviderPage clickOnServiceProviderSubMenu() {
+        action.moveToElement(vendorManagementSubLink).build().perform();
+        action.moveToElement(serviceProviderSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(serviceProviderSubLink)).click();
+        return new ServiceProviderPage(driver);
+    }
+
+    public AssignProviderPage clickOnAssignProviderSubMenu() {
+        action.moveToElement(vendorManagementSubLink).build().perform();
+        action.moveToElement(assignProviderSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(assignProviderSubLink)).click();
+        return new AssignProviderPage(driver);
+    }
+
+    public NotificationPage clickOnNotificationSubMenu() {
+        action.moveToElement(notificationSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(notificationSubLink)).click();
+        return new NotificationPage(driver);
+    }
+
+
+    public ProductManagementPage clickOnProductManagementSubMenu() {
+        action.moveToElement(productManagementSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(productManagementSubLink)).click();
+        return new ProductManagementPage(driver);
+    }
+
+    public ResponseNodePage clickOnResponseNodeSubMenu() {
+        action.moveToElement(serviceProfileManagementSubLink).build().perform();
+        action.moveToElement(responseNodeSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(responseNodeSubLink)).click();
+        return new ResponseNodePage(driver);
+    }
+
+    public ServiceProfilePage clickOnServiceProfileSubMenu() {
+        action.moveToElement(serviceProfileManagementSubLink).build().perform();
+        action.moveToElement(serviceProfileSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(serviceProfileSubLink)).click();
+        return new ServiceProfilePage(driver);
+    }
+
+    public AuthenticationPage clickOnAuthenticationSubMenu() {
+        action.moveToElement(papManagementSubLink).build().perform();
+        action.moveToElement(authenticationSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(authenticationSubLink)).click();
+        return new AuthenticationPage(driver);
+    }
+
+    public DeviceAuthenticationPage clickOnDeviceAuthenticationSubMenu() {
+        action.moveToElement(papManagementSubLink).build().perform();
+        action.moveToElement(deviceAuthenticationSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(deviceAuthenticationSubLink)).click();
+        return new DeviceAuthenticationPage(driver);
+    }
+
+    public ApiGroupPage clickOnApiGroupSubMenu() {
+        action.moveToElement(papManagementSubLink).build().perform();
+        action.moveToElement(apiGroupSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(apiGroupSubLink)).click();
+        return new ApiGroupPage(driver);
+    }
+    public AccessNodePage clickOnAccessNodeSubMenu() {
+        action.moveToElement(papManagementSubLink).build().perform();
+        action.moveToElement(accessNodeSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(accessNodeSubLink)).click();
+        return new AccessNodePage(driver);
+    }
+    public PlatformAccessProfilePage clickOnPlatformAccessProfileSubMenu() {
+        action.moveToElement(papManagementSubLink).build().perform();
+        action.moveToElement(platformAccessProfileSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(platformAccessProfileSubLink)).click();
+        return new PlatformAccessProfilePage(driver);
+    }
+    public SettlementGroupPage clickOnSettlementGroupSubMenu() {
+        action.moveToElement(businessHierarchyManagementSubLink).build().perform();
+        action.moveToElement(settlementGroupSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(settlementGroupSubLink)).click();
+        return new SettlementGroupPage(driver);
+    }
+
+    public PlatformAccessRolePage clickOnPlatformAccessRoleSubMenu() {
+        action.moveToElement(businessHierarchyManagementSubLink).build().perform();
+        action.moveToElement(platformAccessRoleSubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(platformAccessRoleSubLink)).click();
+        return new PlatformAccessRolePage(driver);
+    }
+    public BusinessHierarchyPage clickOnBusinessHierarchySubMenu() {
+        action.moveToElement(businessHierarchyManagementSubLink).build().perform();
+        action.moveToElement(businessHierarchySubLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(businessHierarchySubLink)).click();
+        return new BusinessHierarchyPage(driver);
     }
 }

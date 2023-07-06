@@ -6,6 +6,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pageObj.web.*;
+import pageObj.web.pages.usermgt.ViewUserPage;
+import pageObj.web.pages.usermgt.*;
 
 public class UserManagementStepDef extends AbstractPage {
     private ViewUserPage viewUserPage;

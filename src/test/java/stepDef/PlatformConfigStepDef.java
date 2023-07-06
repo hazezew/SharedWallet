@@ -9,6 +9,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import pageObj.web.*;
+import pageObj.web.pages.platformconfig.NotificationTemplatePage;
+import pageObj.web.pages.platformconfig.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,7 @@ public class PlatformConfigStepDef extends AbstractPage {
     private UnitPage unitPage;
     private PouchPage pouchPage;
     private WalletPage walletPage;
+    private WalletTemplatePage walletTemplatePage;
     private KycManagementPage kycManagementPage;
     private ServicePage servicePage;
     private AccessChannelPage accessChannelPage;
@@ -33,7 +36,6 @@ public class PlatformConfigStepDef extends AbstractPage {
     private ProductPage productPage;
     private ProductGroupPage productGroupPage;
     private NotificationTemplatePage notificationTemplatePage;
-
     @And("web user moves mouse over Platform Config main menu")
     public void webUserMovesMouseOverPlatformConfigMainMenu() {
         adminDashboardPage.hoverOnPlatformConfigMenu();
@@ -281,7 +283,6 @@ public class PlatformConfigStepDef extends AbstractPage {
     public void verifySearchResultListOfParameters(String parameterName) {
         parameterConfigPage.verifySearchResult(parameterName);
     }
-
     @And("web user clicks on Unit sub menu")
     public void clicksOnUnitSubMenu() {
         unitPage = adminDashboardPage.clickOnUnitSubMenu();
@@ -596,7 +597,10 @@ public class PlatformConfigStepDef extends AbstractPage {
     public void VerifyKYCConfigurationPage() {
         Assert.assertEquals(Config.kycConfigurationPageURL, kycManagementPage.getKycPageURL());
     }
-
+    @Then("verify system displays {string} error message for kyc")
+    public void verifySystemDisplaysErrorMessageForKyc(String errorMessage) {
+        kycManagementPage.verifyErrorMessageForDuplicatedName(errorMessage);
+    }
     @When("web user clicks on Add button for KYC Config")
     public void clicksOnAddButtonForKYCConfig() {
         kycManagementPage.clickAddButton();
@@ -606,7 +610,10 @@ public class PlatformConfigStepDef extends AbstractPage {
     public void fillsKycNameAndDescription(String name, String description, String status) {
         kycManagementPage.fillKycNameAndDescription(name, description, status);
     }
-
+    @And("web user clicks edit button for kyc")
+    public void clicksEditButtonForKyc() {
+        kycManagementPage.clickEditButton();
+    }
     @And("web user select kyc level as {string}")
     public void webUserSelectKycLevelAs(String kycLevel) {
         kycManagementPage.selectKycLevel(kycLevel);
@@ -626,12 +633,50 @@ public class PlatformConfigStepDef extends AbstractPage {
     public void webUserAddFieldGroupWithNameAsDescriptionAsAndDisplayNameAs(String name, String description, String displayName) {
         kycManagementPage.addFieldGroup(name, description, displayName);
     }
-
+    @Then("web user delete the created kyc")
+    public void deleteTheCreatedKyc() {
+        kycManagementPage.deleteKyc();
+    }
+    @Then("web system displays validation message for kyc config")
+    public void verifyKycValidationMessage() {
+        kycManagementPage.verifyValidationMessage();
+    }
+    @Then("web user should see the {string} kyc is created")
+    public void webUserShouldSeeKycIsCreated(String kycName) {
+        kycManagementPage.verifyKycIsCreated(kycName);
+    }
     @And("web user selects parameters {string} {string} and {string} in to field group")
     public void webUserSelectsParametersAndInToFieldGroup(String name, String mpin, String email) {
         kycManagementPage.addParametersInToFieldGroup(name, mpin, email);
     }
+    @When("web user clicks view icon for {string} kyc")
+    public void webUserClicksViewIconForKyc(String kycName) {
+        kycManagementPage.clickViewIcon(kycName);
+    }
+    @When("web user click on filter icon for kyc")
+    public void clickOnFilterIconForKyc() {
+        kycManagementPage.clickFilterButton();
+    }
 
+    @And("web user select {string} for the search kyc filter criteria")
+    public void SelectForTheKycSearchUnitFilterCriteria(String criteria) {
+        kycManagementPage.selectFilterCriteria(criteria);
+    }
+
+    @And("web user enters {string} into kyc search name field")
+    public void entersIntoKycSearchNameField(String kycName) {
+        kycManagementPage.fillSearchInput(kycName);
+    }
+
+    @And("web user clicks search kyc button")
+    public void clicksSearchKycButton() {
+        kycManagementPage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of kyc's with {string} on the name")
+    public void verifySearchResultForKyc(String kycName) {
+        kycManagementPage.verifySearchResult(kycName);
+    }
     @And("web user clicks on Service sub menu")
     public void clicksOnServiceSubMenu() {
         servicePage = adminDashboardPage.clickOnServiceSubMenu();
@@ -1197,5 +1242,58 @@ public class PlatformConfigStepDef extends AbstractPage {
     public void verifySystemDisplaysErrorMessageForProductGroup(String errorMessage) {
         productGroupPage.verifyErrorMessageForDuplicatedName(errorMessage);
     }
+    @And("web user clicks on save button for kyc")
+    public void clicksSaveButtonForKyc() {
+        kycManagementPage.clickSaveButton();
+    }
 
+    @And("web user add field group with name {string} from library")
+    public void addFieldGroupFromLibrary(String fieldGroupName) {
+        kycManagementPage.addFieldGroupFromLibrary(fieldGroupName);
+    }
+
+    @And("web user clicks on wallet template sub menu")
+    public void clicksOnWalletTemplateSubMenu() {
+        walletTemplatePage = adminDashboardPage.clickOnWalletTemplateSubMenu();
+    }
+    @Then("web system displays wallet template Configuration page")
+    public void webSystemDisplaysWalletTemplateConfigurationPage() {
+        Assert.assertEquals(Config.walletTemplateConfigurationPageURL, walletTemplatePage.getWalletTemplatePageURL());
+    }
+    @When("web user clicks on Add button for wallet template Config")
+    public void clicksOnAddButtonForWalletTemplate() {
+        walletTemplatePage.clickAddButton();
+    }
+
+    @And("web user fills wallet template detail {string} {string} {string} and {string}")
+    public void webUserFillsWalletTemplateDetailAnd(String name, String description, String wallet, String pouch) {
+        walletTemplatePage.fillWalletTemplateDetail(name, description, wallet, pouch);
+    }
+
+    @And("web user clicks on save button for wallet template")
+    public void clicksOnSaveButtonForWalletTemplate() {
+        walletTemplatePage.clickSaveButton();
+    }
+    @Then("web user should see the {string} wallet template is created")
+    public void verifyWalletTemplateIsCreated(String walletTemplateName) {
+        walletTemplatePage.verifyWalletTemplateIsCreated(walletTemplateName);
+    }
+
+    @And("web user clicks on view icon for {string} wallet template")
+    public void clicksOnViewIconForWalletTemplate(String walletTemplateName) {
+        walletTemplatePage.clickViewIcon(walletTemplateName);
+    }
+    @And("web user delete the created wallet template")
+    public void deleteTheCreatedWalletTemplate() {
+        walletTemplatePage.deleteWalletTemplate();
+    }
+
+    @And("web user update wallet template {string} {string} and {string}")
+    public void updateWalletTemplate(String description, String wallet, String pouch) {
+        walletTemplatePage.updateWalletTemplate(description, wallet, pouch);
+    }
+    @When("web user clicks edit button for wallet template")
+    public void clicksEditButtonForWalletTemplate() {
+        walletTemplatePage.clickEditButton();
+    }
 }

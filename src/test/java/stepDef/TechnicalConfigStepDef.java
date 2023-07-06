@@ -5,7 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.testng.Assert;
 import pageObj.web.AbstractPage;
-import pageObj.web.FieldMappingPage;
+import pageObj.web.pages.technicalconfig.FieldMappingPage;
 
 public class TechnicalConfigStepDef extends AbstractPage {
     private FieldMappingPage fieldMappingPage;
