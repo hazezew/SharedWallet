@@ -13,6 +13,7 @@ import org.testng.Assert;
 import pageObj.web.Elements.CommonElements;
 
 import java.time.Duration;
+import java.util.List;
 
 public class ServiceVendorPage extends CommonElements {
     private WebDriver driver;
@@ -38,6 +39,8 @@ public class ServiceVendorPage extends CommonElements {
     private WebElement editVendorServiceDropdown;
     @FindBy(xpath = "//textarea[@id='inputServicesDescription']")
     private WebElement editDescriptionField;
+    @FindBy(xpath = "//input[@name='vendorName']")
+    private WebElement searchNameField;
 
     public ServiceVendorPage(WebDriver driver) {
         this.driver = driver;
@@ -122,5 +125,32 @@ public class ServiceVendorPage extends CommonElements {
         wait.until(ExpectedConditions.visibilityOf(editVendorServiceDropdown)).click();
         driver.findElement(By.xpath("//li[text()='" + vendorService + "']")).click();
         editDescriptionField.sendKeys(description);
+    }
+
+    public void clickFilterIcon() {
+        wait.until(ExpectedConditions.visibilityOf(filterIcon)).click();
+    }
+
+    public void enterNameInToSearchField(String serviceVendorName) {
+        searchNameField.sendKeys(serviceVendorName);
+    }
+
+    public void selectSearchCriteria(String criteria) {
+        driver.findElement(By.xpath("(//div[@title='" + criteria + "'])[1]")).click();
+    }
+    public void clickSearchButton() {
+        wait.until(ExpectedConditions.visibilityOf(searchButton)).click();
+    }
+
+    public void verifyServiceVendorSearchResults(String serviceVendorName) {
+        List<WebElement> searchResults = driver.findElements(By.xpath("//td[contains(text(), '" + serviceVendorName + "')]"));
+        boolean searchResultOnTable = true;
+        for (WebElement msg : searchResults) {
+            if (!msg.isDisplayed()) {
+                searchResultOnTable = false;
+                break;
+            }
+        }
+        Assert.assertTrue(searchResultOnTable, "Search results not displayed");
     }
 }

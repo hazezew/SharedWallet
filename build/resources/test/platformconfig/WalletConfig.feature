@@ -82,7 +82,7 @@ Feature: Wallet Configuration
     And web user clicks search wallet button
     Then web system displays a list of wallet with "Agent" on the name
 
-  Scenario: Verify add unit without filling the required fields
+  Scenario: Verify add wallet without filling the required fields
     And web user clicks on wallet sub menu
     Then web system displays Wallet Configuration page
     When web user clicks on Add button for Wallet Config

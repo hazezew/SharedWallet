@@ -100,6 +100,32 @@ public class BusinessConfigStepDef extends AbstractPage {
         serviceVendorPage.updateServiceVendor(vendorService, description);
     }
 
+    @When("web user click on filter icon for service vendor")
+    public void clickOnFilterIconForServiceVendor() {
+        serviceVendorPage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into service vendor search name field")
+    public void enterSearchedKeyword(String serviceVendorName) {
+        serviceVendorPage.enterNameInToSearchField(serviceVendorName);
+    }
+
+    @And("web user select {string} for the search service vendor filter criteria")
+    public void selectSearchServiceVendorFilterCriteria(String criteria) {
+        serviceVendorPage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search service vendor button")
+    public void clicksSearchServiceVendorButton() {
+        serviceVendorPage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of service vendors with {string} on the name")
+    public void verifySearchResults(String serviceVendorName) {
+        serviceVendorPage.verifyServiceVendorSearchResults(serviceVendorName);
+    }
+
+
     @And("web user clicks on notification sub menu")
     public void clicksOnNotificationSubMenu() {
         notificationPage = adminDashboardPage.clickOnNotificationSubMenu();
@@ -279,5 +305,133 @@ public class BusinessConfigStepDef extends AbstractPage {
     @Then("web system displays business hierarchy configuration page")
     public void webSystemDisplaysBusinessHierarchyConfigurationPage() {
         Assert.assertEquals(Config.businessHierarchyConfigurationPageURL, businessHierarchyPage.getBusinessHierarchyPageURL());
+    }
+
+    @And("web user adds service provider detail {string} {string} {string} {string}")
+    public void addServiceProviderDetail(String name, String providerService, String oEt, String description) {
+        serviceProviderPage.addServiceProviderDetail(name, providerService, oEt, description);
+    }
+
+    @And("web user adds provider api detail {string} {string} {string} {string}")
+    public void addProviderApiDetail(String providerName, String commProtocol, String successCode, String failureCode) {
+        serviceProviderPage.addProviderApiDetail(providerName,commProtocol,successCode, failureCode);
+    }
+
+    @And("web user adds api details Api url {string} {string} http protocol as {string} request type as {string} response type {string}")
+    public void addApiDetail(String apiUrl, String httpType, String httpProtocol, String requestType, String responseType) {
+        serviceProviderPage.addApiDetail(apiUrl, httpType, httpProtocol, requestType, responseType);
+    }
+
+    @And("web user adds Header Mapping details Api field {string} Packet field {string} default value {string}")
+    public void addHeaderMappingDetails(String apiField, String packetField, String defaultValue) {
+        serviceProviderPage.addHeaderMappingDetail(apiField, packetField, defaultValue);
+    }
+
+    @And("web user adds Request Mapping details with {string} Api field {string} Packet field {string} default value {string} api template {string}")
+    public void addRequestMappingDetail(String httpType, String apiField, String packetField, String defaultValue, String apiTemplate) {
+        serviceProviderPage.addRequestMappingDetail(httpType, apiField, packetField, defaultValue, apiTemplate);
+
+    }
+    @And("web user adds Response Mapping details Api field {string} Packet field {string} default value {string}")
+    public void addResponseMappingDetail(String apiField, String packetField, String defaultValue) {
+        serviceProviderPage.addResponseMappingDetail(apiField, packetField, defaultValue);
+
+    }
+    @And("web user click submit button")
+    public void clickSubmitButton() {
+        serviceProviderPage.clickSubmitButton();
+    }
+    @Then("web user should see the {string} service provider is created")
+    public void verifyTheServiceProviderIsCreated(String serviceProviderName) {
+        serviceProviderPage.verifyServiceProviderCreated(serviceProviderName);
+    }
+
+    @And("web user clicks on view icon for {string} service provider")
+    public void clicksOnViewIconForServiceProvider(String serviceProviderName) {
+        serviceProviderPage.clickViewIcon(serviceProviderName);
+    }
+
+    @And("web user delete the created service provider")
+    public void deleteTheCreatedServiceProvider() {
+        serviceProviderPage.deleteServiceProvider();
+    }
+
+    @And("web user clicks on add service button")
+    public void clicksOnAddServiceButton() {
+        serviceProviderPage.clickAddServiceButton();
+    }
+
+    @And("web user add provider service as {string}")
+    public void addProviderServiceAs(String providerServiceName) {
+        serviceProviderPage.addProviderService(providerServiceName);
+    }
+
+    @And("web user clicks on edit button")
+    public void clicksOnEditButton() {
+        serviceProviderPage.clickEditButton();
+    }
+
+    @And("web user update provider OE as {string} api {string} url {string} http type {string} template {string}")
+    public void updateProviderService(String OET, String api, String apiUrl, String httpType, String template) {
+        serviceProviderPage.updateServiceProvider(OET, api, apiUrl, httpType, template);
+    }
+
+    @And("web user clicks on next button")
+    public void clicksOnNextButton() {
+        serviceProviderPage.clickNextButton();
+    }
+    @Then("web system displays validation message for service provider")
+    public void verifyValidationMessageForServiceProviderConfig() {
+        serviceProviderPage.verifyValidationMessage();
+    }
+    @Then("verify system displays {string} error message for service provider")
+    public void verifyErrorMessageForServiceProvider(String errorMessage) {
+        serviceProviderPage.verifyErrorMessage(errorMessage);
+    }
+
+    @When("web user click on filter icon for service provider")
+    public void clickOnFilterIconForServiceProvider() {
+        serviceProviderPage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into service provider search name field")
+    public void enterSearchedKeywordForProvider(String serviceProvider) {
+        serviceProviderPage.enterNameInToSearchField(serviceProvider);
+    }
+
+    @And("web user select {string} for the search service provider filter criteria")
+    public void selectSearchServiceProviderFilterCriteria(String criteria) {
+        serviceProviderPage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search service provider button")
+    public void clicksSearchServiceProviderButton() {
+        serviceProviderPage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of service providers with {string} on the name")
+    public void verifySearchResultsForProvider(String serviceProvider) {
+        serviceProviderPage.verifyServiceProviderSearchResults(serviceProvider);
+    }
+
+    @And("web user clicks on export button for service provider")
+    public void clicksOnExportButtonForService() {
+        serviceProviderPage.clickExportButton();
+    }
+
+    @And("web user enters {string} and {string} into service provider export fields")
+    public void entersAndIntoServiceExportFields(String name, String description) {
+        serviceProviderPage.fillExportDetail(name, description);
+
+    }
+
+    @And("web user clicks save export history button for service provider")
+    public void clicksSaveExportHistoryButtonForService() {
+        serviceProviderPage.clickExportHistoryButton();
+    }
+
+    @Then("web user verify {string} record created in service provider export history")
+    public void verifyRecordCreatedInServiceExportHistory(String exportName) {
+        serviceProviderPage.verifyExportHistory(exportName);
     }
 }

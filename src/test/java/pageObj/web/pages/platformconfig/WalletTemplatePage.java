@@ -12,6 +12,7 @@ import org.testng.Assert;
 import pageObj.web.Elements.CommonElements;
 
 import java.time.Duration;
+import java.util.List;
 
 public class WalletTemplatePage extends CommonElements {
     private WebDriver driver;
@@ -75,5 +76,43 @@ public class WalletTemplatePage extends CommonElements {
     }
     public void clickEditButton(){
         wait.until(ExpectedConditions.visibilityOf(editButton)).click();
+    }
+    public void verifyDuplicateErrorMessage(String errorMessage){
+        String actualValidationMessage = duplicateValidationText.getText();
+        Assert.assertTrue(duplicateErrorMessage.isDisplayed());
+        Assert.assertEquals(actualValidationMessage, errorMessage);
+    }
+    public void clickFilterIcon(){
+        wait.until(ExpectedConditions.visibilityOf(filterIcon)).click();
+    }
+    public void selectFilterCriteria(String criteria){
+        driver.findElement(By.xpath("(//div[@title='" + criteria + "'])[1]")).click();
+    }
+    public void fillSearchInput(String walletTemplateName){
+        searchInputField.sendKeys(walletTemplateName);
+    }
+    public void clickSearchButton(){
+        wait.until(ExpectedConditions.visibilityOf(searchButton)).click();
+    }
+    public void verifyWalletTemplateSearchResult(String walletTemplateName){
+        List<WebElement> searchResults = driver.findElements(By.xpath("//td[contains(text(), '" + walletTemplateName + "')]"));
+        boolean searchResultOnTable = true;
+        for (WebElement msg : searchResults) {
+            if (!msg.isDisplayed()) {
+                searchResultOnTable = false;
+                break;
+            }
+        }
+        Assert.assertTrue(searchResultOnTable, "Search results not displayed");
+    }
+    public void verifyValidationMessageForWallet(){
+        boolean allValidationMessagesDisplayed = true;
+        for (WebElement msg : validationMessages) {
+            if (!msg.isDisplayed()) {
+                allValidationMessagesDisplayed = false;
+                break;
+            }
+        }
+        Assert.assertTrue(allValidationMessagesDisplayed, "All validation messages are not displayed");
     }
 }

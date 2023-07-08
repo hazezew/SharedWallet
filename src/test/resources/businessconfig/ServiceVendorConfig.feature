@@ -37,8 +37,8 @@ Feature: ServiceVendor Configuration
 
     Examples:
       | Name                   | VendorType       | VendorService    | Description      | Status |
-      | Auto_Service_Vendor2   | Service Vendor   | Payment to Agent | Auto_Description | Active |
-      | Auto_Technical Vendor2 | Technical Vendor | SMS Service      | Auto_Description | Active |
+      | Auto_Service_Vendor   | Service Vendor   | Payment to Agent | Auto_Description | Active |
+      | Auto_Technical Vendor | Technical Vendor | SMS Service      | Auto_Description | Active |
 
   Scenario: Verify add service vendor without filling the required fields
     And web user clicks on service vendor sub menu
@@ -87,3 +87,11 @@ Feature: ServiceVendor Configuration
     And web user clicks on view icon for "Auto_Vendor_Edit1" service vendor
     And web user delete the created service vendor
 
+  Scenario: verify search for service provider functionality
+    And web user clicks on service vendor sub menu
+    Then web system displays service vendor configuration page
+    When web user click on filter icon for service vendor
+    And web user select "Contains" for the search service vendor filter criteria
+    And web user enters "Vendor" into service vendor search name field
+    And web user clicks search service vendor button
+    Then web system displays a list of service vendors with "Vendor" on the name

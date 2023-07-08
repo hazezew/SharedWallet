@@ -1296,4 +1296,34 @@ public class PlatformConfigStepDef extends AbstractPage {
     public void clicksEditButtonForWalletTemplate() {
         walletTemplatePage.clickEditButton();
     }
+    @Then("verify system displays {string} error message for wallet template")
+    public void verifyValidationMessage(String errorMessage) {
+        walletTemplatePage.verifyDuplicateErrorMessage(errorMessage);
+    }
+    @When("web user click on filter icon for Wallet template")
+    public void clickOnFilterIconForWalletTemplate() {
+        walletTemplatePage.clickFilterIcon();
+    }
+    @And("web user select {string} for the search wallet template filter criteria")
+    public void selectSearchWalletTemplateFilterCriteria(String criteria) {
+        walletTemplatePage.selectFilterCriteria(criteria);
+    }
+
+    @And("web user enters {string} into wallet template search name field")
+    public void inputSearchWalletTemplate(String walletTemplateName) {
+        walletTemplatePage.fillSearchInput(walletTemplateName);
+    }
+
+    @And("web user clicks search wallet template button")
+    public void clicksSearchWalletTemplateButton() {
+        walletTemplatePage.clickSearchButton();
+    }
+    @Then("web system displays a list of wallet template with {string} on the name")
+    public void verifyWalletTemplateSearchResult(String walletTemplateName) {
+        walletTemplatePage.verifyWalletTemplateSearchResult(walletTemplateName);
+    }
+    @Then("web system displays validation message for wallet template config")
+    public void verifyValidationMessageForWalletTemplate() {
+        walletTemplatePage.verifyValidationMessageForWallet();
+    }
 }
