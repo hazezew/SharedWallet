@@ -434,4 +434,200 @@ public class BusinessConfigStepDef extends AbstractPage {
     public void verifyRecordCreatedInServiceExportHistory(String exportName) {
         serviceProviderPage.verifyExportHistory(exportName);
     }
+
+    @And("web user add notification detail {string} {string} {string} {string} {string} {string} {string} {string} {string}")
+    public void addNotificationDetail(String name, String notificationType, String description, String notificationCategory, String vendor, String vendorService, String mobileNumber, String fromEmail, String email) {
+        notificationPage.addNotification(name, notificationType, description, notificationCategory,vendor, vendorService, mobileNumber, fromEmail, email);
+    }
+
+    @And("web user clicks on save button for notification")
+    public void clickSaveButton() {
+        notificationPage.clickSaveButton();
+    }
+    @Then("web user should see the {string} notification is created")
+    public void verifyTheNotificationIsCreated(String notificationName) {
+        notificationPage.verifyNotificationCreated(notificationName);
+    }
+
+    @And("web user clicks on view icon for {string} notification")
+    public void clicksOnViewIconForNotification(String notificationName) {
+        notificationPage.clickViewIcon(notificationName);
+    }
+
+    @And("web user delete the created notification")
+    public void deleteTheCreatedNotification() {
+        notificationPage.deleteNotification();
+    }
+
+    @And("web user clicks on edit button for notification")
+    public void clickEditButton() {
+        notificationPage.clickEditButton();
+    }
+
+    @And("web user update notification with type {string} username {string} category {string} Error code {string} and email {string}")
+    public void updateNotificationConfiguration(String notificationType, String username, String category, String errorCode, String email) {
+        notificationPage.updateNotification(notificationType, username, category, errorCode, email);
+    }
+    @Then("web system displays validation message for notification")
+    public void verifyValidationMessageForNotificationConfig() {
+        notificationPage.verifyValidationMessage();
+    }
+    @Then("verify system displays {string} error message for notification")
+    public void verifyErrorMessageForNotification(String errorMessage) {
+        notificationPage.verifyErrorMessage(errorMessage);
+    }
+
+
+    @When("web user click on filter icon for notification")
+    public void clickOnFilterIconForNotification() {
+        notificationPage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into notification search name field")
+    public void enterSearchedKeywordForNotification(String notificationName) {
+        notificationPage.enterNameInToSearchField(notificationName);
+    }
+
+    @And("web user select {string} for the search notification filter criteria")
+    public void selectSearchNotificationFilterCriteria(String criteria) {
+        notificationPage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search notification button")
+    public void clicksSearchNotificationButton() {
+        notificationPage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of notifications with {string} on the name")
+    public void verifySearchResultsForNotification(String notificationName) {
+        notificationPage.verifyNotificationSearchResults(notificationName);
+    }
+
+
+    @When("web user click on filter icon for assign provider")
+    public void clickOnFilterIconForAssignProvider() {
+        assignProviderPage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into assign provider search name field")
+    public void enterSearchedKeywordForAssignProvider(String vendorName) {
+        assignProviderPage.enterNameInToSearchField(vendorName);
+    }
+
+    @And("web user select {string} for the search assign provider filter criteria")
+    public void selectSearchAssignProviderFilterCriteria(String criteria) {
+        assignProviderPage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search assign provider button")
+    public void clicksSearchAssignProviderButton() {
+        assignProviderPage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of assign providers with {string} on the name")
+    public void verifySearchResultsForAssignProvider(String vendorName) {
+        assignProviderPage.verifyAssignProviderSearchResults(vendorName);
+    }
+
+    @When("web user click on filter icon for product management")
+    public void clickOnFilterIconForProductManagement() {
+        productManagementPage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into product management search name field")
+    public void enterSearchedKeywordForProductManagement(String vendorName) {
+        productManagementPage.enterNameInToSearchField(vendorName);
+    }
+
+    @And("web user select {string} for the search product management filter criteria")
+    public void selectSearchProductManagementFilterCriteria(String criteria) {
+        productManagementPage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search product management button")
+    public void clicksSearchProductManagementButton() {
+        productManagementPage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of product managements with {string} on the name")
+    public void verifySearchResultsForProductManagement(String vendorName) {
+        productManagementPage.verifyVendorSearchResults(vendorName);
+    }
+
+    @And("web user add response node detail {string} {string} {string} {string}")
+    public void addResponseNode(String name, String description, String message, String responseCode) {
+        responseNodePage.addResponseNode(name, description, message, responseCode);
+    }
+
+    @And("web user click save button for response node")
+    public void clickSaveButtonForResponseNode() {
+        responseNodePage.clickSaveButton();
+    }
+    @Then("web user should see the {string} response node is created")
+    public void verifyTheResponseNodeIsCreated(String responseNodeName) {
+        responseNodePage.verifyResponseNodeCreated(responseNodeName);
+    }
+
+    @And("web user clicks on view icon for {string} response node")
+    public void clicksOnViewIconForResponseNode(String responseNodeName) {
+        responseNodePage.clickViewIcon(responseNodeName);
+    }
+
+    @And("web user delete the created response node")
+    public void deleteTheCreatedResponseNode() {
+        responseNodePage.deleteResponseNode();
+    }
+
+    @And("web user clicks on edit button for response node")
+    public void clickEditButtonForResponseNode() {
+        responseNodePage.clickEditButton();
+    }
+
+    @And("web user update response node {string} {string} {string}")
+    public void webUserUpdateResponseNode(String description, String responseCode, String message) {
+        responseNodePage.updateResponseNode(description, responseCode, message);
+    }
+    @Then("verify system displays {string} error message for response node")
+    public void verifyErrorMessageForResponseNode(String errorMessage) {
+        responseNodePage.verifyErrorMessage(errorMessage);
+    }
+    @Then("web system displays validation message for response node")
+    public void verifyValidationMessageForResponseNodeConfig() {
+        responseNodePage.verifyValidationMessage();
+    }
+
+    @When("web user click on filter icon for response node")
+    public void clickOnFilterIconForResponseNode() {
+        responseNodePage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into response node search name field")
+    public void enterSearchedKeywordForResponseNode(String responseNodeName) {
+        responseNodePage.enterNameInToSearchField(responseNodeName);
+    }
+
+    @And("web user select {string} for the search response node filter criteria")
+    public void selectSearchResponseNodeFilterCriteria(String criteria) {
+        responseNodePage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search response node button")
+    public void clicksSearchResponseNodeButton() {
+        responseNodePage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of response nodes with {string} on the name")
+    public void verifySearchResultsForResponseNode(String responseNodeName) {
+        responseNodePage.verifyResponseNodeSearchResults(responseNodeName);
+    }
+
+    @And("web user add service profile detail {string} {string} {string} {string}")
+    public void addServiceProfileDetail(String name, String description, String type, String status) {
+        serviceProfilePage.addServiceProfile(name, description, type, status);
+    }
+
+    @And("web user configure service profile tree {string} {string} {string} {string}")
+    public void configureServiceProfileTree(String accessChannel, String service, String product, String ucpGroup) {
+        serviceProfilePage.configureServiceProfileTree(accessChannel,service,product,ucpGroup);
+    }
 }

@@ -73,7 +73,6 @@ Feature: Service Provider Configuration
       | Name                      | ProviderService | OETemplate             | HttpType | Description | ProviderApiName | Protocol | SuccessCode | FailureCode |
       | Provider with Add Service | Cash_Out        | Sub agent template OET | Get      | Auto_Desc   | Auto_SMS        | Rest     | 200         | 400         |
 
-
   Scenario: Verify add service provider without filling the required fields
     And web user clicks on service provider sub menu
     Then web system displays service provider configuration page

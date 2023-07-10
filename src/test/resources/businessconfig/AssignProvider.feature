@@ -26,3 +26,13 @@ Feature: Assign Provider Configuration
   Scenario: Add Assign Provider with valid data
     And web user clicks on assign provider sub menu
     Then web system displays assign provider configuration page
+
+
+  Scenario: verify search for Assign Provider functionality
+    And web user clicks on assign provider sub menu
+    Then web system displays assign provider configuration page
+    When web user click on filter icon for assign provider
+    And web user select "Contains" for the search assign provider filter criteria
+    And web user enters "Tele" into assign provider search name field
+    And web user clicks search assign provider button
+    Then web system displays a list of assign providers with "Tele" on the name

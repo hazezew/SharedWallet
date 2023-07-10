@@ -23,7 +23,12 @@ Feature: Service Profile Configuration
     And web system displays Admin dashboard
     And web user moves mouse over Business Config main menu
 
-  Scenario: Add Service Profile with valid data
+  Scenario Outline: Add Service Profile with valid data
     And web user clicks on service profile sub menu
     Then web system displays service profile configuration page
     When web user clicks on add button for service profile
+    And web user add service profile detail "<Name>" "<Description>" "<Type>" "<Status>"
+    And web user configure service profile tree "<AccessChannel>" "<Service>" "<Product>" "<UcpGroup>"
+    Examples:
+      | Name                 | Description | Type     | Status | AccessChannel       | Service            | Product            | UcpGroup           |
+      | Auto Service Profile | Auto desc   | Standard | Active | Customer Mobile App | Cash into customer | Cash into customer | Customer ucp group |

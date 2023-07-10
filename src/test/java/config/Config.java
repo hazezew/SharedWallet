@@ -42,12 +42,12 @@ public class Config {
     public static String productGroupConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/productgroup";
     public static String notificationTemplateConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/notificationtemplate";
     public static String walletTemplateConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/wallettemplate";
-    public static String notificationConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/notification";
+    public static String notificationConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/notificationmanagement/notification";
     public static String serviceProviderConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/vendormanagement/serviceprovider";
     public static String assignProviderConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/vendormanagement/assignprovider";
     public static String productManagementConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/productmanagement";
     public static String responseNodeConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/servicemanagement/responsenode";
-    public static String serviceProfileConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/servicemanagement/serviceprofile";
+    public static String serviceProfileConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/serviceprofile";
     public static String authenticationConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/authentication";
     public static String deviceAuthenticationConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/deviceauthentication";
     public static String apiGroupConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/apigroup";

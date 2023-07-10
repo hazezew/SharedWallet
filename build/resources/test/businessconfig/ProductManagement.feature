@@ -27,3 +27,12 @@ Feature: Product Management Configuration
     And web user clicks on product management sub menu
     Then web system displays product management configuration page
     When web user clicks on add button for product management
+
+  Scenario: verify search for product management functionality
+    And web user clicks on product management sub menu
+    Then web system displays product management configuration page
+    When web user click on filter icon for product management
+    And web user select "Contains" for the search product management filter criteria
+    And web user enters "Ethio" into product management search name field
+    And web user clicks search product management button
+    Then web system displays a list of product managements with "Ethio" on the name
