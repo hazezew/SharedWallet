@@ -630,4 +630,41 @@ public class BusinessConfigStepDef extends AbstractPage {
     public void configureServiceProfileTree(String accessChannel, String service, String product, String ucpGroup) {
         serviceProfilePage.configureServiceProfileTree(accessChannel,service,product,ucpGroup);
     }
+
+    @And("web user click save button for service profile")
+    public void clickSaveButtonForSP() {
+        serviceProfilePage.clickSaveButton();
+    }
+    @Then("web user should see the {string} service profile is created")
+    public void verifyTheServiceProfileIsCreated(String serviceProfileName) {
+        serviceProfilePage.verifyServiceProfileCreated(serviceProfileName);
+    }
+
+    @And("web user clicks on view icon for {string} service profile")
+    public void clicksOnViewIconForServiceProfile(String serviceProfileName) {
+        serviceProfilePage.clickViewIcon(serviceProfileName);
+    }
+
+    @And("web user delete the created service profile")
+    public void deleteTheCreatedServiceProfile() {
+        serviceProfilePage.deleteServiceProfile();
+    }
+
+    @When("web user clicks on edit button for service profile")
+    public void clickEditButtonForServiceProfile() {
+        serviceProfilePage.clickEditButton();
+    }
+
+    @And("web user update service profile description {string} and type {string}")
+    public void updateServiceProfile(String description, String type) {
+        serviceProfilePage.updateServiceProfile(description, type);
+    }
+    @Then("web system displays validation message for service profile")
+    public void verifyValidationMessageForServiceProfile() {
+        serviceProfilePage.verifyValidationMessage();
+    }
+    @Then("verify system displays {string} error message for service profile")
+    public void verifyErrorMessageForServiceProfile(String errorMessage) {
+        serviceProfilePage.verifyErrorMessage(errorMessage);
+    }
 }

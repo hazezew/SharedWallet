@@ -29,6 +29,56 @@ Feature: Service Profile Configuration
     When web user clicks on add button for service profile
     And web user add service profile detail "<Name>" "<Description>" "<Type>" "<Status>"
     And web user configure service profile tree "<AccessChannel>" "<Service>" "<Product>" "<UcpGroup>"
+    And web user click save button for service profile
+    Then web user should see the "<Name>" service profile is created
+    And web user clicks on view icon for "<Name>" service profile
+    And web user delete the created service profile
     Examples:
       | Name                 | Description | Type     | Status | AccessChannel       | Service            | Product            | UcpGroup           |
       | Auto Service Profile | Auto desc   | Standard | Active | Customer Mobile App | Cash into customer | Cash into customer | Customer ucp group |
+
+  Scenario: Verify add service provider without filling the required fields
+    And web user clicks on service profile sub menu
+    Then web system displays service profile configuration page
+    When web user clicks on add button for service profile
+    And web user click save button for service profile
+    Then web system displays validation message for service profile
+
+  Scenario Outline: Update Service Profile Configuration
+    And web user clicks on service profile sub menu
+    Then web system displays service profile configuration page
+    When web user clicks on add button for service profile
+    And web user add service profile detail "<Name>" "<Description>" "<Type>" "<Status>"
+    And web user configure service profile tree "<AccessChannel>" "<Service>" "<Product>" "<UcpGroup>"
+    And web user click save button for service profile
+    Then web user should see the "<Name>" service profile is created
+    And web user clicks on view icon for "<Name>" service profile
+    When web user clicks on edit button for service profile
+    And web user update service profile description "Updated Desc" and type "Service Directory"
+    And web user click save button for service profile
+    Then web user should see the "<Name>" service profile is created
+    And web user clicks on view icon for "<Name>" service profile
+    And web user delete the created service profile
+    Examples:
+      | Name                       | Description | Type     | Status | AccessChannel       | Service            | Product            | UcpGroup           |
+      | Service Profile for Update | Auto desc   | Standard | Active | Customer Mobile App | Cash into customer | Cash into customer | Customer ucp group |
+
+  Scenario Outline: Add Service Profile with duplicated name
+    And web user clicks on service profile sub menu
+    Then web system displays service profile configuration page
+    When web user clicks on add button for service profile
+    And web user add service profile detail "<Name>" "<Description>" "<Type>" "<Status>"
+    And web user configure service profile tree "<AccessChannel>" "<Service>" "<Product>" "<UcpGroup>"
+    And web user click save button for service profile
+    Then web user should see the "<Name>" service profile is created
+    When web user clicks on add button for service profile
+    And web user add service profile detail "<Name>" "<Description>" "<Type>" "<Status>"
+    And web user click save button for service profile
+    Then verify system displays "Name already exists" error message for service profile
+    And web user moves mouse over Business Config main menu
+    And web user clicks on service profile sub menu
+    And web user clicks on view icon for "<Name>" service profile
+    And web user delete the created service profile
+    Examples:
+      | Name                 | Description | Type     | Status | AccessChannel       | Service            | Product            | UcpGroup           |
+      | Duplicate Service Profile | Auto desc   | Standard | Active | Customer Mobile App | Cash into customer | Cash into customer | Customer ucp group |

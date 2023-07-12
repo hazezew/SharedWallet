@@ -133,7 +133,7 @@ Feature: Service Provider Configuration
     And web user delete the created service provider
 
     Examples:
-      | Name                  | ProviderService | OETemplate             | HttpType | Description | ProviderApiName | Protocol | SuccessCode | FailureCode |
+      | Name                   | ProviderService | OETemplate             | HttpType | Description | ProviderApiName | Protocol | SuccessCode | FailureCode |
       | Duplicated Name Check2 | Cash_Out        | Sub agent template OET | Get      | Auto_Desc   | Auto_SMS        | Rest     | 200         | 400         |
 
   Scenario: verify search for service provider functionality
