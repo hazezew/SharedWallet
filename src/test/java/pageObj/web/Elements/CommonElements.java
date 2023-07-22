@@ -23,6 +23,8 @@ public class CommonElements {
     public static WebElement searchButton;
     @FindBy(xpath = "//input[@name='name']")
     public static WebElement searchInputField;
+    @FindBy(xpath = "//button[@id='operationbarbuttonback']")
+    public static WebElement backButton;
     @FindBy(xpath = "//div[@class='ant-modal-content']")
     public static WebElement warningInfoModal;
 

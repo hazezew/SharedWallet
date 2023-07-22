@@ -50,8 +50,8 @@ public class Config {
     public static String serviceProfileConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/serviceprofile";
     public static String authenticationConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/authentication";
     public static String deviceAuthenticationConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/deviceauthentication";
-    public static String apiGroupConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/apigroup";
-    public static String accessNodeConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/accessnode";
+    public static String apiGroupConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/platformaccessprofile/apigroup";
+    public static String accessNodeConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/platformaccessprofile/papaccessnode";
     public static String platformAccessProfileConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/platformaccessprofile/platformaccessprofile";
     public static String settlementGroupConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/settlementgroup";
     public static String platformAccessRoleConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/platformaccessrole";

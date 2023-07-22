@@ -82,3 +82,12 @@ Feature: Service Profile Configuration
     Examples:
       | Name                 | Description | Type     | Status | AccessChannel       | Service            | Product            | UcpGroup           |
       | Duplicate Service Profile | Auto desc   | Standard | Active | Customer Mobile App | Cash into customer | Cash into customer | Customer ucp group |
+
+  Scenario: verify search for service profile functionality
+    And web user clicks on service profile sub menu
+    Then web system displays service profile configuration page
+    When web user click on filter icon for service profile
+    And web user select "Contains" for the search service profile filter criteria
+    And web user enters "Customer" into service profile search name field
+    And web user clicks search service profile button
+    Then web system displays a list of service profiles with "Customer" on the name

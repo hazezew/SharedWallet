@@ -13,6 +13,7 @@ import org.testng.Assert;
 import pageObj.web.Elements.CommonElements;
 
 import java.time.Duration;
+import java.util.List;
 
 public class ServiceProfilePage extends CommonElements {
     private WebDriver driver;
@@ -41,7 +42,7 @@ public class ServiceProfilePage extends CommonElements {
     @FindBy(xpath = "//span[text()='Add']/parent::button")
     private WebElement addServiceButton;
     @FindBy(xpath = "//span[@class='ant-input-group-addon']/child::button")
-    private WebElement searchButton;
+    private WebElement searchButtonForProduct;
     @FindBy(xpath = "//button[@class='ant-btn ant-dropdown-trigger']")
     private WebElement threeDotIcon;
     @FindBy(xpath = "//span[text()='Add Child']/parent::li")
@@ -82,7 +83,7 @@ public class ServiceProfilePage extends CommonElements {
         wait.until(ExpectedConditions.visibilityOf(accessChannelOption)).click();
         wait.until(ExpectedConditions.visibilityOf(loadButton)).click();
         searchNameInputField.sendKeys(accessChannel);
-        wait.until(ExpectedConditions.visibilityOf(searchButton)).click();
+        wait.until(ExpectedConditions.visibilityOf(searchButtonForProduct)).click();
         getServiceCheckBox(accessChannel).click();
         wait.until(ExpectedConditions.visibilityOf(addServiceButton)).click();
         js.executeScript("window.scrollTo(0, 500)");
@@ -95,7 +96,7 @@ public class ServiceProfilePage extends CommonElements {
 
         wait.until(ExpectedConditions.visibilityOf(loadButton)).click();
         searchNameInputField.sendKeys(service);
-        wait.until(ExpectedConditions.visibilityOf(searchButton)).click();
+        wait.until(ExpectedConditions.visibilityOf(searchButtonForProduct)).click();
         getServiceCheckBox(service).click();
         wait.until(ExpectedConditions.visibilityOf(addServiceButton)).click();
 
@@ -144,5 +145,32 @@ public class ServiceProfilePage extends CommonElements {
         String actualValidationMessage = duplicateValidationText.getText();
         Assert.assertTrue(duplicateErrorMessage.isDisplayed());
         Assert.assertEquals(actualValidationMessage, errorMessage);
+    }
+
+    public void clickFilterIcon() {
+        wait.until(ExpectedConditions.visibilityOf(filterIcon)).click();
+    }
+
+    public void enterNameInToSearchField(String serviceProfileName) {
+        searchInputField.sendKeys(serviceProfileName);
+    }
+
+    public void selectSearchCriteria(String criteria) {
+        driver.findElement(By.xpath("(//div[@title='" + criteria + "'])[1]")).click();
+    }
+    public void clickSearchButton() {
+        wait.until(ExpectedConditions.visibilityOf(searchButton)).click();
+    }
+
+    public void verifyServiceProfileSearchResults(String serviceProfileName) {
+        List<WebElement> searchResults = driver.findElements(By.xpath("//td[contains(text(), '" + serviceProfileName + "')]"));
+        boolean searchResultOnTable = true;
+        for (WebElement msg : searchResults) {
+            if (!msg.isDisplayed()) {
+                searchResultOnTable = false;
+                break;
+            }
+        }
+        Assert.assertTrue(searchResultOnTable, "Search results not displayed");
     }
 }

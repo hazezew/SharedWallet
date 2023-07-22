@@ -667,4 +667,255 @@ public class BusinessConfigStepDef extends AbstractPage {
     public void verifyErrorMessageForServiceProfile(String errorMessage) {
         serviceProfilePage.verifyErrorMessage(errorMessage);
     }
+
+    @When("web user click on filter icon for service profile")
+    public void clickOnFilterIconForServiceProfile() {
+        serviceProfilePage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into service profile search name field")
+    public void enterSearchedKeywordForProfile(String serviceProfile) {
+        serviceProfilePage.enterNameInToSearchField(serviceProfile);
+    }
+
+    @And("web user select {string} for the search service profile filter criteria")
+    public void selectSearchServiceProfileFilterCriteria(String criteria) {
+        serviceProfilePage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search service profile button")
+    public void clicksSearchServiceProfileButton() {
+        serviceProfilePage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of service profiles with {string} on the name")
+    public void verifySearchResultsForProfile(String serviceProvider) {
+        serviceProfilePage.verifyServiceProfileSearchResults(serviceProvider);
+    }
+
+    @When("web user add authentication detail {string} {string} {string} {string} {string} {string} {string} {string}")
+    public void addAuthenticationConfig(String name, String description, String papType, String authenticationType, String credParameter, String faType, String length, String packet) {
+        authenticationPage.addAuthenticationConfig(name, description, papType, authenticationType, credParameter,faType, length, packet);
+    }
+
+    @And("web user click save button for authentication")
+    public void clickSaveButtonForAuthentication() {
+        authenticationPage.clickSaveButton();
+    }
+    @Then("web user should see the {string} authentication is created")
+    public void verifyTheAuthenticationIsCreated(String authenticationName) {
+        authenticationPage.verifyAuthenticationCreated(authenticationName);
+    }
+
+    @And("web user clicks on view icon for {string} authentication")
+    public void clicksOnViewIconForAuthentication(String authenticationName) {
+        authenticationPage.clickViewIcon(authenticationName);
+    }
+
+    @And("web user delete the created authentication")
+    public void deleteTheCreatedAuthentication() {
+        authenticationPage.deleteAuthentication();
+    }
+
+    @And("web user click on edit button for authentication")
+    public void clickEditButtonForAuthentication() {
+        authenticationPage.clickEditButton();
+    }
+
+    @And("web user update authentication with pap node {string} fa type {string} length {string} packet field {string}")
+    public void updateAuthenticationConfig(String papNodeType, String faType, String length, String packetField) {
+        authenticationPage.updateAuthenticationConfig(papNodeType,faType,length,packetField);
+    }
+    @Then("web system displays validation message for authentication")
+    public void verifyValidationMessageForAuthenticationConfig() {
+        authenticationPage.verifyValidationMessage();
+    }
+    @Then("verify system displays {string} error message for authentication")
+    public void verifyErrorMessageForAuthentication(String errorMessage) {
+        authenticationPage.verifyErrorMessage(errorMessage);
+    }
+
+    @When("web user click on filter icon for authentication")
+    public void clickOnFilterIconForAuthentication() {
+        authenticationPage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into authentication search name field")
+    public void enterSearchedKeywordForAuthentication(String authenticationName) {
+        authenticationPage.enterNameInToSearchField(authenticationName);
+    }
+
+    @And("web user select {string} for the search authentication filter criteria")
+    public void selectSearchAuthenticationFilterCriteria(String criteria) {
+        authenticationPage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search authentication button")
+    public void clicksSearchAuthenticationButton() {
+        authenticationPage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of authentications with {string} on the name")
+    public void verifySearchResultsForAuthentication(String authenticationName) {
+        authenticationPage.verifyAuthenticationSearchResults(authenticationName);
+    }
+
+    @And("web user add device authentication {string} {string} {string} {string} {string} {string}")
+    public void addDeviceAuthentication(String name, String description, String allowedGeoRadius, String deviceStatus, String packetField, String parameter1) {
+        deviceAuthenticationPage.addDeviceAuthentication(name, description, allowedGeoRadius, deviceStatus,packetField, parameter1);
+    }
+
+
+    @And("web user click save button for device authentication")
+    public void clickSaveButtonForDeviceAuthentication() {
+        deviceAuthenticationPage.clickSaveButton();
+    }
+    @Then("web user should see the {string} device authentication is created")
+    public void verifyTheDeviceAuthenticationIsCreated(String authenticationName) {
+        deviceAuthenticationPage.verifyDeviceAuthenticationCreated(authenticationName);
+    }
+
+    @And("web user clicks on view icon for {string} device authentication")
+    public void clicksOnViewIconForDeviceAuthentication(String authenticationName) {
+        deviceAuthenticationPage.clickViewIcon(authenticationName);
+    }
+
+    @And("web user delete the created device authentication")
+    public void deleteTheCreatedDeviceAuthentication() {
+        deviceAuthenticationPage.deleteDeviceAuthentication();
+    }
+
+    @And("web user click on edit button for device authentication")
+    public void clickEditButtonForDeviceAuthentication() {
+        deviceAuthenticationPage.clickEditButton();
+    }
+    @And("web user update device authentication config des {string} radius {string} status {string} parameter {string}")
+    public void webUserUpdateDeviceAuthenticationConfigDesRadiusStatusParameter(String description, String radius, String status, String parameter) {
+        deviceAuthenticationPage.updateDeviceAuthentication(description, radius, status, parameter);
+    }
+    @Then("web system displays validation message for device authentication")
+    public void verifyValidationMessageForDeviceAuthenticationConfig() {
+        deviceAuthenticationPage.verifyValidationMessage();
+    }
+    @Then("verify system displays {string} error message for device authentication")
+    public void verifyErrorMessageForDeviceAuthentication(String errorMessage) {
+        deviceAuthenticationPage.verifyErrorMessage(errorMessage);
+    }
+
+    @When("web user click on filter icon for device authentication")
+    public void clickOnFilterIconForDeviceAuthentication() {
+        deviceAuthenticationPage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into device authentication search name field")
+    public void enterSearchedKeywordForDeviceAuthentication(String deviceAuthenticationName) {
+        deviceAuthenticationPage.enterNameInToSearchField(deviceAuthenticationName);
+    }
+
+    @And("web user select {string} for the search device authentication filter criteria")
+    public void selectSearchDeviceAuthenticationFilterCriteria(String criteria) {
+        deviceAuthenticationPage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search device authentication button")
+    public void clicksSearchDeviceAuthenticationButton() {
+        deviceAuthenticationPage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of device authentications with {string} on the name")
+    public void verifySearchResultsForDeviceAuthentication(String deviceAuthenticationName) {
+        deviceAuthenticationPage.verifyDeviceAuthenticationSearchResults(deviceAuthenticationName);
+    }
+
+    @And("web user add api group config {string} {string} {string} and {string}")
+    public void addApiGroupConfig(String name, String description, String allowedApi, String status) {
+        apiGroupPage.addApiGroupConfig(name, description, allowedApi, status);
+    }
+
+    @And("web user click save button for api group")
+    public void clickSaveButtonForApiGroup() {
+        apiGroupPage.clickSaveButton();
+    }
+    @Then("web user should see the {string} api group is created")
+    public void verifyTheApiGroupIsCreated(String apiGroupName) {
+        apiGroupPage.verifyApiGroupCreated(apiGroupName);
+    }
+
+    @And("web user clicks on view icon for {string} api group")
+    public void clicksOnViewIconForApiGroup(String apiGroupName) {
+        apiGroupPage.clickViewIcon(apiGroupName);
+    }
+
+    @And("web user delete the created api group")
+    public void deleteTheCreatedApiGroup() {
+        apiGroupPage.deleteApiGroup();
+    }
+
+    @And("web user click on edit button for api group")
+    public void clickEditForApiGroup() {
+        apiGroupPage.clickEditButton();
+    }
+
+    @And("web user update api group descripiton {string} allowed api {string} {string}")
+    public void updateApiGroup(String description, String allowedApi1, String allowedApi2) {
+        apiGroupPage.updateApiGroup(description, allowedApi1, allowedApi2);
+    }
+    @Then("web system displays validation message for api group")
+    public void verifyValidationMessageForApiGroupConfig() {
+        apiGroupPage.verifyValidationMessage();
+    }
+    @Then("verify system displays {string} error message for api group")
+    public void verifyErrorMessageForApiGroup(String errorMessage) {
+        apiGroupPage.verifyErrorMessage(errorMessage);
+    }
+
+
+    @When("web user click on filter icon for api group")
+    public void clickOnFilterIconForApiGroup() {
+        apiGroupPage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into api group search name field")
+    public void enterSearchedKeywordForApiGroup(String apiGroupName) {
+        apiGroupPage.enterNameInToSearchField(apiGroupName);
+    }
+
+    @And("web user select {string} for the search api group filter criteria")
+    public void selectSearchApiGroupFilterCriteria(String criteria) {
+        apiGroupPage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search api group button")
+    public void clicksSearchApiGroupButton() {
+        apiGroupPage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of api groups with {string} on the name")
+    public void verifySearchResultsForApiGroup(String apiGroupName) {
+        apiGroupPage.verifyApiGroupSearchResults(apiGroupName);
+    }
+
+    @And("web user add access node {string} {string} {string} {string} {string}")
+    public void addAccessNode(String name, String description, String accessType, String message, String accessCode) {
+        accessNodePage.addAccessNode(name, description, accessType, message, accessCode);
+    }
+
+    @And("web user click save button for access node")
+    public void clickSaveButtonForAccessNode() {
+        accessNodePage.clickSaveButton();
+    }
+    @Then("web user should see the {string} access node is created")
+    public void verifyTheAccessNodeIsCreated(String accessNodeName) {
+        accessNodePage.verifyAccessNodeCreated(accessNodeName);
+    }
+
+    @And("web user clicks on view icon for {string} access node")
+    public void clicksOnViewIconForAccessNode(String accessNodeName) {
+        accessNodePage.clickViewIcon(accessNodeName);
+    }
+
+    @And("web user delete the created access node")
+    public void deleteTheCreatedAccessNode() {
+        accessNodePage.deleteAccessNode();
+    }
 }

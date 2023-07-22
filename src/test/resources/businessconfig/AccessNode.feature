@@ -23,7 +23,19 @@ Feature: Access Node Configuration
     And web system displays Admin dashboard
     And web user moves mouse over Business Config main menu
 
-  Scenario: Add Access Node with valid data
+  Scenario Outline: Add Access Node with valid data
     And web user clicks on access node sub menu
     Then web system displays access node configuration page
     When web user clicks on add button for access node
+    And web user add access node "<Name>" "<Description>" "<AccessType>" "<Message>" "<ResponseCode>"
+    And web user click save button for access node
+    Then web user should see the "<Name>" access node is created
+    And web user clicks on view icon for "<Name>" access node
+    And web user delete the created access node
+
+    Examples:
+      | Name              | Description | AccessType | Message        | ResponseCode          |
+      | Auto Allow Access | Auto desc   | Allow      | Access granted |                       |
+      | Auto Block Access | Auto desc   | Block      | Access blocked | Invalid MPIN(-150033) |
+
+
