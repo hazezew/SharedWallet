@@ -9,9 +9,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObj.web.pages.businessconfig.*;
+import pageObj.web.pages.operatorconfig.MoveSystemOperatorPage;
+import pageObj.web.pages.operatorconfig.RoleConfigPage;
+import pageObj.web.pages.operatorconfig.SystemOperatorEntityPage;
+import pageObj.web.pages.operatorconfig.SystemOperatorOnboardingPage;
 import pageObj.web.pages.platformconfig.NotificationTemplatePage;
 import pageObj.web.pages.platformconfig.*;
-import pageObj.web.pages.technicalconfig.FieldMappingPage;
+import pageObj.web.pages.technicalconfig.*;
 import pageObj.web.pages.usermgt.*;
 
 import java.time.Duration;
@@ -177,6 +181,35 @@ public class AdminDashboardPage {
     private WebElement platformAccessRoleSubLink;
     @FindBy(xpath = "//li[@id='Business Hierarchy']")
     private WebElement businessHierarchySubLink;
+
+    @FindBy(xpath = "//span[text()='Operator Config']")
+    private WebElement operatorConfigLink;
+    @FindBy(xpath = "//li[@id='Move System Operator']")
+    private WebElement moveSystemOperatorLink;
+    @FindBy(xpath = "//li[@id='System Operator Onboarding']")
+    private WebElement systemOperatorOnboardingLink;
+    @FindBy(xpath = "//li[@id='Role']")
+    private WebElement roleConfigLink;
+    @FindBy(xpath = "//li[@id='System Operator Entity']")
+    private WebElement systemOperatorLink;
+    @FindBy(xpath = "//span[text()='Black List Management']/parent::span")
+    private WebElement blackListManagementLink;
+    @FindBy(xpath = "//li[@id='Add Blacklist']")
+    private WebElement addBlacklistLink;
+    @FindBy(xpath = "//li[@id='Apply Blacklist']")
+    private WebElement applyBlacklistLink;
+    @FindBy(xpath = "//li[@id='Process']")
+    private WebElement processLink;
+    @FindBy(xpath = "//li[@id='Scheduler']")
+    private WebElement schedulerLink;
+    @FindBy(xpath = "//li[@id='Process Scheduler']")
+    private WebElement processSchedulerLink;
+    @FindBy(xpath = "//li[@id='Process Run Details']")
+    private WebElement processRunDetailLink;
+    @FindBy(xpath = "//li[@id='Menu Config']")
+    private WebElement menuConfigLink;
+    @FindBy(xpath = "//li[@id='Standard Master']")
+    private WebElement standardMasterLink;
     public AdminDashboardPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -474,5 +507,80 @@ public class AdminDashboardPage {
         action.moveToElement(businessHierarchySubLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(businessHierarchySubLink)).click();
         return new BusinessHierarchyPage(driver);
+    }
+
+
+
+
+
+
+
+
+    public void hoverOnOperatorConfigMenu() {
+        action.moveToElement(operatorConfigLink).build().perform();
+    }
+
+    public MoveSystemOperatorPage clickOnMoveSystemOperatorSubMenu() {
+        action.moveToElement(moveSystemOperatorLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(moveSystemOperatorLink)).click();
+        return new MoveSystemOperatorPage(driver);
+    }
+
+    public RoleConfigPage clickOnRoleConfigSubMenu() {
+        action.moveToElement(roleConfigLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(roleConfigLink)).click();
+        return new RoleConfigPage(driver);
+    }
+    public SystemOperatorEntityPage clickOnSystemOperatorSubMenu() {
+        action.moveToElement(systemOperatorLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(systemOperatorLink)).click();
+        return new SystemOperatorEntityPage(driver);
+    }
+    public SystemOperatorOnboardingPage clickOnSystemOperatorOnboardingSubMenu() {
+        action.moveToElement(systemOperatorOnboardingLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(systemOperatorOnboardingLink)).click();
+        return new SystemOperatorOnboardingPage(driver);
+    }
+    public AddBlackListPage clickAddBlacklistSubMenu() {
+        action.moveToElement(blackListManagementLink).build().perform();
+        action.moveToElement(addBlacklistLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(addBlacklistLink)).click();
+        return new AddBlackListPage(driver);
+    }
+    public ApplyBlackListPage clickApplyBlackListSubMenu() {
+        action.moveToElement(blackListManagementLink).build().perform();
+        action.moveToElement(applyBlacklistLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(applyBlacklistLink)).click();
+        return new ApplyBlackListPage(driver);
+    }
+    public MenuConfigPage clickMenuConfigSubMenu() {
+        action.moveToElement(menuConfigLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(menuConfigLink)).click();
+        return new MenuConfigPage(driver);
+    }
+    public ProcessPage clickProcessSubMenu() {
+        action.moveToElement(processLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(processLink)).click();
+        return new ProcessPage(driver);
+    }
+    public ProcessSchedulerPage clickProcessSchedulerSubMenu() {
+        action.moveToElement(processSchedulerLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(processSchedulerLink)).click();
+        return new ProcessSchedulerPage(driver);
+    }
+    public ProcessRunDetailPage clickProcessRunDetailSubMenu() {
+        action.moveToElement(processRunDetailLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(processRunDetailLink)).click();
+        return new ProcessRunDetailPage(driver);
+    }
+    public SchedulerPage clickSchedulerSubMenu() {
+        action.moveToElement(schedulerLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(schedulerLink)).click();
+        return new SchedulerPage(driver);
+    }
+    public StandardMasterPage clickStandardMasterSubMenu() {
+        action.moveToElement(standardMasterLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(standardMasterLink)).click();
+        return new StandardMasterPage(driver);
     }
 }

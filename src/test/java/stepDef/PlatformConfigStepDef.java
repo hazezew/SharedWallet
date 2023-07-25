@@ -47,7 +47,7 @@ public class PlatformConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays Parameter Configuration page")
-    public void webSystemDisplaysUpdateUserProfilePage() {
+    public void webSystemDisplaysParameterConfigPage() {
         Assert.assertEquals(Config.parameterConfigurationPageURL, parameterConfigPage.getParameterConfigPageURL());
     }
 

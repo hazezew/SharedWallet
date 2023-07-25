@@ -56,5 +56,17 @@ public class Config {
     public static String settlementGroupConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/settlementgroup";
     public static String platformAccessRoleConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/platformaccessrole";
     public static String businessHierarchyConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/businesshierarchy";
+    public static String moveSystemOperatorConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/operation/movesystemoperator";
+    public static String roleConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/usermanagement/role";
+    public static String systemOperatorConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/operation/system-operator-entity";
+    public static String systemOperatorOnboardingPageURL = "http://192.168.20.33:8001/#/mobifin/operation/systemoperatoronboarding";
+    public static String applyBlacklistPageURL = "http://192.168.20.33:8001/#/mobifin/technicalconfiguration/applyblacklist";
+    public static String addBlacklistPageURL = "http://192.168.20.33:8001/#/mobifin/technicalconfiguration/blacklistmanagement";
+    public static String processPageURL = "http://192.168.20.33:8001/#/mobifin/technicalconfiguration/processes";
+    public static String schedulerPageURL = "http://192.168.20.33:8001/#/mobifin/technicalconfiguration/scheduler";
+    public static String processSchedulerPageURL = "http://192.168.20.33:8001/#/mobifin/technicalconfiguration/processscheduler";
+    public static String processRunDetailPageURL = "http://192.168.20.33:8001/#/mobifin/technicalconfiguration/processrundetails";
+    public static String standardMasterPageURL = "http://192.168.20.33:8001/#/mobifin/technicalconfiguration/standardmaster";
+    public static String menuConfigPageURL = "http://192.168.20.33:8001/#/mobifin/technicalconfiguration/menuconfiguration";
 
 }
