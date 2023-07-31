@@ -23,6 +23,15 @@ Feature: Process Configuration
     And web system displays Admin dashboard
     And web user moves mouse over Technical Config main menu
 
-  Scenario: Technical Config
+  Scenario: Add Process
     And web user clicks on process config sub menu
     Then web system displays process config page
+
+  Scenario: verify search for process
+    And web user clicks on process config sub menu
+    Then web system displays process config page
+    When web user click on filter icon for process
+    And web user select "Contains" for the search process filter criteria
+    And web user enters "Process" into process search name field
+    And web user clicks search process button
+    Then web system displays a list of processes with "Process" on the name

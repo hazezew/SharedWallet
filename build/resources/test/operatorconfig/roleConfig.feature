@@ -11,7 +11,7 @@
 @Regression
 @RoleConfiguration
 
-Feature: Role Configuration
+Feature: Role Configuration6
 
   Background: user opened web browser and maximizes it
     When user has entered Shared Wallet system URL
@@ -23,6 +23,11 @@ Feature: Role Configuration
     And web system displays Admin dashboard
     And web user moves mouse over operator config main menu
 
-  Scenario: Move System Operator
+  Scenario Outline: Add Role with valid data
     And web user clicks on role config sub menu
-    Then web system displays role operator config page
+    Then web system displays role config page
+    When web user click add button for role
+    And web user add role config "<RoleName>" "<Description>" "<UserCategory>"
+    Examples:
+      | RoleName  | Description | UserCategory |
+      | Auto Role | Auto Desc   | Customer     |

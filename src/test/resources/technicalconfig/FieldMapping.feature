@@ -23,8 +23,15 @@ Feature: Field Mapping
     And web system displays Admin dashboard
     And web user moves mouse over Technical Config main menu
 
-  Scenario: Technical Config
+  Scenario: Add Field Mapping
     And web user clicks on Field Mapping sub menu
     Then web system displays Field Mapping page
     And web user clicks on settings link
     And web user clicks on Logout link
+
+  Scenario: Verify add field mapping without filling the required fields
+    And web user clicks on Field Mapping sub menu
+    Then web system displays Field Mapping page
+    When web user click add button for field mapping
+    And web user click save button for field mapping
+    Then web system displays validation message for mapping

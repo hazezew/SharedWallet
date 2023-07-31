@@ -25,4 +25,4 @@ Feature: System Operator Configuration
 
   Scenario: Move System Operator
     And web user clicks on system operator config sub menu
-    Then web system displays system operator operator config page
+    Then web system displays system operator config page

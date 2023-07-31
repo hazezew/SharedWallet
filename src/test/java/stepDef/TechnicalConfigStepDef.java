@@ -3,6 +3,7 @@ package stepDef;
 import config.Config;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pageObj.web.AbstractPage;
 import pageObj.web.pages.technicalconfig.*;
@@ -102,5 +103,44 @@ public class TechnicalConfigStepDef extends AbstractPage {
     @Then("web system displays standard master page")
     public void webSystemDisplaysStandardMasterPage() {
         Assert.assertEquals(standardMasterPage.getURL(), Config.standardMasterPageURL);
+    }
+
+    @When("web user click on filter icon for process")
+    public void clickOnFilterIconForRole() {
+        processPage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into process search name field")
+    public void enterSearchedKeywordForProcess(String processName) {
+        processPage.enterNameInToSearchField(processName);
+    }
+
+    @And("web user select {string} for the search process filter criteria")
+    public void selectSearchProcessFilterCriteria(String criteria) {
+        processPage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search process button")
+    public void clicksSearchProcessButton() {
+        processPage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of processes with {string} on the name")
+    public void verifySearchResultsForProcess(String processName) {
+        processPage.verifyProcessSearchResults(processName);
+    }
+
+    @When("web user click add button for field mapping")
+    public void clickAddbutton() {
+        fieldMappingPage.clickAddButton();
+    }
+
+    @And("web user click save button for field mapping")
+    public void clickSaveButton() {
+        fieldMappingPage.clickSaveButton();
+    }
+    @Then("web system displays validation message for field mapping")
+    public void verifyValidationMessageForFieldMapping() {
+        fieldMappingPage.verifyValidationMessage();
     }
 }

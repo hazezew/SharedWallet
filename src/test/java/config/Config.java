@@ -52,7 +52,7 @@ public class Config {
     public static String deviceAuthenticationConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/deviceauthentication";
     public static String apiGroupConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/platformaccessprofile/apigroup";
     public static String accessNodeConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/platformaccessprofile/papaccessnode";
-    public static String platformAccessProfileConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/platformaccessprofile/platformaccessprofile";
+    public static String platformAccessProfileConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/businessconfiguration/platformaccessprofile";
     public static String settlementGroupConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/settlementgroup";
     public static String platformAccessRoleConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/platformaccessrole";
     public static String businessHierarchyConfigurationPageURL = "http://192.168.20.33:8001/#/mobifin/platformconfiguration/businesshierarchy";
@@ -68,5 +68,10 @@ public class Config {
     public static String processRunDetailPageURL = "http://192.168.20.33:8001/#/mobifin/technicalconfiguration/processrundetails";
     public static String standardMasterPageURL = "http://192.168.20.33:8001/#/mobifin/technicalconfiguration/standardmaster";
     public static String menuConfigPageURL = "http://192.168.20.33:8001/#/mobifin/technicalconfiguration/menuconfiguration";
+    public static String accountManagementPageURL = "http://192.168.20.33:8001/#/mobifin/operation/fundmanagement/accountmanagement";
+    public static String addMoneyPageURL = "http://192.168.20.33:8001/#/mobifin/operation/emoney";
+    public static String fundTransferPageURL = "http://192.168.20.33:8001/#/mobifin/operation/fundmanagement/fundtransfer";
+    public static String transactionReversalPageURL = "http://192.168.20.33:8001/#/mobifin/operation/transactionreversal";
+    public static String resendNotificationPageURL = "http://192.168.20.33:8001/#/mobifin/technicalconfiguration/resendnotification";
 
 }

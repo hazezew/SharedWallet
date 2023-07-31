@@ -1,17 +1,17 @@
-#  Author: Walelign A.
-#  Date: July 22, 2023
+#  Author: Walelign Andargie
+#  Date: July 10, 2023
 #  Project name: Shared Wallet
-#  Module: Operator Configuration
-#  Activity: System Operator Onboarding
+#  Module: Technical Config
+#  Activity: Add Blacklist
 #  Project owner: EthSwitch
 #  Vendor: Panamax
 #  language: en
 #  Test Environment: EthSwitch Test
 
 @Regression
-@SystemOperatorOnboarding
+@AddBlacklist
 
-Feature: System Operator Onboarding
+Feature: Add BlackList
 
   Background: user opened web browser and maximizes it
     When user has entered Shared Wallet system URL
@@ -21,8 +21,8 @@ Feature: System Operator Onboarding
     And web user clicks on Login button
     Then web system displays "You have successfully logged in!" message
     And web system displays Admin dashboard
-    And web user moves mouse over operator config main menu
+    And web user moves mouse over Technical Config main menu
 
-  Scenario: Move System Operator
-    And web user clicks on system operator onboarding sub menu
-    Then web system displays system operator onboarding page
+  Scenario: Technical Config
+    And web user clicks on add blacklist sub menu
+    Then web system displays add blacklist page

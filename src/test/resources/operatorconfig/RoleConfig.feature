@@ -11,7 +11,7 @@
 @Regression
 @RoleConfiguration
 
-Feature: Role Configuration
+Feature: Role Configuration6
 
   Background: user opened web browser and maximizes it
     When user has entered Shared Wallet system URL
@@ -23,6 +23,50 @@ Feature: Role Configuration
     And web system displays Admin dashboard
     And web user moves mouse over operator config main menu
 
-  Scenario: Move System Operator
+  Scenario Outline: Add Role with valid data
     And web user clicks on role config sub menu
     Then web system displays role config page
+    When web user click add button for role
+    And web user add role config "<RoleName>" "<Description>" "<UserCategory>"
+    And web user click save button for role
+    Then web user should see the "<Name>" role is created
+    And web user clicks on view icon for "<Name>" role
+    And web user delete the created role
+
+    Examples:
+      | RoleName  | Description | UserCategory |
+      | Auto Role | Auto Desc   | Customer     |
+
+  Scenario: Verify add role without filling the required fields
+    And web user clicks on role config sub menu
+    Then web system displays role config page
+    When web user click add button for role
+    And web user click save button for role
+    Then web system displays validation message for role
+
+  Scenario Outline: Add Role with duplicated data
+    And web user clicks on role config sub menu
+    Then web system displays role config page
+    When web user click add button for role
+    And web user add role config "<RoleName>" "<Description>" "<UserCategory>"
+    And web user click save button for role
+    Then web user should see the "<Name>" role is created
+    When web user click add button for role
+    And web user add role config "<RoleName>" "<Description>" "<UserCategory>"
+    And web user click save button for role
+    Then verify system displays "Name already exists" error message for role
+    And web user clicks on view icon for "<Name>" role
+    And web user delete the created role
+
+    Examples:
+      | RoleName  | Description | UserCategory |
+      | Auto Role | Auto Desc   | Customer     |
+
+  Scenario: verify search for role
+    And web user clicks on role config sub menu
+    Then web system displays role config page
+    When web user click on filter icon for role
+    And web user select "Contains" for the search role filter criteria
+    And web user enters "Role" into role search name field
+    And web user clicks search role button
+    Then web system displays a list of roles with "Role" on the name

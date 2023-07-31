@@ -918,4 +918,113 @@ public class BusinessConfigStepDef extends AbstractPage {
     public void deleteTheCreatedAccessNode() {
         accessNodePage.deleteAccessNode();
     }
+    @Then("web system displays validation message for access node")
+    public void verifyValidationMessageForAccessNodeConfig() {
+        accessNodePage.verifyValidationMessage();
+    }
+    @Then("verify system displays {string} error message for access node")
+    public void verifyErrorMessageForAccessNode(String errorMessage) {
+        accessNodePage.verifyErrorMessage(errorMessage);
+    }
+
+    @And("web user click on edit button for access node")
+    public void clickOnEditButtonForAccessNode() {
+        accessNodePage.clickEditButton();
+    }
+    @And("web user update access node config {string} {string} {string} {string}")
+    public void updateAccessNode(String description, String accessType, String message, String accessCode) {
+        accessNodePage.updateAccessNode(description, accessType, message, accessCode);
+    }
+
+    @When("web user click on filter icon for access node")
+    public void clickOnFilterIconForAccessNode() {
+        accessNodePage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into access node search name field")
+    public void enterSearchedKeywordForAccessNode(String accessNodeName) {
+        accessNodePage.enterNameInToSearchField(accessNodeName);
+    }
+
+    @And("web user select {string} for the search access node filter criteria")
+    public void selectSearchAccessNodeFilterCriteria(String criteria) {
+        accessNodePage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search access node button")
+    public void clicksSearchAccessNodeButton() {
+        accessNodePage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of access nodes with {string} on the name")
+    public void verifySearchResultsForAccessNode(String accessNodeName) {
+        accessNodePage.verifyAccessNodeSearchResults(accessNodeName);
+    }
+
+    @And("web user add PAP config  {string} {string} {string} {string} {string}")
+    public void webUserAddPAPConfig(String name, String description, String apiGroup, String accessChannel, String authentication) {
+        platformAccessProfilePage.addPapConfig(name, description, apiGroup, accessChannel, authentication);
+    }
+
+    @And("web user click save button for pap")
+    public void clickSaveButtonForPAP() {
+        platformAccessProfilePage.clickSaveButton();
+    }
+    @Then("web user should see the {string} pap is created")
+    public void verifyThePAPIsCreated(String papName) {
+        platformAccessProfilePage.verifyPAPCreated(papName);
+    }
+
+    @And("web user clicks on view icon for {string} pap")
+    public void clicksOnViewIconForPAP(String papName) {
+        platformAccessProfilePage.clickViewIcon(papName);
+    }
+
+    @And("web user delete the created pap")
+    public void deleteTheCreatedPAP() {
+        platformAccessProfilePage.deletePAP();
+    }
+    @Then("web system displays validation message for pap")
+    public void verifyValidationMessageForPAPConfig() {
+        platformAccessProfilePage.verifyValidationMessage();
+    }
+
+    @And("web user click on edit button for pap")
+    public void clickOnEditButtonForPap() {
+        platformAccessProfilePage.clickEditButton();
+    }
+
+    @And("web user update pap detail {string} {string} {string}")
+    public void webUserUpdatePapDetail(String description, String apiGroup, String accessChannel) {
+        platformAccessProfilePage.updatePAP(description, apiGroup, accessChannel);
+    }
+    @Then("verify system displays {string} error message for pap")
+    public void verifyErrorMessageForPAP(String errorMessage) {
+        platformAccessProfilePage.verifyErrorMessage(errorMessage);
+    }
+
+    @When("web user click on filter icon for pap")
+    public void clickOnFilterIconForPAP() {
+        platformAccessProfilePage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into pap search name field")
+    public void enterSearchedKeywordForPAP(String papName) {
+        platformAccessProfilePage.enterNameInToSearchField(papName);
+    }
+
+    @And("web user select {string} for the search pap filter criteria")
+    public void selectSearchPAPFilterCriteria(String criteria) {
+        platformAccessProfilePage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search pap button")
+    public void clicksSearchPAPButton() {
+        platformAccessProfilePage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of paps with {string} on the name")
+    public void verifySearchResultsForPAP(String papName) {
+        platformAccessProfilePage.verifyPAPSearchResults(papName);
+    }
 }

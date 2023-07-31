@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObj.web.pages.businessconfig.*;
+import pageObj.web.pages.operation.*;
 import pageObj.web.pages.operatorconfig.MoveSystemOperatorPage;
 import pageObj.web.pages.operatorconfig.RoleConfigPage;
 import pageObj.web.pages.operatorconfig.SystemOperatorEntityPage;
@@ -192,7 +193,7 @@ public class AdminDashboardPage {
     private WebElement roleConfigLink;
     @FindBy(xpath = "//li[@id='System Operator Entity']")
     private WebElement systemOperatorLink;
-    @FindBy(xpath = "//span[text()='Black List Management']/parent::span")
+    @FindBy(xpath = "//span[text()='Black List Management']")
     private WebElement blackListManagementLink;
     @FindBy(xpath = "//li[@id='Add Blacklist']")
     private WebElement addBlacklistLink;
@@ -210,6 +211,21 @@ public class AdminDashboardPage {
     private WebElement menuConfigLink;
     @FindBy(xpath = "//li[@id='Standard Master']")
     private WebElement standardMasterLink;
+    @FindBy(xpath = "//span[text()='Operation']")
+    private WebElement operationLink;
+    @FindBy(xpath = "//li[@id='Account Management']")
+    private WebElement accountManagementLink;
+    @FindBy(xpath = "//span[text()='Fund Management']")
+    private WebElement fundManagementLink;
+    @FindBy(xpath = "//li[@id='Add Money']")
+    private WebElement addMoneyLink;
+    @FindBy(xpath = "//li[@id='Fund Transfer']")
+    private WebElement fundTransferLink;
+    @FindBy(xpath = "//li[@id='Resend Notification']")
+    private WebElement resendNotificationLink;
+    @FindBy(xpath = "//li[@id='Transaction Reversal']")
+    private WebElement transactionReversalLink;
+
     public AdminDashboardPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -509,13 +525,6 @@ public class AdminDashboardPage {
         return new BusinessHierarchyPage(driver);
     }
 
-
-
-
-
-
-
-
     public void hoverOnOperatorConfigMenu() {
         action.moveToElement(operatorConfigLink).build().perform();
     }
@@ -582,5 +591,35 @@ public class AdminDashboardPage {
         action.moveToElement(standardMasterLink).build().perform();
         wait.until(ExpectedConditions.visibilityOf(standardMasterLink)).click();
         return new StandardMasterPage(driver);
+    }
+    public void hoverOnOperationMenu() {
+        action.moveToElement(operationLink).build().perform();
+    }
+    public AccountManagementPage clickOnAccountManagementSubMenu() {
+        action.moveToElement(fundManagementLink).build().perform();
+        action.moveToElement(accountManagementLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(accountManagementLink)).click();
+        return new AccountManagementPage(driver);
+    }
+    public FundTransferPage clickOnFundTransferSubMenu() {
+        action.moveToElement(fundManagementLink).build().perform();
+        action.moveToElement(fundTransferLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(fundTransferLink)).click();
+        return new FundTransferPage(driver);
+    }
+    public AddMoneyPage clickOnAddMoneySubMenu() {
+        action.moveToElement(addMoneyLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(addMoneyLink)).click();
+        return new AddMoneyPage(driver);
+    }
+    public ResendNotificationPage clickOnResendNotificationSubMenu() {
+        action.moveToElement(resendNotificationLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(resendNotificationLink)).click();
+        return new ResendNotificationPage(driver);
+    }
+    public TransactionReversalPage clickOnTransactionReversalSubMenu() {
+        action.moveToElement(transactionReversalLink).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(transactionReversalLink)).click();
+        return new TransactionReversalPage(driver);
     }
 }

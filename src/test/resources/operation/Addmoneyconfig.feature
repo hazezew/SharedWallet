@@ -21,8 +21,9 @@ Feature: Add Money Configuration
     And web user clicks on Login button
     Then web system displays "You have successfully logged in!" message
     And web system displays Admin dashboard
-    And web user moves mouse over operation config main menu
+    And web user moves mouse over operation main menu
 
   Scenario: Move System Operator
-    And web user clicks on add money config sub menu
-    Then web system displays add money operator config page
+    And web user clicks on add money sub menu
+    Then web system displays add money page
+    When web user input add money detail "<FromUser>" "<FromWallet>" "<FromPouch>" "<ToUser>" "<ToWallet>" "<ToPouch>" "<Amount>" "<Service>" "<Product>" "<Remark>"
