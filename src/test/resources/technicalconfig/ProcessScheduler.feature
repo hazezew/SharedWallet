@@ -26,3 +26,12 @@ Feature: Process Configuration
   Scenario: Technical Config
     And web user clicks on process scheduler sub menu
     Then web system displays process scheduler page
+
+  Scenario: verify search for process scheduler
+    And web user clicks on process scheduler sub menu
+    Then web system displays process scheduler page
+    When web user click on filter icon for process scheduler
+    And web user select "Contains" for the search process scheduler filter criteria
+    And web user enters "Scheduler" into process scheduler search name field
+    And web user clicks search process scheduler button
+    Then web system displays a list of process schedulers with "Scheduler" on the name

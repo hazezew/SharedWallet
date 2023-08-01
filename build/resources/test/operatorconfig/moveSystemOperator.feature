@@ -26,3 +26,13 @@ Feature: System Operator Configuration
   Scenario: Move System Operator
     And web user clicks on move system operator config sub menu
     Then web system displays move system operator config page
+    When web user select "asdfasdf" system operator to move
+    And web user select "asdfasf" new system operator entity
+    And web user select "asdfasdf" to kyc level
+    And web user click move button
+
+  Scenario: Move system operator without entering new system operator
+    And web user clicks on move system operator config sub menu
+    Then web system displays move system operator config page
+    And web user click move button
+    Then web system displays validation message for move system operator

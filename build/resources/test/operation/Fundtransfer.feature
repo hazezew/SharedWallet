@@ -23,6 +23,7 @@ Feature: FundTransfer
     And web system displays Admin dashboard
     And web user moves mouse over operation main menu
 
-  Scenario: Move System Operator
+  Scenario: Transfer fund
     And web user clicks on fund transfer sub menu
     Then web system displays fund transfer page
+    When web user enters fund detail "<FromAccount>" "<ToAccount>" "<Service>" "<Product>" "<Amount>" "<Remark>" "<Password>"

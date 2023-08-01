@@ -26,3 +26,13 @@ Feature: Standard Master Configuration
   Scenario: Technical Config
     And web user clicks on standard master sub menu
     Then web system displays standard master page
+
+
+  Scenario: verify search for standard master
+    And web user clicks on standard master sub menu
+    Then web system displays standard master page
+    When web user click on filter icon for standard master
+    And web user select "Contains" for the search standard master filter criteria
+    And web user enters "Standard" into standard master search name field
+    And web user clicks search standard master button
+    Then web system displays a list of standard masters with "Standard" on the name

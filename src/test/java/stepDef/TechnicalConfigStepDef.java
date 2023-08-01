@@ -106,7 +106,7 @@ public class TechnicalConfigStepDef extends AbstractPage {
     }
 
     @When("web user click on filter icon for process")
-    public void clickOnFilterIconForRole() {
+    public void clickOnFilterIconForProcess() {
         processPage.clickFilterIcon();
     }
 
@@ -143,4 +143,130 @@ public class TechnicalConfigStepDef extends AbstractPage {
     public void verifyValidationMessageForFieldMapping() {
         fieldMappingPage.verifyValidationMessage();
     }
+
+    @When("web user click on filter icon for field mapping")
+    public void clickOnFilterIconForFieldMapping() {
+        fieldMappingPage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into field mapping search name field")
+    public void enterSearchedKeywordForFieldMapping(String fieldMappingName) {
+        fieldMappingPage.enterNameInToSearchField(fieldMappingName);
+    }
+
+    @And("web user select {string} for the search field mapping filter criteria")
+    public void selectSearchFieldMappingFilterCriteria(String criteria) {
+        fieldMappingPage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search field mapping button")
+    public void clicksSearchFieldMappingButton() {
+        fieldMappingPage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of field mappings with {string} on the name")
+    public void verifySearchResultsForFieldMapping(String fieldMappingName) {
+        fieldMappingPage.verifyFieldMappingSearchResults(fieldMappingName);
+    }
+
+    @When("web user click on filter icon for process run detail")
+    public void clickOnFilterIconForProcessRunDetail() {
+        processRunDetailPage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into process run detail search name field")
+    public void enterSearchedKeywordForProcessRunDetail(String processName) {
+        processRunDetailPage.enterNameInToSearchField(processName);
+    }
+
+    @And("web user select {string} for the search process run detail filter criteria")
+    public void selectSearchProcessRunDetailFilterCriteria(String criteria) {
+        processRunDetailPage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search process run detail button")
+    public void clicksSearchProcessRunDetailButton() {
+        processRunDetailPage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of process run details with {string} on the name")
+    public void verifySearchResultsForProcessRunDetail(String processName) {
+        processRunDetailPage.verifyProcessRunDetailSearchResults(processName);
+    }
+
+    @When("web user click on filter icon for process scheduler")
+    public void clickOnFilterIconForProcessProcessScheduler() {
+        processSchedulerPage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into process scheduler search name field")
+    public void enterSearchedKeywordForProcessProcessScheduler(String schedulerName) {
+        processSchedulerPage.enterNameInToSearchField(schedulerName);
+    }
+
+    @And("web user select {string} for the search process scheduler filter criteria")
+    public void selectSearchProcessProcessSchedulerFilterCriteria(String criteria) {
+        processSchedulerPage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search process scheduler button")
+    public void clicksSearchProcessProcessSchedulerButton() {
+        processSchedulerPage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of process schedulers with {string} on the name")
+    public void verifySearchResultsForProcessScheduler(String schedulerName) {
+        processSchedulerPage.verifyProcessSchedulerSearchResults(schedulerName);
+    }
+
+    @When("web user click on filter icon for scheduler")
+    public void clickOnFilterIconForScheduler() {
+        schedulerPage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into scheduler search name field")
+    public void enterSearchedKeywordForScheduler(String processName) {
+        schedulerPage.enterNameInToSearchField(processName);
+    }
+
+    @And("web user select {string} for the search scheduler filter criteria")
+    public void selectSearchSchedulerFilterCriteria(String criteria) {
+        schedulerPage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search scheduler button")
+    public void clicksSearchSchedulerButton() {
+        schedulerPage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of schedulers with {string} on the name")
+    public void verifySearchResultsForScheduler(String schedulerName) {
+        schedulerPage.verifySchedulerSearchResults(schedulerName);
+    }
+
+    @When("web user click on filter icon for standard master")
+    public void clickOnFilterIconForStandardMaster() {
+        standardMasterPage.clickFilterIcon();
+    }
+
+    @And("web user enters {string} into standard master search name field")
+    public void enterSearchedKeywordForStandardMaster(String standardMasterName) {
+        standardMasterPage.enterNameInToSearchField(standardMasterName);
+    }
+
+    @And("web user select {string} for the search standard master filter criteria")
+    public void selectSearchStandardMasterFilterCriteria(String criteria) {
+        standardMasterPage.selectSearchCriteria(criteria);
+    }
+
+    @And("web user clicks search standard master button")
+    public void clicksSearchStandardMasterButton() {
+        standardMasterPage.clickSearchButton();
+    }
+
+    @Then("web system displays a list of standard masters with {string} on the name")
+    public void verifySearchResultsForStandardMaster(String standardMasterName) {
+        standardMasterPage.verifyStandardMasterSearchResults(standardMasterName);
+    }
+
 }

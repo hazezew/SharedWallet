@@ -26,3 +26,12 @@ Feature: Scheduler Configuration
   Scenario: Technical Config
     And web user clicks on scheduler sub menu
     Then web system displays scheduler page
+
+  Scenario: verify search for scheduler
+    And web user clicks on scheduler sub menu
+    Then web system displays scheduler page
+    When web user click on filter icon for scheduler
+    And web user select "Contains" for the search scheduler filter criteria
+    And web user enters "Scheduler" into scheduler search name field
+    And web user clicks search scheduler button
+    Then web system displays a list of schedulers with "Scheduler" on the name

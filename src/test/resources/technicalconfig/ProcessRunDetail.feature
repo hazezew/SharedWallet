@@ -26,3 +26,13 @@ Feature: Process Configuration
   Scenario: Technical Config
     And web user clicks on process run detail sub menu
     Then web system displays process run detail page
+
+
+  Scenario: verify search for process run detail
+    And web user clicks on process run detail sub menu
+    Then web system displays process run detail page
+    When web user click on filter icon for process run detail
+    And web user select "Contains" for the search process run detail filter criteria
+    And web user enters "Process" into process run detail search name field
+    And web user clicks search process run detail button
+    Then web system displays a list of process run details with "Process" on the name

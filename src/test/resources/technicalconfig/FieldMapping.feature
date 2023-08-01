@@ -34,4 +34,14 @@ Feature: Field Mapping
     Then web system displays Field Mapping page
     When web user click add button for field mapping
     And web user click save button for field mapping
-    Then web system displays validation message for mapping
+    Then web system displays validation message for field mapping
+
+
+  Scenario: verify search for role
+    And web user clicks on Field Mapping sub menu
+    Then web system displays Field Mapping page
+    When web user click on filter icon for field mapping
+    And web user select "Contains" for the search field mapping filter criteria
+    And web user enters "Customer" into field mapping search name field
+    And web user clicks search field mapping button
+    Then web system displays a list of field mappings with "Customer" on the name

@@ -23,6 +23,15 @@ Feature: Account Management
     And web system displays Admin dashboard
     And web user moves mouse over operation main menu
 
-  Scenario: Move System Operator
+  Scenario: Manage account
     And web user clicks on account management sub menu
     Then web system displays account management page
+
+  Scenario: verify search for account management
+    And web user clicks on account management sub menu
+    Then web system displays account management page
+    When web user click on filter icon for account management
+    And web user select "Contains" for the search account management filter criteria
+    And web user enters "User" into account management search name field
+    And web user clicks search account management button
+    Then web system displays a list of account managements with "User" on the name

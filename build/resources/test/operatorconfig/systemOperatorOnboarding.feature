@@ -23,6 +23,17 @@ Feature: System Operator Onboarding
     And web system displays Admin dashboard
     And web user moves mouse over operator config main menu
 
-  Scenario: Move System Operator
+  Scenario Outline: System operator onboarding
     And web user clicks on system operator onboarding sub menu
     Then web system displays system operator onboarding page
+    When web user click add button for system operator onboarding
+    And web user add system operator "<SOE>" "<KYCLevel>" "<FullName>" "<MobileNumber>" "<Dob>" "<Email>"
+    And web user click save button for system operator
+    Then web user should see the "<Name>" system operator is created
+    And web user clicks on view icon for "<Name>" system operator
+    And web user delete the created system operator
+
+    Examples:
+      | SOE       | KYCLevel      | FullName  | Dob        | MobileNumber | Email           |
+      | ETH Admin | Sub agent_KYC | Auto User | 2000-07-29 | 0911235654   | email@gmail.com |
+

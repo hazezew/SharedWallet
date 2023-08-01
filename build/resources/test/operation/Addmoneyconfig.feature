@@ -26,3 +26,4 @@ Feature: Add Money Configuration
   Scenario: Move System Operator
     And web user clicks on add money sub menu
     Then web system displays add money page
+    When web user input add money detail "<FromUser>" "<FromWallet>" "<FromPouch>" "<ToUser>" "<ToWallet>" "<ToPouch>" "<Amount>" "<Service>" "<Product>" "<Remark>"
