@@ -15,8 +15,8 @@ Feature: Standard Master Configuration
 
   Background: user opened web browser and maximizes it
     When user has entered Shared Wallet system URL
-    When web user enters "Walelign@123" into Username text field
-    And web user enters "Walelign@123" into password text field
+    When web user enters username into username text field
+    And web user enters password into password text field
     And web user selects "Africa/Nairobi" from timezone dropdown
     And web user clicks on Login button
     Then web system displays "You have successfully logged in!" message
@@ -26,3 +26,13 @@ Feature: Standard Master Configuration
   Scenario: Technical Config
     And web user clicks on standard master sub menu
     Then web system displays standard master page
+
+
+  Scenario: verify search for standard master
+    And web user clicks on standard master sub menu
+    Then web system displays standard master page
+    When web user click on filter icon for standard master
+    And web user select "Contains" for the search standard master filter criteria
+    And web user enters "Standard" into standard master search name field
+    And web user clicks search standard master button
+    Then web system displays a list of standard masters with "Standard" on the name

@@ -1,6 +1,6 @@
 package stepDef;
 
-import config.Config;
+import util.PropertiesReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -31,8 +31,8 @@ public class TechnicalConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays Field Mapping page")
-    public void webSystemDisplaysFieldMappingPage() {
-        Assert.assertEquals(fieldMappingPage.getURL(), Config.fieldMappingPageURL);
+    public void webSystemDisplaysFieldMappingPage() throws Exception {
+        Assert.assertEquals(fieldMappingPage.getURL(), PropertiesReader.getValue("fieldMappingPageURL"));
     }
     @And("web user clicks on add blacklist sub menu")
     public void webUserClicksOnAddBlacklistSubMenu() {
@@ -40,8 +40,9 @@ public class TechnicalConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays add blacklist page")
-    public void webSystemDisplaysAddBlacklistPage() {
-        Assert.assertEquals(addBlackListPage.getURL(), Config.addBlacklistPageURL);
+    public void webSystemDisplaysAddBlacklistPage() throws Exception {
+        Assert.assertEquals(addBlackListPage.getURL(),
+                PropertiesReader.getValue("addBlacklistPageURL"));
     }
 
     @And("web user clicks on apply blacklist sub menu")
@@ -50,8 +51,9 @@ public class TechnicalConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays apply blacklist page")
-    public void webSystemDisplaysApplyBlacklistPage() {
-        Assert.assertEquals(applyBlackListPage.getURL(), Config.applyBlacklistPageURL);
+    public void webSystemDisplaysApplyBlacklistPage() throws Exception {
+        Assert.assertEquals(applyBlackListPage.getURL(),
+                PropertiesReader.getValue("applyBlacklistPageURL"));
     }
     @And("web user clicks on menu config sub menu")
     public void webUserClicksMenuConfigSubMenu() {
@@ -59,16 +61,16 @@ public class TechnicalConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays menu config page")
-    public void webSystemDisplaysMenuConfigPage() {
-        Assert.assertEquals(menuConfigPage.getURL(), Config.menuConfigPageURL);
+    public void webSystemDisplaysMenuConfigPage() throws Exception {
+        Assert.assertEquals(menuConfigPage.getURL(), PropertiesReader.getValue("menuConfigPageURL"));
     }
     @And("web user clicks on process config sub menu")
     public void webUserClicksOnProcessSubMenu() {
         processPage = adminDashboardPage.clickProcessSubMenu();
     }
     @Then("web system displays process config page")
-    public void webSystemDisplaysProcessPage() {
-        Assert.assertEquals(processPage.getURL(), Config.processPageURL);
+    public void webSystemDisplaysProcessPage() throws Exception {
+        Assert.assertEquals(processPage.getURL(), PropertiesReader.getValue("processPageURL"));
     }
 
     @And("web user clicks on process run detail sub menu")
@@ -77,32 +79,34 @@ public class TechnicalConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays process run detail page")
-    public void webSystemDisplaysProcessRunDetailPage() {
-        Assert.assertEquals(processRunDetailPage.getURL(), Config.processRunDetailPageURL);
+    public void webSystemDisplaysProcessRunDetailPage() throws Exception {
+        Assert.assertEquals(processRunDetailPage.getURL(),
+                PropertiesReader.getValue("processRunDetailPageURL"));
     }
     @And("web user clicks on process scheduler sub menu")
     public void webUserClicksOnProcessSchedulerSubMenu() {
         processSchedulerPage = adminDashboardPage.clickProcessSchedulerSubMenu();
     }
     @Then("web system displays process scheduler page")
-    public void webSystemDisplaysProcessSchedulerPage() {
-        Assert.assertEquals(processSchedulerPage.getURL(), Config.processSchedulerPageURL);
+    public void webSystemDisplaysProcessSchedulerPage() throws Exception {
+        Assert.assertEquals(processSchedulerPage.getURL(), PropertiesReader.getValue("processSchedulerPageURL"));
     }
     @And("web user clicks on scheduler sub menu")
     public void webUserClicksOnSchedulerSubMenu() {
         schedulerPage = adminDashboardPage.clickSchedulerSubMenu();
     }
     @Then("web system displays scheduler page")
-    public void webSystemDisplaysSchedulerPage() {
-        Assert.assertEquals(schedulerPage.getURL(), Config.schedulerPageURL);
+    public void webSystemDisplaysSchedulerPage() throws Exception {
+        Assert.assertEquals(schedulerPage.getURL(), PropertiesReader.getValue("schedulerPageURL"));
     }
     @And("web user clicks on standard master sub menu")
     public void webUserClicksOnStandardMasterSubMenu() {
         standardMasterPage = adminDashboardPage.clickStandardMasterSubMenu();
     }
     @Then("web system displays standard master page")
-    public void webSystemDisplaysStandardMasterPage() {
-        Assert.assertEquals(standardMasterPage.getURL(), Config.standardMasterPageURL);
+    public void webSystemDisplaysStandardMasterPage() throws Exception {
+        Assert.assertEquals(standardMasterPage.getURL(),
+                PropertiesReader.getValue("standardMasterPageURL"));
     }
 
     @When("web user click on filter icon for process")

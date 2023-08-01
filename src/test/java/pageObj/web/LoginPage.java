@@ -1,5 +1,6 @@
 package pageObj.web;
 
+import util.PropertiesReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -45,13 +46,21 @@ public class LoginPage {
         action = new Actions(driver);
     }
 
-    public void setTxtUsername(String username){
+    public void setTxtUsername() throws Exception {
         wait.until(ExpectedConditions.visibilityOf(txtUsername)).clear();
-        wait.until(ExpectedConditions.visibilityOf(txtUsername)).sendKeys(username);
+        wait.until(ExpectedConditions.visibilityOf(txtUsername)).sendKeys(PropertiesReader.getValue("username"));
     }
-    public void setTxtPassword(String password){
+    public void setTxtPassword() throws Exception {
         wait.until(ExpectedConditions.visibilityOf(txtPassword)).clear();
-        wait.until(ExpectedConditions.visibilityOf(txtPassword)).sendKeys(password);
+        wait.until(ExpectedConditions.visibilityOf(txtPassword)).sendKeys(PropertiesReader.getValue("password"));
+    }
+    public void setIncorrectPassword() throws Exception {
+        wait.until(ExpectedConditions.visibilityOf(txtPassword)).clear();
+        wait.until(ExpectedConditions.visibilityOf(txtPassword)).sendKeys(PropertiesReader.getValue("incorrectPassword"));
+    }
+    public void setIncorrectUsername() throws Exception {
+        wait.until(ExpectedConditions.visibilityOf(txtUsername)).clear();
+        wait.until(ExpectedConditions.visibilityOf(txtUsername)).sendKeys(PropertiesReader.getValue("incorrectUsername"));
     }
     public void selectTimeZone(String timeZone){
         wait.until(ExpectedConditions.visibilityOf(ddTimeZone)).click();

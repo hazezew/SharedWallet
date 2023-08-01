@@ -1,6 +1,6 @@
 package stepDef;
 
-import config.Config;
+import util.PropertiesReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -32,8 +32,8 @@ public class UserManagementStepDef extends AbstractPage {
     }
 
     @Then("web system displays View User page")
-    public void webSystemDisplaysViewUserPage() {
-        Assert.assertEquals(viewUserPage.getURL(), Config.viewUserPageURL);
+    public void webSystemDisplaysViewUserPage() throws Exception {
+        Assert.assertEquals(viewUserPage.getURL(), PropertiesReader.getValue("viewUserPageURL"));
     }
 
     @And("web user enters {string} into username search textfield")
@@ -67,8 +67,9 @@ public class UserManagementStepDef extends AbstractPage {
     }
 
     @Then("web system displays Update User Profile page")
-    public void webSystemDisplaysUpdateUserProfilePage() {
-        Assert.assertEquals(Config.updateUserProfilePageURL,updateUserProfilePage.getURL());
+    public void webSystemDisplaysUpdateUserProfilePage() throws Exception {
+        Assert.assertEquals(updateUserProfilePage.getURL(),
+                PropertiesReader.getValue("updateUserProfilePageURL"));
     }
 
     @And("web user enters {string} into username search textfield for update")
@@ -148,8 +149,9 @@ public class UserManagementStepDef extends AbstractPage {
     }
 
     @Then("web system displays Reset Password page")
-    public void webSystemDisplaysResetPasswordPage() {
-        Assert.assertEquals(resetPasswordPage.getURL(),Config.resetPasswordPageURL);
+    public void webSystemDisplaysResetPasswordPage() throws Exception {
+        Assert.assertEquals(resetPasswordPage.getURL(),
+                PropertiesReader.getValue("resetPasswordPageURL"));
     }
 
     @And("web user clicks on search user button for password reset")
@@ -183,8 +185,9 @@ public class UserManagementStepDef extends AbstractPage {
     }
 
     @Then("web system displays Search User By Template page")
-    public void webSystemDisplaysSearchUserByTemplatePage() {
-        Assert.assertEquals(Config.SearchUserByTemplatePageURL,searchUserByTemplatePage.getURL());
+    public void webSystemDisplaysSearchUserByTemplatePage() throws Exception {
+        Assert.assertEquals(searchUserByTemplatePage.getURL(),
+                PropertiesReader.getValue("searchUserByTemplatePageURL"));
     }
 
     @And("web user clicks on search button for Search User By Template")
@@ -213,8 +216,9 @@ public class UserManagementStepDef extends AbstractPage {
     }
 
     @Then("web system displays Change Status page")
-    public void webSystemDisplaysChangeStatusPage() {
-        Assert.assertEquals(changeUserStatusPage.getURL(),Config.changeUserStatusPageURL);
+    public void webSystemDisplaysChangeStatusPage() throws Exception {
+        Assert.assertEquals(changeUserStatusPage.getURL(),
+                PropertiesReader.getValue("changeUserStatusPageURL"));
     }
 
     @And("web user clicks on search button for Change Status")
@@ -248,8 +252,8 @@ public class UserManagementStepDef extends AbstractPage {
     }
 
     @Then("web system displays Upgrade User KYC page")
-    public void webSystemDisplaysUpgradeUserKYCPage() {
-        Assert.assertEquals(upgradeUserKYCPage.getURL(),Config.upgradeUserKYCPageURL);
+    public void webSystemDisplaysUpgradeUserKYCPage() throws Exception {
+        Assert.assertEquals(upgradeUserKYCPage.getURL(),PropertiesReader.getValue("upgradeUserKYCPageURL"));
     }
 
     @And("web user clicks on search button for Upgrade User KYC")
@@ -283,8 +287,9 @@ public class UserManagementStepDef extends AbstractPage {
     }
 
     @Then("web system displays System User Management page")
-    public void webSystemDisplaysSystemUserManagementPage() {
-        Assert.assertEquals(systemUserManagementPage.getURL(),Config.systemUserManagementPageURL);
+    public void webSystemDisplaysSystemUserManagementPage() throws Exception {
+        Assert.assertEquals(systemUserManagementPage.getURL(),
+                PropertiesReader.getValue("systemUserManagementPageURL"));
     }
 
     @And("System User Management page user clicks on Add button")
@@ -358,8 +363,9 @@ public class UserManagementStepDef extends AbstractPage {
     }
 
     @Then("web system displays Wallet Management page")
-    public void webSystemDisplaysWalletManagementPage() {
-        Assert.assertEquals(walletManagementPage.getURL(),Config.walletManagementPageURL);
+    public void webSystemDisplaysWalletManagementPage() throws Exception {
+        Assert.assertEquals(walletManagementPage.getURL(),
+                PropertiesReader.getValue("walletManagementPageURL"));
     }
 
     @And("on Wallet Management user enters {string} into user textfield")
@@ -403,8 +409,9 @@ public class UserManagementStepDef extends AbstractPage {
     }
 
     @Then("web system displays Manage User Hierarchy page")
-    public void webSystemDisplaysManageUserHierarchyPage() {
-        Assert.assertEquals(manageUserHierarchyPage.getURL(),Config.manageUserHierarchyPageURL);
+    public void webSystemDisplaysManageUserHierarchyPage() throws Exception {
+        Assert.assertEquals(manageUserHierarchyPage.getURL(),
+                PropertiesReader.getValue("manageUserHierarchyPageURL"));
     }
 
     @And("on Manage User Hierarchy page user clicks on search button")
@@ -468,8 +475,9 @@ public class UserManagementStepDef extends AbstractPage {
     }
 
     @Then("web system displays Search Business User By Template page")
-    public void webSystemDisplaysSearchBusinessUserByTemplatePage() {
-        Assert.assertEquals(searchBusinessUserByTemplatePage.getURL(),Config.searchBusinessUserByTemplatePageURL);
+    public void webSystemDisplaysSearchBusinessUserByTemplatePage() throws Exception {
+        Assert.assertEquals(searchBusinessUserByTemplatePage.getURL(),
+                PropertiesReader.getValue("searchBusinessUserByTemplatePageURL"));
     }
 
     @And("on Search Business User By Template page user clicks on search button")

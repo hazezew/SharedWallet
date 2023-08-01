@@ -1,6 +1,6 @@
 package stepDef;
 
-import config.Config;
+import util.PropertiesReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -35,8 +35,8 @@ public class BusinessConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays service vendor configuration page")
-    public void webSystemDisplaysServiceVendorConfigurationPage() {
-        Assert.assertEquals(Config.serviceVendorConfigurationPageURL, serviceVendorPage.getServiceVendorPageURL());
+    public void webSystemDisplaysServiceVendorConfigurationPage() throws Exception {
+        Assert.assertEquals(serviceVendorPage.getServiceVendorPageURL(), PropertiesReader.getValue("serviceVendorConfigurationPageURL"));
     }
 
     @When("web user clicks on add button for service vendor config")
@@ -131,8 +131,9 @@ public class BusinessConfigStepDef extends AbstractPage {
         notificationPage = adminDashboardPage.clickOnNotificationSubMenu();
     }
     @Then("web system displays notification configuration page")
-    public void webSystemDisplaysNotificationConfigurationPage() {
-        Assert.assertEquals(Config.notificationConfigurationPageURL, notificationPage.getNotificationPageURL());
+    public void webSystemDisplaysNotificationConfigurationPage() throws Exception {
+        Assert.assertEquals(notificationPage.getNotificationPageURL(),
+                PropertiesReader.getValue("notificationConfigurationPageURL"));
     }
     @When("web user clicks on add button for notification")
     public void clicksOnAddButtonForNotification() {
@@ -144,8 +145,9 @@ public class BusinessConfigStepDef extends AbstractPage {
         serviceProviderPage = adminDashboardPage.clickOnServiceProviderSubMenu();
     }
     @Then("web system displays service provider configuration page")
-    public void webSystemDisplaysServiceProviderConfigurationPage() {
-        Assert.assertEquals(Config.serviceProviderConfigurationPageURL, serviceProviderPage.getServiceProviderPageURL());
+    public void webSystemDisplaysServiceProviderConfigurationPage() throws Exception {
+        Assert.assertEquals(serviceProviderPage.getServiceProviderPageURL(),
+                PropertiesReader.getValue("serviceProviderConfigurationPageURL"));
     }
     @When("web user clicks on add button for service provider")
     public void clicksOnAddButtonForServiceProvider() {
@@ -157,8 +159,9 @@ public class BusinessConfigStepDef extends AbstractPage {
         assignProviderPage = adminDashboardPage.clickOnAssignProviderSubMenu();
     }
     @Then("web system displays assign provider configuration page")
-    public void webSystemDisplaysAssignProviderConfigurationPage() {
-        Assert.assertEquals(Config.assignProviderConfigurationPageURL, assignProviderPage.getAssignProviderPageURL());
+    public void webSystemDisplaysAssignProviderConfigurationPage() throws Exception {
+        Assert.assertEquals(assignProviderPage.getAssignProviderPageURL(),
+                PropertiesReader.getValue("assignProviderConfigurationPageURL"));
     }
 
     @And("web user clicks on product management sub menu")
@@ -166,8 +169,9 @@ public class BusinessConfigStepDef extends AbstractPage {
         productManagementPage = adminDashboardPage.clickOnProductManagementSubMenu();
     }
     @Then("web system displays product management configuration page")
-    public void webSystemDisplaysProductManagementConfigurationPage() {
-        Assert.assertEquals(Config.productManagementConfigurationPageURL, productManagementPage.getProductManagementPageURL());
+    public void webSystemDisplaysProductManagementConfigurationPage() throws Exception {
+        Assert.assertEquals(productManagementPage.getProductManagementPageURL(),
+                PropertiesReader.getValue("productManagementConfigurationPageURL"));
     }
     @When("web user clicks on add button for product management")
     public void clicksOnAddButtonForProductManagement() {
@@ -180,8 +184,9 @@ public class BusinessConfigStepDef extends AbstractPage {
         responseNodePage = adminDashboardPage.clickOnResponseNodeSubMenu();
     }
     @Then("web system displays response node configuration page")
-    public void webSystemDisplaysResponseNodeConfigurationPage() {
-        Assert.assertEquals(Config.responseNodeConfigurationPageURL, responseNodePage.getResponseNodePageURL());
+    public void webSystemDisplaysResponseNodeConfigurationPage() throws Exception {
+        Assert.assertEquals(responseNodePage.getResponseNodePageURL(),
+                PropertiesReader.getValue("responseNodeConfigurationPageURL"));
     }
     @When("web user clicks on add button for response node")
     public void clicksOnAddButtonForResponseNode() {
@@ -194,8 +199,9 @@ public class BusinessConfigStepDef extends AbstractPage {
         serviceProfilePage = adminDashboardPage.clickOnServiceProfileSubMenu();
     }
     @Then("web system displays service profile configuration page")
-    public void webSystemDisplaysServiceProfileConfigurationPage() {
-        Assert.assertEquals(Config.serviceProfileConfigurationPageURL, serviceProfilePage.getServiceProfilePageURL());
+    public void webSystemDisplaysServiceProfileConfigurationPage() throws Exception {
+        Assert.assertEquals(serviceProfilePage.getServiceProfilePageURL(),
+                PropertiesReader.getValue("serviceProfileConfigurationPageURL"));
     }
     @When("web user clicks on add button for service profile")
     public void clicksOnAddButtonForServiceProfile() {
@@ -207,8 +213,9 @@ public class BusinessConfigStepDef extends AbstractPage {
         authenticationPage = adminDashboardPage.clickOnAuthenticationSubMenu();
     }
     @Then("web system displays authentication configuration page")
-    public void webSystemDisplaysAuthenticationConfigurationPage() {
-        Assert.assertEquals(Config.authenticationConfigurationPageURL, authenticationPage.getAuthenticationPageURL());
+    public void webSystemDisplaysAuthenticationConfigurationPage() throws Exception {
+        Assert.assertEquals(authenticationPage.getAuthenticationPageURL(),
+                PropertiesReader.getValue("authenticationConfigurationPageURL"));
     }
     @When("web user clicks on add button for authentication")
     public void clicksOnAddButtonForAuthentication() {
@@ -221,8 +228,9 @@ public class BusinessConfigStepDef extends AbstractPage {
         deviceAuthenticationPage = adminDashboardPage.clickOnDeviceAuthenticationSubMenu();
     }
     @Then("web system displays device authentication configuration page")
-    public void webSystemDisplaysDeviceAuthenticationConfigurationPage() {
-        Assert.assertEquals(Config.deviceAuthenticationConfigurationPageURL, deviceAuthenticationPage.getDeviceAuthenticationPageURL());
+    public void webSystemDisplaysDeviceAuthenticationConfigurationPage() throws Exception {
+        Assert.assertEquals(deviceAuthenticationPage.getDeviceAuthenticationPageURL(),
+                PropertiesReader.getValue("deviceAuthenticationConfigurationPageURL"));
     }
     @When("web user clicks on add button for device authentication")
     public void clicksOnAddButtonForDeviceAuthentication() {
@@ -235,8 +243,9 @@ public class BusinessConfigStepDef extends AbstractPage {
         apiGroupPage = adminDashboardPage.clickOnApiGroupSubMenu();
     }
     @Then("web system displays api group configuration page")
-    public void webSystemDisplaysApiGroupConfigurationPage() {
-        Assert.assertEquals(Config.apiGroupConfigurationPageURL, apiGroupPage.getApiGroupPageURL());
+    public void webSystemDisplaysApiGroupConfigurationPage() throws Exception {
+        Assert.assertEquals(apiGroupPage.getApiGroupPageURL(),
+                PropertiesReader.getValue("apiGroupConfigurationPageURL"));
     }
     @When("web user clicks on add button for api group")
     public void clicksOnAddButtonForApiGroup() {
@@ -251,8 +260,9 @@ public class BusinessConfigStepDef extends AbstractPage {
         accessNodePage = adminDashboardPage.clickOnAccessNodeSubMenu();
     }
     @Then("web system displays access node configuration page")
-    public void webSystemDisplaysAccessNodeConfigurationPage() {
-        Assert.assertEquals(Config.accessNodeConfigurationPageURL, accessNodePage.getAccessNodePageURL());
+    public void webSystemDisplaysAccessNodeConfigurationPage() throws Exception {
+        Assert.assertEquals(accessNodePage.getAccessNodePageURL(),
+                PropertiesReader.getValue("accessNodeConfigurationPageURL"));
     }
     @When("web user clicks on add button for access node")
     public void clicksOnAddButtonForAccessNode() {
@@ -264,8 +274,9 @@ public class BusinessConfigStepDef extends AbstractPage {
         platformAccessProfilePage = adminDashboardPage.clickOnPlatformAccessProfileSubMenu();
     }
     @Then("web system displays platform access profile configuration page")
-    public void webSystemDisplaysPlatformAccessProfileConfigurationPage() {
-        Assert.assertEquals(Config.platformAccessProfileConfigurationPageURL, platformAccessProfilePage.getPlatformAccessProfilePageURL());
+    public void webSystemDisplaysPlatformAccessProfileConfigurationPage() throws Exception {
+        Assert.assertEquals(platformAccessProfilePage.getPlatformAccessProfilePageURL(),
+                PropertiesReader.getValue("platformAccessProfileConfigurationPageURL"));
     }
     @When("web user clicks on add button for pap")
     public void clicksOnAddButtonForPlatformAccessProfile() {
@@ -277,8 +288,9 @@ public class BusinessConfigStepDef extends AbstractPage {
         settlementGroupPage = adminDashboardPage.clickOnSettlementGroupSubMenu();
     }
     @Then("web system displays settlement group configuration page")
-    public void webSystemDisplaysSettlementGroupConfigurationPage() {
-        Assert.assertEquals(Config.settlementGroupConfigurationPageURL, settlementGroupPage.getSettlementGroupPageURL());
+    public void webSystemDisplaysSettlementGroupConfigurationPage() throws Exception {
+        Assert.assertEquals(settlementGroupPage.getSettlementGroupPageURL(),
+                PropertiesReader.getValue("settlementGroupConfigurationPageURL"));
     }
     @When("web user clicks on add button for settlement group")
     public void clicksOnAddButtonForSettlementGroup() {
@@ -289,8 +301,9 @@ public class BusinessConfigStepDef extends AbstractPage {
         platformAccessRolePage = adminDashboardPage.clickOnPlatformAccessRoleSubMenu();
     }
     @Then("web system displays platform access role configuration page")
-    public void webSystemDisplaysPlatformAccessRoleConfigurationPage() {
-        Assert.assertEquals(Config.platformAccessRoleConfigurationPageURL, platformAccessRolePage.getPlatformAccessRolePageURL());
+    public void webSystemDisplaysPlatformAccessRoleConfigurationPage() throws Exception {
+        Assert.assertEquals(platformAccessRolePage.getPlatformAccessRolePageURL(),
+                PropertiesReader.getValue("platformAccessRoleConfigurationPageURL"));
     }
     @When("web user clicks on add button for platform access role")
     public void clicksOnAddButtonForPlatformAccessRole() {
@@ -303,8 +316,9 @@ public class BusinessConfigStepDef extends AbstractPage {
         businessHierarchyPage = adminDashboardPage.clickOnBusinessHierarchySubMenu();
     }
     @Then("web system displays business hierarchy configuration page")
-    public void webSystemDisplaysBusinessHierarchyConfigurationPage() {
-        Assert.assertEquals(Config.businessHierarchyConfigurationPageURL, businessHierarchyPage.getBusinessHierarchyPageURL());
+    public void webSystemDisplaysBusinessHierarchyConfigurationPage() throws Exception {
+        Assert.assertEquals(businessHierarchyPage.getBusinessHierarchyPageURL(),
+                PropertiesReader.getValue("businessHierarchyConfigurationPageURL"));
     }
 
     @And("web user adds service provider detail {string} {string} {string} {string}")

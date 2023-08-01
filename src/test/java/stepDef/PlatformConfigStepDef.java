@@ -1,6 +1,6 @@
 package stepDef;
 
-import config.Config;
+import util.PropertiesReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -47,8 +47,9 @@ public class PlatformConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays Parameter Configuration page")
-    public void webSystemDisplaysParameterConfigPage() {
-        Assert.assertEquals(Config.parameterConfigurationPageURL, parameterConfigPage.getParameterConfigPageURL());
+    public void webSystemDisplaysParameterConfigPage() throws Exception {
+        Assert.assertEquals(parameterConfigPage.getParameterConfigPageURL(),
+                PropertiesReader.getValue("parameterConfigurationPageURL"));
     }
 
     @When("web user click on Add button")
@@ -132,8 +133,9 @@ public class PlatformConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays User Category Configuration page")
-    public void verifyUserCategoryConfigurationPage() {
-        Assert.assertEquals(Config.userCategoryConfigurationPageURL, userCategoryPage.getUserCategoryPageURL());
+    public void verifyUserCategoryConfigurationPage() throws Exception {
+        Assert.assertEquals(userCategoryPage.getUserCategoryPageURL(),
+                PropertiesReader.getValue("userCategoryConfigurationPageURL"));
     }
 
     @When("web user clicks on Add button for User Category")
@@ -289,8 +291,9 @@ public class PlatformConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays Unit Configuration page")
-    public void webSystemDisplaysUnitConfigurationPage() {
-        Assert.assertEquals(Config.unitConfigurationPageURL, unitPage.getUnitPageURL());
+    public void webSystemDisplaysUnitConfigurationPage() throws Exception {
+        Assert.assertEquals(unitPage.getUnitPageURL(),
+                PropertiesReader.getValue("unitConfigurationPageURL"));
     }
 
     @When("web user clicks on Add button for Unit Config")
@@ -379,8 +382,9 @@ public class PlatformConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays Pouch Configuration page")
-    public void verifyPouchConfigurationPage() {
-        Assert.assertEquals(Config.pouchConfigurationPageURL, pouchPage.getPouchPageURL());
+    public void verifyPouchConfigurationPage() throws Exception {
+        Assert.assertEquals(pouchPage.getPouchPageURL(),
+                PropertiesReader.getValue("pouchConfigurationPageURL"));
     }
 
     @When("web user clicks on Add button for Pouch Config")
@@ -484,8 +488,9 @@ public class PlatformConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays Wallet Configuration page")
-    public void verifySystemDisplaysWalletConfigurationPage() {
-        Assert.assertEquals(Config.walletConfigurationPageURL, walletPage.getWalletPageURL());
+    public void verifySystemDisplaysWalletConfigurationPage() throws Exception {
+        Assert.assertEquals(walletPage.getWalletPageURL(),
+                PropertiesReader.getValue("walletConfigurationPageURL"));
     }
 
     @When("web user clicks on Add button for Wallet Config")
@@ -594,8 +599,9 @@ public class PlatformConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays KYC Configuration page")
-    public void VerifyKYCConfigurationPage() {
-        Assert.assertEquals(Config.kycConfigurationPageURL, kycManagementPage.getKycPageURL());
+    public void VerifyKYCConfigurationPage() throws Exception {
+        Assert.assertEquals(kycManagementPage.getKycPageURL(),
+                PropertiesReader.getValue("kycConfigurationPageURL"));
     }
     @Then("verify system displays {string} error message for kyc")
     public void verifySystemDisplaysErrorMessageForKyc(String errorMessage) {
@@ -683,8 +689,9 @@ public class PlatformConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays Service Configuration page")
-    public void webSystemDisplaysServiceConfigurationPage() {
-        Assert.assertEquals(Config.serviceConfigurationPageURL, servicePage.getUnitPageURL());
+    public void webSystemDisplaysServiceConfigurationPage() throws Exception {
+        Assert.assertEquals(servicePage.getUnitPageURL(),
+                PropertiesReader.getValue("serviceConfigurationPageURL"));
     }
 
     @When("web user clicks on Add button for Service Config")
@@ -799,8 +806,9 @@ public class PlatformConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays access channel configuration page")
-    public void webSystemDisplaysAccessChannelConfigurationPage() {
-        Assert.assertEquals(Config.accessChannelConfigurationPageURL, accessChannelPage.getAccessChannelPageURL());
+    public void webSystemDisplaysAccessChannelConfigurationPage() throws Exception {
+        Assert.assertEquals(accessChannelPage.getAccessChannelPageURL(),
+                PropertiesReader.getValue("accessChannelConfigurationPageURL"));
     }
 
     @When("web user clicks on Add button for access channel")
@@ -900,8 +908,9 @@ public class PlatformConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays ucp configuration page")
-    public void webSystemDisplaysUcpConfigurationPage() {
-        Assert.assertEquals(Config.ucpConfigurationPageURL, unitCreditPolicyPage.getUnitCreditPolicyPageURL());
+    public void webSystemDisplaysUcpConfigurationPage() throws Exception {
+        Assert.assertEquals(unitCreditPolicyPage.getUnitCreditPolicyPageURL(),
+                PropertiesReader.getValue("ucpConfigurationPageURL"));
     }
 
     @When("web user clicks on add button for ucp config")
@@ -916,8 +925,9 @@ public class PlatformConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays ucp group configuration page")
-    public void webSystemDisplaysUcpGroupConfigurationPage() {
-        Assert.assertEquals(Config.ucpGroupConfigurationPageURL, ucpGroupPage.getUcpGroupPageURL());
+    public void webSystemDisplaysUcpGroupConfigurationPage() throws Exception {
+        Assert.assertEquals(ucpGroupPage.getUcpGroupPageURL(),
+                PropertiesReader.getValue("ucpGroupConfigurationPageURL"));
     }
 
     @When("web user clicks on add button for ucp group config")
@@ -932,8 +942,9 @@ public class PlatformConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays counter configuration page")
-    public void webSystemDisplaysCounterConfigurationPage() {
-        Assert.assertEquals(Config.counterConfigurationPageURL, counterPage.getCounterPageURL());
+    public void webSystemDisplaysCounterConfigurationPage() throws Exception {
+        Assert.assertEquals(counterPage.getCounterPageURL(),
+                PropertiesReader.getValue("counterConfigurationPageURL"));
     }
 
     @When("web user clicks on add button for counter config")
@@ -948,8 +959,9 @@ public class PlatformConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays rule configuration page")
-    public void webSystemDisplaysRuleConfigurationPage() {
-        Assert.assertEquals(Config.ruleConfigurationPageURL, rulePage.getRulePageURL());
+    public void webSystemDisplaysRuleConfigurationPage() throws Exception {
+        Assert.assertEquals(rulePage.getRulePageURL(),
+                PropertiesReader.getValue("ruleConfigurationPageURL"));
     }
 
     @When("web user clicks on add button for rule config")
@@ -964,8 +976,9 @@ public class PlatformConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays product configuration page")
-    public void webSystemDisplaysProductConfigurationPage() {
-        Assert.assertEquals(Config.productConfigurationPageURL, productPage.getProductPageURL());
+    public void webSystemDisplaysProductConfigurationPage() throws Exception {
+        Assert.assertEquals(productPage.getProductPageURL(),
+                PropertiesReader.getValue("productConfigurationPageURL"));
     }
 
     @When("web user clicks on add button for product config")
@@ -980,8 +993,9 @@ public class PlatformConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays product group configuration page")
-    public void webSystemDisplaysProductGroupConfigurationPage() {
-        Assert.assertEquals(Config.productGroupConfigurationPageURL, productGroupPage.getProductGroupPageURL());
+    public void webSystemDisplaysProductGroupConfigurationPage() throws Exception {
+        Assert.assertEquals(productGroupPage.getProductGroupPageURL(),
+                PropertiesReader.getValue("productGroupConfigurationPageURL"));
     }
 
     @When("web user clicks on add button for product group config")
@@ -996,8 +1010,9 @@ public class PlatformConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays notification template configuration page")
-    public void webSystemDisplaysNotificationTemplateConfigurationPage() {
-        Assert.assertEquals(Config.notificationTemplateConfigurationPageURL, notificationTemplatePage.getNotificationTemplatePageURL());
+    public void webSystemDisplaysNotificationTemplateConfigurationPage() throws Exception {
+        Assert.assertEquals(notificationTemplatePage.getNotificationTemplatePageURL(),
+                PropertiesReader.getValue("notificationTemplateConfigurationPageURL"));
     }
 
     @When("web user clicks on add button for notification template config")
@@ -1257,8 +1272,9 @@ public class PlatformConfigStepDef extends AbstractPage {
         walletTemplatePage = adminDashboardPage.clickOnWalletTemplateSubMenu();
     }
     @Then("web system displays wallet template Configuration page")
-    public void webSystemDisplaysWalletTemplateConfigurationPage() {
-        Assert.assertEquals(Config.walletTemplateConfigurationPageURL, walletTemplatePage.getWalletTemplatePageURL());
+    public void webSystemDisplaysWalletTemplateConfigurationPage() throws Exception {
+        Assert.assertEquals(walletTemplatePage.getWalletTemplatePageURL(),
+                PropertiesReader.getValue("walletTemplateConfigurationPageURL"));
     }
     @When("web user clicks on Add button for wallet template Config")
     public void clicksOnAddButtonForWalletTemplate() {

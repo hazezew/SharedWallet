@@ -16,8 +16,8 @@ Feature: User Login
     When user has entered Shared Wallet system URL
 
   Scenario: login with valid username and password
-    When web user enters "Habtamu@eth" into Username text field
-    And web user enters "Habtamu@748" into password text field
+    When web user enters username into username text field
+    And web user enters password into password text field
     And web user selects "Africa/Nairobi" from timezone dropdown
     And web user clicks on Login button
     Then web system displays "You have successfully logged in!" message
@@ -27,27 +27,27 @@ Feature: User Login
     Then web system logs out and displays login page
 
   Scenario: login with valid username but password
-    When web user enters "Habtamu@eth" into Username text field
-    And web user enters "Habtamu@7489" into password text field
+    When web user enters username into username text field
+    And web user enters incorrect password into password text field
     And web user selects "Africa/Nairobi" from timezone dropdown
     And web user clicks on Login button
     Then web system displays "Incorrect username or password" message
 
   Scenario: login with invalid username but password
-    When web user enters "Habtamu@ethiopia" into Username text field
-    And web user enters "Habtamu@748" into password text field
+    When web user enters username into username text field
+    And web user enters incorrect password into password text field
     And web user selects "Africa/Nairobi" from timezone dropdown
     And web user clicks on Login button
     Then web system displays "Incorrect username or password" message
 
   Scenario: login with empty username but password
-    And web user enters "Habtamu@748" into password text field
+    And web user enters password into password text field
     And web user selects "Africa/Nairobi" from timezone dropdown
     And web user clicks on Login button
     Then web system displays "Please insert valid Username" as mandatory username validation message
 
   Scenario: login with valid username but empty password
-    When web user enters "Habtamu@ethiopia" into Username text field
+    When web user enters username into username text field
     And web user selects "Africa/Nairobi" from timezone dropdown
     And web user clicks on Login button
     Then web system displays "Please insert valid Password" as mandatory password validation message

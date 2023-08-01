@@ -14,8 +14,8 @@
 Feature: Change Status
   Background: user opened web browser and maximizes it
     When user has entered Shared Wallet system URL
-    When web user enters "Habtamu@eth" into Username text field
-    And web user enters "Habtamu@748" into password text field
+    When web user enters username into username text field
+    And web user enters password into password text field
     And web user selects "Africa/Nairobi" from timezone dropdown
     And web user clicks on Login button
     Then web system displays "You have successfully logged in!" message

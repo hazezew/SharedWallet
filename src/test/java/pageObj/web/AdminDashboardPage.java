@@ -1,5 +1,6 @@
 package pageObj.web;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -106,125 +107,12 @@ public class AdminDashboardPage {
     @FindBy(xpath = "//a[@href=\"#/mobifin/usermanagement/searchbybusinesstemplate\"]")
     private WebElement linkSearchBusinessUserByTemplate;
 
-    @FindBy(xpath = "//span[text()='Platform Config']")
-    private WebElement platformConfigLink;
-    @FindBy(xpath = "//li[@id='Parameter']")
-    private WebElement parameterLink;
-    @FindBy(xpath = "//li[@id='User Category']")
-    private WebElement userCategoryLink;
-    @FindBy(xpath = "//li[@id='Unit']")
-    private WebElement unitSubLink;
-    @FindBy(xpath = "//li[@id='Pouch']")
-    private WebElement pouchSubLink;
-    @FindBy(xpath = "//li[@id='Wallet']")
-    private WebElement walletSubLink;
-    @FindBy(xpath = "//span[text()='Kyc Management']")
-    private WebElement kycManagementLink;
-    @FindBy(xpath = "//li[@id='KYC Profile']")
-    private WebElement kycProfileLink;
-    @FindBy(xpath = "//li[@id='Service']")
-    private WebElement serviceSubLink;
-    @FindBy(xpath = "//span[text()='Business Config']")
-    private WebElement businessConfigLink;
-    @FindBy(xpath = "//li[@id='Service Vendor']")
-    private WebElement serviceVendorSubLink;
-    @FindBy(xpath = "//span[text()='Vendor Management']")
-    private WebElement vendorManagementSubLink;
-    @FindBy(xpath = "//li[@id='Access Channel']")
-    private WebElement accessChannelSubLink;
-    @FindBy(xpath = "//li[@id='Counter']")
-    private WebElement counterSubLink;
-    @FindBy(xpath = "//li[@id='Rule']")
-    private WebElement ruleSubLink;
-    @FindBy(xpath = "//li[@id='Ucp Group']")
-    private WebElement ucpGroupSubLink;
-    @FindBy(xpath = "//li[@id='Product']")
-    private WebElement productSubLink;
-    @FindBy(xpath = "//li[@id='Product Group']")
-    private WebElement productGroupSubLink;
-    @FindBy(xpath = "//li[@id='Ucp']")
-    private WebElement ucpSubLink;
-    @FindBy(xpath = "//li[@id='Notification Template']")
-    private WebElement notificationTemplateSubLink;
-    @FindBy(xpath = "//li[@id='Wallet Template']")
-    private WebElement walletTemplateSubLink;
-    @FindBy(xpath = "//span[text()='Service Profile Management']")
-    private WebElement serviceProfileManagementSubLink;
-    @FindBy(xpath = "//span[text()='PAP Management']")
-    private WebElement papManagementSubLink;
-    @FindBy(xpath = "//span[text()='Business Hierarchy Management']")
-    private WebElement businessHierarchyManagementSubLink;
-    @FindBy(xpath = "//li[@id='Service Provider']")
-    private WebElement serviceProviderSubLink;
-    @FindBy(xpath = "//li[@id='Assign Provider']")
-    private WebElement assignProviderSubLink;
-    @FindBy(xpath = "//li[@id='Notification']")
-    private WebElement notificationSubLink;
-    @FindBy(xpath = "//li[@id='Product Management']")
-    private WebElement productManagementSubLink;
-    @FindBy(xpath = "//li[@id='Response Node']")
-    private WebElement responseNodeSubLink;
-    @FindBy(xpath = "//li[@id='Service Profile']")
-    private WebElement serviceProfileSubLink;
-    @FindBy(xpath = "//li[@id='Authentication']")
-    private WebElement authenticationSubLink;
-    @FindBy(xpath = "//li[@id='Device Authentication']")
-    private WebElement deviceAuthenticationSubLink;
-    @FindBy(xpath = "//li[@id='Api Group']")
-    private WebElement apiGroupSubLink;
-    @FindBy(xpath = "//li[@id='Access Node']")
-    private WebElement accessNodeSubLink;
-    @FindBy(xpath = "//li[@id='Platform Access Profile']")
-    private WebElement platformAccessProfileSubLink;
-    @FindBy(xpath = "//li[@id='Settlement Group']")
-    private WebElement settlementGroupSubLink;
-    @FindBy(xpath = "//li[@id='Platform Access Role']")
-    private WebElement platformAccessRoleSubLink;
-    @FindBy(xpath = "//li[@id='Business Hierarchy']")
-    private WebElement businessHierarchySubLink;
-
-    @FindBy(xpath = "//span[text()='Operator Config']")
-    private WebElement operatorConfigLink;
-    @FindBy(xpath = "//li[@id='Move System Operator']")
-    private WebElement moveSystemOperatorLink;
-    @FindBy(xpath = "//li[@id='System Operator Onboarding']")
-    private WebElement systemOperatorOnboardingLink;
-    @FindBy(xpath = "//li[@id='Role']")
-    private WebElement roleConfigLink;
-    @FindBy(xpath = "//li[@id='System Operator Entity']")
-    private WebElement systemOperatorLink;
-    @FindBy(xpath = "//span[text()='Black List Management']")
-    private WebElement blackListManagementLink;
-    @FindBy(xpath = "//li[@id='Add Blacklist']")
-    private WebElement addBlacklistLink;
-    @FindBy(xpath = "//li[@id='Apply Blacklist']")
-    private WebElement applyBlacklistLink;
-    @FindBy(xpath = "//li[@id='Process']")
-    private WebElement processLink;
-    @FindBy(xpath = "//li[@id='Scheduler']")
-    private WebElement schedulerLink;
-    @FindBy(xpath = "//li[@id='Process Scheduler']")
-    private WebElement processSchedulerLink;
-    @FindBy(xpath = "//li[@id='Process Run Details']")
-    private WebElement processRunDetailLink;
-    @FindBy(xpath = "//li[@id='Menu Config']")
-    private WebElement menuConfigLink;
-    @FindBy(xpath = "//li[@id='Standard Master']")
-    private WebElement standardMasterLink;
-    @FindBy(xpath = "//span[text()='Operation']")
-    private WebElement operationLink;
-    @FindBy(xpath = "//li[@id='Account Management']")
-    private WebElement accountManagementLink;
-    @FindBy(xpath = "//span[text()='Fund Management']")
-    private WebElement fundManagementLink;
-    @FindBy(xpath = "//li[@id='Add Money']")
-    private WebElement addMoneyLink;
-    @FindBy(xpath = "//li[@id='Fund Transfer']")
-    private WebElement fundTransferLink;
-    @FindBy(xpath = "//li[@id='Resend Notification']")
-    private WebElement resendNotificationLink;
-    @FindBy(xpath = "//li[@id='Transaction Reversal']")
-    private WebElement transactionReversalLink;
+    private WebElement getMenuLinkUsingId(String menuId){
+        return driver.findElement(By.xpath("//li[@id='"+menuId+"']"));
+    }
+    private WebElement getMenuLinkUsingSpan(String spanText){
+        return driver.findElement(By.xpath("//span[text()='"+spanText+"']"));
+    }
 
     public AdminDashboardPage(WebDriver driver) {
         this.driver = driver;
@@ -318,7 +206,7 @@ public class AdminDashboardPage {
     }
 
     public void hoverOnPlatformConfigMenu() {
-        action.moveToElement(platformConfigLink).build().perform();
+        action.moveToElement(getMenuLinkUsingSpan("Platform Config")).build().perform();
     }
 
     public String getURL() {
@@ -327,299 +215,299 @@ public class AdminDashboardPage {
     }
 
     public ParameterPage clickOnParameterSubMenu() {
-        action.moveToElement(parameterLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(parameterLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Parameter")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Parameter"))).click();
         return new ParameterPage(driver);
     }
 
     public UserCategoryPage clickOnUserCategorySubMenu() {
-        action.moveToElement(userCategoryLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(userCategoryLink)).click();
+        action.moveToElement(getMenuLinkUsingId("User Category")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("User Category"))).click();
         return new UserCategoryPage(driver);
     }
 
     public UnitPage clickOnUnitSubMenu() {
-        action.moveToElement(unitSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(unitSubLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Unit")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Unit"))).click();
         return new UnitPage(driver);
     }
 
     public PouchPage clickOnPouchSubMenu() {
-        action.moveToElement(pouchSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(pouchSubLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Pouch")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Pouch"))).click();
         return new PouchPage(driver);
     }
 
     public WalletPage clickOnWalletSubMenu() {
-        action.moveToElement(walletSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(walletSubLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Wallet")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Wallet"))).click();
         return new WalletPage(driver);
     }
 
     public KycManagementPage clickOnKycSubMenu() {
-        action.moveToElement(kycManagementLink).build().perform();
-        action.moveToElement(kycProfileLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(kycProfileLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("Kyc Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingId("KYC Profile")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("KYC Profile"))).click();
         return new KycManagementPage(driver);
     }
 
     public ServicePage clickOnServiceSubMenu() {
-        action.moveToElement(serviceSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(serviceSubLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Service")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Service"))).click();
         return new ServicePage(driver);
     }
 
     public void hoverOnBusinessConfigMenu() {
-        action.moveToElement(businessConfigLink).build().perform();
+        action.moveToElement(getMenuLinkUsingSpan("Business Config")).build().perform();
     }
 
     public ServiceVendorPage clickOnServiceVendorSubMenu() {
-        action.moveToElement(vendorManagementSubLink).build().perform();
-        action.moveToElement(serviceVendorSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(serviceVendorSubLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("Vendor Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingId("Service Vendor")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Service Vendor"))).click();
         return new ServiceVendorPage(driver);
     }
 
     public AccessChannelPage clickOnAccessChannelSubMenu() {
-        action.moveToElement(accessChannelSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(accessChannelSubLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Access Channel")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Access Channel"))).click();
         return new AccessChannelPage(driver);
     }
 
     public UnitCreditPolicyPage clickOnUcpSubMenu() {
-        action.moveToElement(ucpSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(ucpSubLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Ucp")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Ucp"))).click();
         return new UnitCreditPolicyPage(driver);
     }
 
     public UcpGroupPage clickOnUcpGroupSubMenu() {
-        action.moveToElement(ucpGroupSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(ucpGroupSubLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Ucp Group")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Ucp Group"))).click();
         return new UcpGroupPage(driver);
     }
 
     public RulePage clickRuleSubMenu() {
-        action.moveToElement(ruleSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(ruleSubLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Rule")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Rule"))).click();
         return new RulePage(driver);
     }
 
     public CounterPage clickCounterSubMenu() {
-        action.moveToElement(counterSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(counterSubLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Counter")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Counter"))).click();
         return new CounterPage(driver);
     }
 
     public ProductPage clickProductSubMenu() {
-        action.moveToElement(productSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(productSubLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Product")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Product"))).click();
         return new ProductPage(driver);
     }
 
     public ProductGroupPage clickProductGroupSubMenu() {
-        action.moveToElement(productGroupSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(productGroupSubLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Product Group")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Product Group"))).click();
         return new ProductGroupPage(driver);
     }
 
     public NotificationTemplatePage clickNotificationTemplateSubMenu() {
-        action.moveToElement(notificationTemplateSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(notificationTemplateSubLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Notification Template")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Notification Template"))).click();
         return new NotificationTemplatePage(driver);
     }
     public WalletTemplatePage clickOnWalletTemplateSubMenu() {
-        action.moveToElement(walletTemplateSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(walletTemplateSubLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Wallet Template")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Wallet Template"))).click();
         return new WalletTemplatePage(driver);
     }
     public ServiceProviderPage clickOnServiceProviderSubMenu() {
-        action.moveToElement(vendorManagementSubLink).build().perform();
-        action.moveToElement(serviceProviderSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(serviceProviderSubLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("Vendor Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingId("Service Provider")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Service Provider"))).click();
         return new ServiceProviderPage(driver);
     }
 
     public AssignProviderPage clickOnAssignProviderSubMenu() {
-        action.moveToElement(vendorManagementSubLink).build().perform();
-        action.moveToElement(assignProviderSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(assignProviderSubLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("Vendor Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingSpan("Assign Provider")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Assign Provider"))).click();
         return new AssignProviderPage(driver);
     }
 
     public NotificationPage clickOnNotificationSubMenu() {
-        action.moveToElement(notificationSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(notificationSubLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Notification")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Notification"))).click();
         return new NotificationPage(driver);
     }
 
 
     public ProductManagementPage clickOnProductManagementSubMenu() {
-        action.moveToElement(productManagementSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(productManagementSubLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Product Management")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Product Management"))).click();
         return new ProductManagementPage(driver);
     }
 
     public ResponseNodePage clickOnResponseNodeSubMenu() {
-        action.moveToElement(serviceProfileManagementSubLink).build().perform();
-        action.moveToElement(responseNodeSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(responseNodeSubLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("Service Profile Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingId("Response Node")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Response Node"))).click();
         return new ResponseNodePage(driver);
     }
 
     public ServiceProfilePage clickOnServiceProfileSubMenu() {
-        action.moveToElement(serviceProfileManagementSubLink).build().perform();
-        action.moveToElement(serviceProfileSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(serviceProfileSubLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("Service Profile Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingId("Service Profile")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Service Profile"))).click();
         return new ServiceProfilePage(driver);
     }
 
     public AuthenticationPage clickOnAuthenticationSubMenu() {
-        action.moveToElement(papManagementSubLink).build().perform();
-        action.moveToElement(authenticationSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(authenticationSubLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("PAP Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingId("Authentication")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Authentication"))).click();
         return new AuthenticationPage(driver);
     }
 
     public DeviceAuthenticationPage clickOnDeviceAuthenticationSubMenu() {
-        action.moveToElement(papManagementSubLink).build().perform();
-        action.moveToElement(deviceAuthenticationSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(deviceAuthenticationSubLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("PAP Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingId("Device Authentication")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Device Authentication"))).click();
         return new DeviceAuthenticationPage(driver);
     }
 
     public ApiGroupPage clickOnApiGroupSubMenu() {
-        action.moveToElement(papManagementSubLink).build().perform();
-        action.moveToElement(apiGroupSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(apiGroupSubLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("PAP Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingId("Api Group")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Api Group"))).click();
         return new ApiGroupPage(driver);
     }
     public AccessNodePage clickOnAccessNodeSubMenu() {
-        action.moveToElement(papManagementSubLink).build().perform();
-        action.moveToElement(accessNodeSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(accessNodeSubLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("PAP Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingId("Access Node")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Access Node"))).click();
         return new AccessNodePage(driver);
     }
     public PlatformAccessProfilePage clickOnPlatformAccessProfileSubMenu() {
-        action.moveToElement(papManagementSubLink).build().perform();
-        action.moveToElement(platformAccessProfileSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(platformAccessProfileSubLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("PAP Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingId("Platform Access Profile")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Platform Access Profile"))).click();
         return new PlatformAccessProfilePage(driver);
     }
     public SettlementGroupPage clickOnSettlementGroupSubMenu() {
-        action.moveToElement(businessHierarchyManagementSubLink).build().perform();
-        action.moveToElement(settlementGroupSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(settlementGroupSubLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("Business Hierarchy Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingId("Settlement Group")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Settlement Group"))).click();
         return new SettlementGroupPage(driver);
     }
 
     public PlatformAccessRolePage clickOnPlatformAccessRoleSubMenu() {
-        action.moveToElement(businessHierarchyManagementSubLink).build().perform();
-        action.moveToElement(platformAccessRoleSubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(platformAccessRoleSubLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("Business Hierarchy Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingId("Platform Access Role")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Platform Access Role"))).click();
         return new PlatformAccessRolePage(driver);
     }
     public BusinessHierarchyPage clickOnBusinessHierarchySubMenu() {
-        action.moveToElement(businessHierarchyManagementSubLink).build().perform();
-        action.moveToElement(businessHierarchySubLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(businessHierarchySubLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("Business Hierarchy Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingId("Business Hierarchy")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Business Hierarchy"))).click();
         return new BusinessHierarchyPage(driver);
     }
 
     public void hoverOnOperatorConfigMenu() {
-        action.moveToElement(operatorConfigLink).build().perform();
+        action.moveToElement(getMenuLinkUsingSpan("Operator Config")).build().perform();
     }
 
     public MoveSystemOperatorPage clickOnMoveSystemOperatorSubMenu() {
-        action.moveToElement(moveSystemOperatorLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(moveSystemOperatorLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Move System Operator")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Move System Operator"))).click();
         return new MoveSystemOperatorPage(driver);
     }
 
     public RoleConfigPage clickOnRoleConfigSubMenu() {
-        action.moveToElement(roleConfigLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(roleConfigLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Role")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Role"))).click();
         return new RoleConfigPage(driver);
     }
     public SystemOperatorEntityPage clickOnSystemOperatorSubMenu() {
-        action.moveToElement(systemOperatorLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(systemOperatorLink)).click();
+        action.moveToElement(getMenuLinkUsingId("System Operator Entity")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("System Operator Entity"))).click();
         return new SystemOperatorEntityPage(driver);
     }
     public SystemOperatorOnboardingPage clickOnSystemOperatorOnboardingSubMenu() {
-        action.moveToElement(systemOperatorOnboardingLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(systemOperatorOnboardingLink)).click();
+        action.moveToElement(getMenuLinkUsingId("System Operator Onboarding")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("System Operator Onboarding"))).click();
         return new SystemOperatorOnboardingPage(driver);
     }
     public AddBlackListPage clickAddBlacklistSubMenu() {
-        action.moveToElement(blackListManagementLink).build().perform();
-        action.moveToElement(addBlacklistLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(addBlacklistLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("Black List Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingId("Add Blacklist")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Add Blacklist"))).click();
         return new AddBlackListPage(driver);
     }
     public ApplyBlackListPage clickApplyBlackListSubMenu() {
-        action.moveToElement(blackListManagementLink).build().perform();
-        action.moveToElement(applyBlacklistLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(applyBlacklistLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("Black List Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingId("Apply Blacklist")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Apply Blacklist"))).click();
         return new ApplyBlackListPage(driver);
     }
     public MenuConfigPage clickMenuConfigSubMenu() {
-        action.moveToElement(menuConfigLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(menuConfigLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Menu Config")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Menu Config"))).click();
         return new MenuConfigPage(driver);
     }
     public ProcessPage clickProcessSubMenu() {
-        action.moveToElement(processLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(processLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Process")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Process"))).click();
         return new ProcessPage(driver);
     }
     public ProcessSchedulerPage clickProcessSchedulerSubMenu() {
-        action.moveToElement(processSchedulerLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(processSchedulerLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Process Scheduler")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Process Scheduler"))).click();
         return new ProcessSchedulerPage(driver);
     }
     public ProcessRunDetailPage clickProcessRunDetailSubMenu() {
-        action.moveToElement(processRunDetailLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(processRunDetailLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Process Run Details")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Process Run Details"))).click();
         return new ProcessRunDetailPage(driver);
     }
     public SchedulerPage clickSchedulerSubMenu() {
-        action.moveToElement(schedulerLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(schedulerLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Scheduler")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Scheduler"))).click();
         return new SchedulerPage(driver);
     }
     public StandardMasterPage clickStandardMasterSubMenu() {
-        action.moveToElement(standardMasterLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(standardMasterLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Standard Master")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Standard Master"))).click();
         return new StandardMasterPage(driver);
     }
     public void hoverOnOperationMenu() {
-        action.moveToElement(operationLink).build().perform();
+        action.moveToElement(getMenuLinkUsingSpan("Operation")).build().perform();
     }
     public AccountManagementPage clickOnAccountManagementSubMenu() {
-        action.moveToElement(fundManagementLink).build().perform();
-        action.moveToElement(accountManagementLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(accountManagementLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("Fund Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingId("Account Management")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Account Management"))).click();
         return new AccountManagementPage(driver);
     }
     public FundTransferPage clickOnFundTransferSubMenu() {
-        action.moveToElement(fundManagementLink).build().perform();
-        action.moveToElement(fundTransferLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(fundTransferLink)).click();
+        action.moveToElement(getMenuLinkUsingSpan("Fund Management")).build().perform();
+        action.moveToElement(getMenuLinkUsingId("Fund Transfer")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Fund Transfer"))).click();
         return new FundTransferPage(driver);
     }
     public AddMoneyPage clickOnAddMoneySubMenu() {
-        action.moveToElement(addMoneyLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(addMoneyLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Add Money")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Add Money"))).click();
         return new AddMoneyPage(driver);
     }
     public ResendNotificationPage clickOnResendNotificationSubMenu() {
-        action.moveToElement(resendNotificationLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(resendNotificationLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Resend Notification")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Resend Notification"))).click();
         return new ResendNotificationPage(driver);
     }
     public TransactionReversalPage clickOnTransactionReversalSubMenu() {
-        action.moveToElement(transactionReversalLink).build().perform();
-        wait.until(ExpectedConditions.visibilityOf(transactionReversalLink)).click();
+        action.moveToElement(getMenuLinkUsingId("Transaction Reversal")).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(getMenuLinkUsingId("Transaction Reversal"))).click();
         return new TransactionReversalPage(driver);
     }
 }

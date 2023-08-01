@@ -15,8 +15,8 @@ Feature: Process Configuration
 
   Background: user opened web browser and maximizes it
     When user has entered Shared Wallet system URL
-    When web user enters "Walelign@123" into Username text field
-    And web user enters "Walelign@123" into password text field
+    When web user enters username into username text field
+    And web user enters password into password text field
     And web user selects "Africa/Nairobi" from timezone dropdown
     And web user clicks on Login button
     Then web system displays "You have successfully logged in!" message
@@ -26,3 +26,13 @@ Feature: Process Configuration
   Scenario: Technical Config
     And web user clicks on process run detail sub menu
     Then web system displays process run detail page
+
+
+  Scenario: verify search for process run detail
+    And web user clicks on process run detail sub menu
+    Then web system displays process run detail page
+    When web user click on filter icon for process run detail
+    And web user select "Contains" for the search process run detail filter criteria
+    And web user enters "Process" into process run detail search name field
+    And web user clicks search process run detail button
+    Then web system displays a list of process run details with "Process" on the name

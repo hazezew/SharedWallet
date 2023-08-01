@@ -1,7 +1,7 @@
 package stepDef;
 
 
-import config.Config;
+import util.PropertiesReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -31,8 +31,9 @@ public class OperatorConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays move system operator config page")
-    public void webSystemDisplaysMoveSystemOperatorPage() {
-        Assert.assertEquals(Config.moveSystemOperatorConfigurationPageURL, moveSystemOperatorPage.getMoveSystemOperatorPageURL());
+    public void webSystemDisplaysMoveSystemOperatorPage() throws Exception {
+        Assert.assertEquals(moveSystemOperatorPage.getMoveSystemOperatorPageURL(),
+                PropertiesReader.getValue("moveSystemOperatorConfigurationPageURL"));
     }
 
     @And("web user clicks on role config sub menu")
@@ -41,8 +42,8 @@ public class OperatorConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays role config page")
-    public void webSystemDisplaysRoleConfigPage() {
-        Assert.assertEquals(Config.roleConfigurationPageURL, roleConfigPage.getURL());
+    public void webSystemDisplaysRoleConfigPage() throws Exception {
+        Assert.assertEquals(roleConfigPage.getURL(), PropertiesReader.getValue("roleConfigurationPageURL"));
     }
 
     @And("web user clicks on system operator config sub menu")
@@ -51,8 +52,9 @@ public class OperatorConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays system operator config page")
-    public void webSystemDisplaysSystemOperatorConfigPage() {
-        Assert.assertEquals(Config.systemOperatorConfigurationPageURL, systemOperatorEntityPage.getURL());
+    public void webSystemDisplaysSystemOperatorConfigPage() throws Exception {
+        Assert.assertEquals(systemOperatorEntityPage.getURL(),
+                PropertiesReader.getValue("systemOperatorConfigurationPageURL"));
     }
 
     @And("web user clicks on system operator onboarding sub menu")
@@ -61,8 +63,9 @@ public class OperatorConfigStepDef extends AbstractPage {
     }
 
     @Then("web system displays system operator onboarding page")
-    public void webSystemDisplaysSystemOperatorOnboardingPage() {
-        Assert.assertEquals(Config.systemOperatorOnboardingPageURL, systemOperatorOnboardingPage.getURL());
+    public void webSystemDisplaysSystemOperatorOnboardingPage() throws Exception {
+        Assert.assertEquals(systemOperatorOnboardingPage.getURL(),
+                PropertiesReader.getValue("systemOperatorOnboardingPageURL"));
     }
 
     @When("web user add role config {string} {string} {string}")
@@ -79,6 +82,7 @@ public class OperatorConfigStepDef extends AbstractPage {
     public void clickSaveButtonForRole() {
         roleConfigPage.clickSaveButton();
     }
+
     @Then("web user should see the {string} role is created")
     public void verifyTheRoleIsCreated(String roleName) {
         roleConfigPage.verifyRoleCreated(roleName);
@@ -93,10 +97,12 @@ public class OperatorConfigStepDef extends AbstractPage {
     public void deleteTheCreatedRole() {
         roleConfigPage.deleteRole();
     }
+
     @Then("web system displays validation message for role")
     public void verifyValidationMessageForRole() {
         roleConfigPage.verifyValidationMessage();
     }
+
     @Then("verify system displays {string} error message for role")
     public void verifyErrorMessageForRole(String errorMessage) {
         roleConfigPage.verifyErrorMessage(errorMessage);
@@ -134,13 +140,14 @@ public class OperatorConfigStepDef extends AbstractPage {
 
     @And("web user add SOE {string} {string} {string} {string} {string} {string} {string} {string} {string}")
     public void addSystemOperatorEntity(String name, String description, String userCategory, String businessZone, String pap, String kyc, String kycLevel, String role, String timeZone) {
-        systemOperatorEntityPage.addSystemOperatorEntity(name,description,userCategory, businessZone, pap, kyc,kycLevel, role, timeZone);
+        systemOperatorEntityPage.addSystemOperatorEntity(name, description, userCategory, businessZone, pap, kyc, kycLevel, role, timeZone);
     }
 
     @And("web user click save button for SOE")
     public void clickSaveButtonForSOE() {
         systemOperatorEntityPage.clickSaveButton();
     }
+
     @Then("web user should see the {string} SOE is created")
     public void verifyTheSOEIsCreated(String soeName) {
         systemOperatorEntityPage.verifySOECreated(soeName);
@@ -150,14 +157,17 @@ public class OperatorConfigStepDef extends AbstractPage {
     public void clicksOnViewIconForSOE(String soeName) {
         systemOperatorEntityPage.clickViewIcon(soeName);
     }
+
     @And("web user delete the created SOE")
     public void deleteTheCreatedSOE() {
         systemOperatorEntityPage.deleteSOE();
     }
+
     @Then("web system displays validation message for SOE")
     public void verifyValidationMessageForSOE() {
         systemOperatorEntityPage.verifyValidationMessage();
     }
+
     @Then("verify system displays {string} error message for SOE")
     public void verifyErrorMessageForSOE(String errorMessage) {
         systemOperatorEntityPage.verifyErrorMessage(errorMessage);
@@ -195,13 +205,14 @@ public class OperatorConfigStepDef extends AbstractPage {
 
     @And("web user add system operator {string} {string} {string} {string} {string} {string}")
     public void webUserAddSystemOperator(String SOE, String kycLevel, String fullName, String dob, String mobile, String email) {
-        systemOperatorOnboardingPage.addSystemOperator(SOE,kycLevel, fullName, dob, mobile, email);
+        systemOperatorOnboardingPage.addSystemOperator(SOE, kycLevel, fullName, dob, mobile, email);
     }
 
     @And("web user click save button for system operator")
     public void clickSaveButtonForSystemOperator() {
         systemOperatorOnboardingPage.clickSaveButton();
     }
+
     @Then("web user should see the {string} system operator is created")
     public void verifyTheSystemOperatorIsCreated(String roleName) {
         systemOperatorOnboardingPage.verifySystemOperatorCreated(roleName);
@@ -216,14 +227,17 @@ public class OperatorConfigStepDef extends AbstractPage {
     public void deleteTheCreatedSystemOperator() {
         systemOperatorOnboardingPage.deleteSystemOperator();
     }
+
     @And("web user select {string} system operator to move")
     public void selectSystemOperatorEntity(String systemOperatorEntity) {
         moveSystemOperatorPage.selectSystemOperatorEntity(systemOperatorEntity);
     }
+
     @And("web user select {string} new system operator entity")
     public void selectNewSystemOperatorEntity(String systemOperatorEntity) {
         moveSystemOperatorPage.selectNewSystemOperatorEntity(systemOperatorEntity);
     }
+
     @And("web user select {string} to kyc level")
     public void selectKycLevel(String kycLevel) {
         moveSystemOperatorPage.selectKycLevel(kycLevel);
@@ -233,6 +247,7 @@ public class OperatorConfigStepDef extends AbstractPage {
     public void clickMoveButton() {
         moveSystemOperatorPage.clickMoveButton();
     }
+
     @Then("web system displays validation message for move system operator")
     public void verifyValidationMessageForMoveSystemOperator() {
         moveSystemOperatorPage.verifyValidationMessage();

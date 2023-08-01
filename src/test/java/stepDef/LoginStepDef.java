@@ -1,6 +1,6 @@
 package stepDef;
 
-import config.Config;
+import util.PropertiesReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -17,21 +17,28 @@ public class LoginStepDef extends AbstractPage {
         this.driver=super.driver;
     }
     @When("user has entered Shared Wallet system URL")
-    public void user_has_entered_Shared_Wallet_system_URL() {
-        driver.navigate().to(Config.webURL);
+    public void user_has_entered_Shared_Wallet_system_URL() throws Exception {
+        driver.navigate().to(PropertiesReader.getValue("webURL"));
         loginPage=new LoginPage(driver);
     }
 
-    @When("web user enters {string} into Username text field")
-    public void web_user_enters_into_Username_text_field(String username) {
-        loginPage.setTxtUsername(username);
+    @When("web user enters username into username text field")
+    public void web_user_enters_into_Username_text_field() throws Exception {
+        loginPage.setTxtUsername();
     }
 
-    @When("web user enters {string} into password text field")
-    public void web_user_enters_into_password_text_field(String password) {
-        loginPage.setTxtPassword(password);
+    @When("web user enters password into password text field")
+    public void web_user_enters_into_password_text_field() throws Exception {
+        loginPage.setTxtPassword();
     }
-
+    @And("web user enters incorrect username into username text field")
+    public void enterIncorrectPasswordInToUsernameField() throws Exception {
+        loginPage.setIncorrectUsername();
+    }
+    @And("web user enters incorrect password into password text field")
+    public void enterIncorrectPasswordInToPasswordField() throws Exception {
+        loginPage.setIncorrectPassword();
+    }
     @When("web user selects {string} from timezone dropdown")
     public void web_user_selects_from_timezone_dropdown(String timezone) {
         loginPage.selectTimeZone(timezone);
@@ -48,8 +55,8 @@ public class LoginStepDef extends AbstractPage {
     }
 
     @And("web system displays Admin dashboard")
-    public void web_system_displays_Admin_dashboard() {
-        Assert.assertEquals(adminDashboardPage.getURL(),Config.adminDashboardPageURL);
+    public void web_system_displays_Admin_dashboard() throws Exception {
+        Assert.assertEquals(adminDashboardPage.getURL(),PropertiesReader.getValue("adminDashboardPageURL"));
     }
     @And("web user clicks on settings link")
     public void webUserClicksOnSettingsLink() {
@@ -62,8 +69,8 @@ public class LoginStepDef extends AbstractPage {
     }
 
     @Then("web system logs out and displays login page")
-    public void web_system_logs_out_and_displays_login_page() {
-        Assert.assertEquals(loginPage.getURL(),Config.webURL);
+    public void web_system_logs_out_and_displays_login_page() throws Exception {
+        Assert.assertEquals(loginPage.getURL(),PropertiesReader.getValue("webURL"));
     }
 
     @Then("web system displays {string} as mandatory username validation message")
@@ -75,5 +82,4 @@ public class LoginStepDef extends AbstractPage {
     public void webSystemDisplaysAsMandatoryPasswordValidationMessage(String passwordValidationMsg) {
         Assert.assertEquals(loginPage.getEmptyPasswordMsg(),passwordValidationMsg);
     }
-
 }

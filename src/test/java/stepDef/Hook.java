@@ -1,6 +1,6 @@
 package stepDef;
 
-import config.Config;
+import util.PropertiesReader;
 import config.CucumberExtentReporter;
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
@@ -26,13 +26,13 @@ public class Hook {
     private static boolean isReporterRunning;
 
     @Before(order=1)
-    public void initializeDriver(){
+    public void initializeDriver() throws Exception {
 //        The following code resolved antivirus challenge we have
         System.setProperty("webdriver.http.factory", "jdk-http-client");
         os=(System.getProperty("os.name")).toUpperCase();
         if (driver == null) {
             if (os.contains("WIN")) {
-                if (Config.browser.equalsIgnoreCase("chrome")) {
+                if (PropertiesReader.getValue("browser").equalsIgnoreCase("chrome")) {
                     System.setProperty("webdriver.chrome.driver", ".\\src\\test\\webDrivers\\WIN\\chromedriver.exe");
                     driver = new ChromeDriver();
 
@@ -42,7 +42,7 @@ public class Hook {
 //                    options.addArguments("--no-sandbox");
 //                    driver = new ChromeDriver(options);
 
-                } else if (Config.browser.equalsIgnoreCase("firefox")) {
+                } else if (PropertiesReader.getValue("browser").equalsIgnoreCase("firefox")) {
                     System.setProperty("webdriver.gecko.driver", ".\\src\\test\\webDrivers\\WIN\\geckodriver.exe");
                     driver = new FirefoxDriver();
 
@@ -53,14 +53,14 @@ public class Hook {
 //                    driver = new FirefoxDriver(firefoxOptions);
                 }
             } else {
-                if (Config.browser.equalsIgnoreCase("firefox")) {
+                if (PropertiesReader.getValue("browser").equalsIgnoreCase("firefox")) {
                     FirefoxBinary firefoxBinary = new FirefoxBinary();
                     firefoxBinary.addCommandLineOptions("--headless");
                     System.setProperty("webdriver.gecko.driver", "./src/test/webDrivers/Linux/geckodriver");
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
                     firefoxOptions.setBinary(firefoxBinary);
                     driver = new FirefoxDriver(firefoxOptions);
-                } else if (Config.browser.equalsIgnoreCase("chrome")) {
+                } else if (PropertiesReader.getValue("browser").equalsIgnoreCase("chrome")) {
                     System.setProperty("webdriver.chrome.driver", "./src/test/webDrivers/Linux/chromedriver");
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--headless", "--window-size=1920,1200","--ignore-certificate-errors");

@@ -1,6 +1,6 @@
 package stepDef;
 
-import config.Config;
+import util.PropertiesReader;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -25,40 +25,41 @@ public class OperationStepDef extends AbstractPage {
         accountManagementPage = adminDashboardPage.clickOnAccountManagementSubMenu();
     }
     @Then("web system displays account management page")
-    public void webSystemDisplaysAccountMgtPage() {
-        Assert.assertEquals(Config.accountManagementPageURL, accountManagementPage.getURL());
+    public void webSystemDisplaysAccountMgtPage() throws Exception {
+        Assert.assertEquals(accountManagementPage.getURL(), PropertiesReader.getValue("accountManagementPageURL"));
     }
     @And("web user clicks on add money sub menu")
     public void webUserClicksOnAddMoneySubMenu() {
         addMoneyPage = adminDashboardPage.clickOnAddMoneySubMenu();
     }
     @Then("web system displays add money page")
-    public void webSystemDisplaysAddMoneyPage() {
-        Assert.assertEquals(Config.addMoneyPageURL, addMoneyPage.getURL());
+    public void webSystemDisplaysAddMoneyPage() throws Exception {
+        Assert.assertEquals(addMoneyPage.getURL(), PropertiesReader.getValue("addMoneyPageURL"));
     }
     @And("web user clicks on fund transfer sub menu")
     public void webUserClicksOnFundTransferSubMenu() {
         fundTransferPage = adminDashboardPage.clickOnFundTransferSubMenu();
     }
     @Then("web system displays fund transfer page")
-    public void webSystemDisplaysFundTransferPage() {
-        Assert.assertEquals(Config.fundTransferPageURL, fundTransferPage.getURL());
+    public void webSystemDisplaysFundTransferPage() throws Exception {
+        Assert.assertEquals(fundTransferPage.getURL(), PropertiesReader.getValue("fundTransferPageURL"));
     }
     @And("web user clicks on resend notification sub menu")
     public void webUserClicksOnResendNotificationSubMenu() {
         resendNotificationPage = adminDashboardPage.clickOnResendNotificationSubMenu();
     }
     @Then("web system displays resend notification page")
-    public void webSystemDisplaysResendNotificationPage() {
-        Assert.assertEquals(Config.resendNotificationPageURL, resendNotificationPage.getURL());
+    public void webSystemDisplaysResendNotificationPage() throws Exception {
+        Assert.assertEquals(resendNotificationPage.getURL(),
+                PropertiesReader.getValue("resendNotificationPageURL"));
     }
     @And("web user clicks on transaction reversal sub menu")
     public void webUserClicksOnTransactionReversalSubMenu() {
         transactionReversalPage = adminDashboardPage.clickOnTransactionReversalSubMenu();
     }
     @Then("web system displays transaction reversal page")
-    public void webSystemDisplaysTransactionPage() {
-        Assert.assertEquals(Config.transactionReversalPageURL, transactionReversalPage.getURL());
+    public void webSystemDisplaysTransactionPage() throws Exception {
+        Assert.assertEquals(transactionReversalPage.getURL(), PropertiesReader.getValue("transactionReversalPageURL"));
     }
 
     @When("web user input add money detail {string} {string} {string} {string} {string} {string} {string} {string} {string} {string}")
